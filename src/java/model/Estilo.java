@@ -10,20 +10,13 @@ package model;
  * @author alunocmc
  */
 public class Estilo {
+
     private int id;
     private String nome;
     private String imagem;
     private String descricao;
+    private String status;
     private double valor;
-    private Funcionario funcionario;
-
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
 
     public int getId() {
         return id;
@@ -64,6 +57,13 @@ public class Estilo {
     public void setValor(double valor) {
         this.valor = valor;
     }
-    
-    
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 }

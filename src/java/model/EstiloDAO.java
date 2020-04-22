@@ -9,63 +9,99 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import util.ConectaBanco;
 
 /**
  *
- * @author joaov
+ * @author alunocmc
  */
 public class EstiloDAO {
-        private static final String BUSCA_TUDO = "Select * from estilo";
-        private static final String BUSCA_ESPECIFICA = "Select * from estilo WHERE id=?";
-        
-        
-        
-        public List<Estilo> trazEstilos() throws SQLException
-        {
-               Connection con = ConectaBanco.getConexao();
-               PreparedStatement comando = con.prepareStatement(BUSCA_TUDO);
-               ResultSet resultado = comando.executeQuery();
 
-               List<Estilo> estilos = new ArrayList(); 
-               while(resultado.next())
-               {
-                  Estilo e = new Estilo();
-                  e.setId(resultado.getInt("id"));
-                  e.setDescricao(resultado.getString("descricao"));
-                  e.setNome(resultado.getString("nome"));
-                  e.setValor(resultado.getDouble("preco"));
-                  Funcionario f = new Funcionario();
-                  f.setId(resultado.getInt("funcionario"));
-                  e.setFuncionario(f);
-                  estilos.add(e);
-               }
-               con.close();
-       return estilos;    
+    private static final String CARREGAR_TODOS = "SELECT id, nome, descricao, preco,status FROM public.estilo";
+    private static final String CARREGAR_POR_ID = "SELECT id, nome, descricao, preco,status FROM public.estilo where id=?";
+    private static final String EXCLUIR_ESTILO = "UPDATE public.estilo SET status=\'Inativo\' where id=? AND status=\'Ativo\'";
+    private static final String CADASTRA_NOVO_ESTILO = "INSERT INTO public.estilo(nome, descricao, preco, imagem, funcionario, status)VALUES ( ?, ?, ?, 'imagemMockada.png', ?, 'Ativo');";
+    private static final String ALTERAR_NOVO_ESTILO = "UPDATE public.estilo SET nome=?, descricao=?, preco=?, imagem='ImagemMockada.png', funcionario=? where id=?";
+
+    public List<Estilo> CarregarEstilos() throws ClassNotFoundException, SQLException {
+        Connection con = ConectaBanco.getConexao();
+        PreparedStatement comando = con.prepareStatement(CARREGAR_TODOS);
+        ResultSet resultado = comando.executeQuery();
+
+        List<Estilo> estilos = new ArrayList();
+
+        while (resultado.next()) {
+            Estilo est = new Estilo();
+            est.setId(resultado.getInt("id"));
+            est.setNome(resultado.getString("nome"));
+            est.setDescricao(resultado.getString("descricao"));
+            est.setValor(resultado.getDouble("preco"));
+            est.setStatus(resultado.getString("status"));
+            estilos.add(est);
         }
-    
-    public Estilo buscaEstilos(Estilo estilo) throws SQLException
-    {
-         Connection con = ConectaBanco.getConexao();
-         PreparedStatement comando = con.prepareStatement(BUSCA_ESPECIFICA);
-         comando.setInt(1,estilo.getId());
-         ResultSet resultado = comando.executeQuery();
-         
-         Estilo e = new Estilo();
-           while(resultado.next())
-               {
-                  e.setId(resultado.getInt("id"));
-                  e.setDescricao(resultado.getString("descricao"));
-                  e.setNome(resultado.getString("nome"));
-                  e.setValor(resultado.getDouble("preco"));
-                  Funcionario f = new Funcionario();
-                  f.setId(resultado.getInt("funcionario"));
-                  e.setFuncionario(f);
-                  
-               }
-               con.close();
-        return e;
+        con.close();
+        return estilos;
+    }
+
+    public Estilo carregarPorId(Estilo estilo) throws SQLException, ClassNotFoundException {
+        Connection con = ConectaBanco.getConexao();
+        PreparedStatement comando = con.prepareStatement(CARREGAR_POR_ID);
+        comando.setInt(1, estilo.getId());
+        ResultSet resultado = comando.executeQuery();
+
+        Estilo est = new Estilo();
+
+        while (resultado.next()) {
+            est.setId(resultado.getInt("id"));
+            est.setNome(resultado.getString("nome"));
+            est.setDescricao(resultado.getString("descricao"));
+            est.setValor(resultado.getDouble("preco"));
+            est.setStatus(resultado.getString("status"));
+        }
+        con.close();
+        return est;
+    }
+
+    public void excluirEstilo(Estilo estilo) throws ClassNotFoundException, SQLException {
+        Connection con = ConectaBanco.getConexao();
+
+        PreparedStatement comando = con.prepareStatement(EXCLUIR_ESTILO);
+        comando.setInt(1, estilo.getId());
+        comando.execute();
+
+        con.close();
+
+    }
+
+    public void cadastraNovoEstilo(Estilo estilo, int IdFuncionarioCadastro) throws ClassNotFoundException, SQLException {
+        Connection con = ConectaBanco.getConexao();
+//        "INSERT INTO public.estilo(nome, descricao, preco, imagem, funcionario, status)VALUES ( ?, ?, ?, ?, ?, 'Ativo');"
+
+        PreparedStatement comando = con.prepareStatement(CADASTRA_NOVO_ESTILO);
+        comando.setString(1, estilo.getNome());
+        comando.setString(2, estilo.getDescricao());
+        comando.setDouble(3, estilo.getValor());
+//      comando.setString(4,estilo.getImagem()); Ignorado Inicialmente/16/04/2020
+        comando.setInt(4, IdFuncionarioCadastro);
+        comando.execute();
+        con.close();
+
+    }
+
+    public void AlterarNovoEstilo(Estilo estilo, int IdFuncionarioCadastro) throws ClassNotFoundException, SQLException {
+        Connection con = ConectaBanco.getConexao();
+        PreparedStatement comando = con.prepareStatement(ALTERAR_NOVO_ESTILO);
+        comando.setString(1, estilo.getNome());
+        comando.setString(2, estilo.getDescricao());
+        comando.setDouble(3, estilo.getValor());
+////      comando.setString(4,estilo.getImagem()); Ignorado Inicialmente/16/04/2020
+        comando.setInt(4, IdFuncionarioCadastro);
+        comando.setInt(5, estilo.getId());
+        comando.execute();
+        con.close();
+
     }
 }

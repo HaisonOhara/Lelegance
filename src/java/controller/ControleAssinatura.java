@@ -89,7 +89,7 @@ public class ControleAssinatura extends HttpServlet {
                 
     }
 
-    private void confereTudo(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    private void confereTudo(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ClassNotFoundException {
         Cartao c = new Cartao();
         Endereco e = new Endereco();
         
@@ -110,7 +110,7 @@ public class ControleAssinatura extends HttpServlet {
         es.setId(a.getEstilo().getId());
         EstiloDAO dao3 = new EstiloDAO();
         
-        es= dao3.buscaEstilos(es);
+        es= dao3.carregarPorId(es);
         
         a.setTotal(a.getNumeroMeses()*es.getValor());
         session.setAttribute("preAssinatura",a);
