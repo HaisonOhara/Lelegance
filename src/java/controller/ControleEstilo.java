@@ -22,7 +22,7 @@ import static model.PerfilDeAcesso.COMUM;
 import model.Usuario;
 import util.Formatar;
 
-@WebServlet(name = "ControleEstilo", urlPatterns = {"/abrirCadastroEstilo", "/adicionarEstilo", "/carregarEstilos", "/excluirEstiloPorId", "/preAlterarEstilo", "/alterarEstilo"})
+@WebServlet(name = "ControleEstilo", urlPatterns = {"/abrirCadastroEstilo", "/buscaEstilo", "/todosOsEstilos", "/adicionarEstilo", "/carregarEstilos", "/excluirEstiloPorId", "/preAlterarEstilo", "/alterarEstilo"})
 public class ControleEstilo extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -40,7 +40,7 @@ public class ControleEstilo extends HttpServlet {
                 estilo.setId(idEstilo);
                 EstiloDAO dao = new EstiloDAO();
 
-               Estilo estiloCarregado = dao.carregarPorId(estilo);
+                Estilo estiloCarregado = dao.carregarPorId(estilo);
                 request.setAttribute("estilo", estiloCarregado);
                 request.setAttribute("idEstilo", idEstilo);
                 request.getRequestDispatcher("admin/editar_estilo.jsp").forward(request, response);
@@ -52,6 +52,10 @@ public class ControleEstilo extends HttpServlet {
             } else if (uri.equals(request.getContextPath() + "/abrirCadastroEstilo")) {
 
                 request.getRequestDispatcher("admin/adicionar_estilo.jsp").forward(request, response);;
+            } else if (uri.equals(request.getContextPath() + "/buscaEstilo")) {
+                buscaEstilo(request, response);
+            } else if (uri.equals(request.getContextPath() + "/todosOsEstilos")) {
+                todosEstilos(request, response);
             } else if (uri.equals(request.getContextPath() + "/excluirEstiloPorId")) {
                 excluirEstiloPorId(request, response);
             } else if (uri.equals(request.getContextPath() + "/sairFuncionario")) {
@@ -214,6 +218,26 @@ public class ControleEstilo extends HttpServlet {
         /*Resolve o bug da url ficar com excluirEstiloPorId?id 
         isso impede que o usuario visualize um item ja excluido 
         caso clique pára voltar no Browser :)*/
+    }
+
+    public void todosEstilos(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ClassNotFoundException {
+        EstiloDAO dao = new EstiloDAO();
+        List<Estilo> estilos = dao.CarregarEstilos();
+        request.setAttribute("Estilos", estilos);
+
+        request.getRequestDispatcher("estilostey.jsp").forward(request, response);
+    }
+
+    public void buscaEstilo(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ClassNotFoundException {
+        Estilo e = new Estilo();
+        e.setId(Integer.parseInt(request.getParameter("id")));
+
+        EstiloDAO dao = new EstiloDAO();
+        e = dao.carregarPorId(e);
+
+        request.setAttribute("estilo", e);
+        request.getRequestDispatcher("estilotey.jsp").forward(request, response);
+
     }
 
 }
