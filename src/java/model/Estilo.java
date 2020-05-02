@@ -17,6 +17,7 @@ public class Estilo {
     private String descricao;
     private String status;
     private double valor;
+//    private Fornecedor fornecedor;
 
     public int getId() {
         return id;

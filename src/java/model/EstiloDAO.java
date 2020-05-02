@@ -20,6 +20,7 @@ import util.ConectaBanco;
  */
 public class EstiloDAO {
 
+    private static final String CARREGAR_ESTILO_DO_MES = "SELECT * FROM public.estilo where status=\'Ativo\'";
     private static final String CARREGAR_TODOS = "SELECT id, nome, descricao, preco,status FROM public.estilo";
     private static final String CARREGAR_POR_ID = "SELECT id, nome, descricao, preco,status FROM public.estilo where id=?";
     private static final String EXCLUIR_ESTILO = "UPDATE public.estilo SET status=\'Inativo\' where id=? AND status=\'Ativo\'";
@@ -44,6 +45,26 @@ public class EstiloDAO {
         }
         con.close();
         return estilos;
+    }
+
+    //Pega o estilo ativo do mes somente
+    public Estilo carregarEstilodoMes() throws ClassNotFoundException, SQLException {
+        Connection con = ConectaBanco.getConexao();
+        PreparedStatement comando = con.prepareStatement(CARREGAR_ESTILO_DO_MES);
+        ResultSet resultado = comando.executeQuery();
+
+        Estilo estiloMensal = new Estilo();
+
+        while (resultado.next()) {
+
+            estiloMensal.setId(resultado.getInt("id"));
+            estiloMensal.setNome(resultado.getString("nome"));
+            estiloMensal.setDescricao(resultado.getString("descricao"));
+            estiloMensal.setValor(resultado.getDouble("preco"));
+            estiloMensal.setStatus(resultado.getString("status"));
+        }
+        con.close();
+        return estiloMensal;
     }
 
     public Estilo carregarPorId(Estilo estilo) throws SQLException, ClassNotFoundException {

@@ -6,15 +6,27 @@ public class Assinatura {
 
     private int numeroMeses;
 
+    private int meses_pagos;
+
     private String descricao;
 
     private Estilo estilo;
-    
+
     private double total;
-    
+
     private Date data_assinatura;
-    
+
     private Usuario usuario;
+
+    private String status;
+
+    public int getMeses_pagos() {
+        return meses_pagos;
+    }
+
+    public void setMeses_pagos(int meses_pagos) {
+        this.meses_pagos = meses_pagos;
+    }
 
     public String getDescricao() {
         return descricao;
@@ -55,7 +67,6 @@ public class Assinatura {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
 
     public int getNumeroMeses() {
         return numeroMeses;
@@ -63,6 +74,15 @@ public class Assinatura {
 
     public void setNumeroMeses(int numeroMeses) {
         this.numeroMeses = numeroMeses;
+    }
+
+   //Status pode ser util no futuro
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }
