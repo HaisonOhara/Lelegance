@@ -19,7 +19,7 @@ public class OrdemCompraDAO {
 
     private static final String CADASTRA_ORDEM_COMPRA = "INSERT INTO public.\"ordemCompra\"(\"idForncedor\", \"idBox\", \"qtdVendida\", \"status\", \"data\")VALUES ( ?, ?, ?, ?, ?);";
 
-    public void cadastraNovoEstilo(OrdemCompra ordem_compra) throws ClassNotFoundException, SQLException {
+    public void cadastraOrdemCompra(OrdemCompra ordem_compra) throws ClassNotFoundException, SQLException {
         Connection con = ConectaBanco.getConexao();
 
         PreparedStatement comando = con.prepareStatement(CADASTRA_ORDEM_COMPRA);
