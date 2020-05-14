@@ -30,113 +30,107 @@ import model.Usuario;
  *
  * @author joaov
  */
-@WebServlet(name = "ControleAssinatura", urlPatterns = {"/ControleAssinatura","/preAssinar","/confereTudo","/assinar"})
+@WebServlet(name = "ControleAssinatura", urlPatterns = {"/ControleAssinatura", "/preAssinar", "/confereTudo", "/assinar"})
 public class ControleAssinatura extends HttpServlet {
 
-    
-
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try{
-                String uri= request.getRequestURI();
-                if(uri.equals(request.getContextPath() + "/preAssinar"))
-                {
-                   preAssinar(request,response);
-                }
-                else if(uri.equals(request.getContextPath() + "/assinar"))
-                {
-                    Assinar(request,response);
-                }
-        }catch(Exception e){
-                e.printStackTrace();
-                response.sendRedirect("erro.jsp");
-    }
+        try {
+            String uri = request.getRequestURI();
+            if (uri.equals(request.getContextPath() + "/preAssinar")) {
+                preAssinar(request, response);
+            } else if (uri.equals(request.getContextPath() + "/assinar")) {
+                Assinar(request, response);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect("erro.jsp");
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try{
-                String uri= request.getRequestURI();
-                if(uri.equals(request.getContextPath() + "/preAssinar"))
-                {
-                   preAssinar(request,response);
-                }else if(uri.equals(request.getContextPath() + "/confereTudo"))
-                {
-                    confereTudo(request,response);
-                }
-        }catch(Exception e){
-                e.printStackTrace();
-                response.sendRedirect("erro.jsp");
+        try {
+            String uri = request.getRequestURI();
+            if (uri.equals(request.getContextPath() + "/preAssinar")) {
+                preAssinar(request, response);
+            } else if (uri.equals(request.getContextPath() + "/confereTudo")) {
+                confereTudo(request, response);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect("erro.jsp");
+        }
+
     }
 
-       
-}
-
-    private void preAssinar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void preAssinar(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException, ClassNotFoundException {
         Estilo e = new Estilo();
-        e.setId(Integer.parseInt(request.getParameter("id")));
+
+        int idEstilo = Integer.parseInt(request.getParameter("id"));
+        Estilo estilo = new Estilo();
+        estilo.setId(idEstilo);
+        EstiloDAO dao = new EstiloDAO();
+        Estilo estiloCarregado = dao.carregarPorId(estilo);
+
         Assinatura a = new Assinatura();
-        a.setEstilo(e);
+        a.setEstilo(estiloCarregado);
         a.setNumeroMeses(Integer.parseInt(request.getParameter("plano")));
-        
+
         HttpSession session = request.getSession();
-        session.setAttribute("preAssinatura",a);
-       response.sendRedirect("CadastrarEndereco.jsp"); 
-         
-                
+        session.setAttribute("preAssinatura", a);
+        response.sendRedirect("CadastrarEndereco.jsp");
+
     }
 
     private void confereTudo(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ClassNotFoundException {
         Cartao c = new Cartao();
         Endereco e = new Endereco();
-        
+
         HttpSession session = request.getSession();
         Usuario u = (Usuario) session.getAttribute("usuarioAutenticado");
-        
+
         c.setUsuario(u);
         CartaoDAO dao = new CartaoDAO();
         c = dao.BuscarCartao(c);
-        
+
         e.setUsuario(u);
         EnderecoDAO dao2 = new EnderecoDAO();
-        e= dao2.BuscarEndereco(e);
-        
+        e = dao2.BuscarEndereco(e);
+
         Assinatura a = (Assinatura) session.getAttribute("preAssinatura");
-        
+
         Estilo es = new Estilo();
         es.setId(a.getEstilo().getId());
         EstiloDAO dao3 = new EstiloDAO();
-        
-        es= dao3.carregarPorId(es);
-        
-        a.setTotal(a.getNumeroMeses()*es.getValor());
-        session.setAttribute("preAssinatura",a);
-        
-        request.setAttribute("cartao",c);
-        request.setAttribute("endereco",e);
-        request.setAttribute("estilo",es);
-        request.setAttribute("assi",a); 
-        
-        
-         request.getRequestDispatcher("confere.jsp").forward(request, response);
-        
+
+        es = dao3.carregarPorId(es);
+
+        a.setTotal(a.getNumeroMeses() * es.getValor());
+        session.setAttribute("preAssinatura", a);
+
+        request.setAttribute("cartao", c);
+        request.setAttribute("endereco", e);
+        request.setAttribute("estilo", es);
+        request.setAttribute("assi", a);
+
+        request.getRequestDispatcher("confere.jsp").forward(request, response);
+
     }
 
     private void Assinar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        HttpSession session = request.getSession(); 
+        HttpSession session = request.getSession();
         Assinatura a = (Assinatura) session.getAttribute("preAssinatura");
         Usuario u = (Usuario) session.getAttribute("usuarioAutenticado");
         a.setData_assinatura(new Date());
         a.setUsuario(u);
         AssinaturaDAO dao = new AssinaturaDAO();
         dao.Assinar(a);
-        
-        
+
         request.getRequestDispatcher("").forward(request, response);
-         
+
     }
 
 }

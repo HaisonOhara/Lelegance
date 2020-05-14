@@ -10,10 +10,12 @@
     <body>
         <c:forEach var="e" items="${Estilos}">
             <div style="height: 300px; width: 200px;">
-                <p>${e.nome}</p>
-                <p>${e.id}</p>
+                <c:if test="${e.status== 'Ativo'}">
+                    <p>${e.nome}</p>
+                    <p>${e.id}</p>
                     <a href="buscaEstilo?id=${e.id}">Entrar</a> 
-            </div>
+                </div>
+            </c:if>
         </c:forEach>
     </body>
 </html>

@@ -17,7 +17,13 @@
                     <option value="3">3</option>
                     <option value="6">6</option>
                 </select>
-                <p><input type="text" name="id" value="${estilo.id}"</p>
+                <!--atributo alterado para hiden,Usuario nao precisa visualizar id-->
+                <p><input type="hidden" name="id" value="${estilo.id}"</p>
+                
+                <p><input type="text" name="MedidaCamiseta" value="Tamanho Camiseta"</p>
+                <p><input type="text" name="MedidaCalça" value="Tamanho Calça"</p>
+                <p><input type="text" name="MedidaCalçado" value="Tamanho"</p>
+                
                 <p> <input type="submit" value="comprar"> </p>
             </div>
         </form>

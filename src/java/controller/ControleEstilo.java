@@ -225,7 +225,7 @@ public class ControleEstilo extends HttpServlet {
         List<Estilo> estilos = dao.CarregarEstilos();
         request.setAttribute("Estilos", estilos);
 
-        request.getRequestDispatcher("estilostey.jsp").forward(request, response);
+        request.getRequestDispatcher("boxes_visao_cliente.jsp").forward(request, response);
     }
 
     public void buscaEstilo(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ClassNotFoundException {
@@ -236,7 +236,7 @@ public class ControleEstilo extends HttpServlet {
         e = dao.carregarPorId(e);
 
         request.setAttribute("estilo", e);
-        request.getRequestDispatcher("estilotey.jsp").forward(request, response);
+        request.getRequestDispatcher("box_visao_cliente.jsp").forward(request, response);
 
     }
 

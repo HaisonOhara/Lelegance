@@ -61,7 +61,7 @@ public class JobOrdemCompra implements Job {
             ordem_compra.setData(data);
 
             OrdemCompraDAO ordem_compra_dao = new OrdemCompraDAO();
-//            System.out.println("id:" + (java.sql.Date) ordem_compra.getData());
+            System.out.println("id:" + (java.sql.Date) ordem_compra.getData());
             ordem_compra_dao.cadastraNovoEstilo(ordem_compra);
 
         } catch (ClassNotFoundException ex) {
