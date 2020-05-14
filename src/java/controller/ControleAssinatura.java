@@ -76,6 +76,10 @@ public class ControleAssinatura extends HttpServlet {
         Estilo estiloCarregado = dao.carregarPorId(estilo);
 
         Assinatura a = new Assinatura();
+        a.setTamanhoCamiseta(request.getParameter("MedidaCamiseta"));
+        a.setTamanhoCalca(Integer.parseInt(request.getParameter("MedidaCalca")));
+        a.setTamanhoCalcado(Integer.parseInt(request.getParameter("MedidaCalcado")));
+        
         a.setEstilo(estiloCarregado);
         a.setNumeroMeses(Integer.parseInt(request.getParameter("plano")));
 

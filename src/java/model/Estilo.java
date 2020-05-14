@@ -17,9 +17,6 @@ public class Estilo {
     private String descricao;
     private String status;
     private double valor;
-    private String tamanhoCamiseta;
-    private int tamanhoCalca;
-    private int tamanhoCalcado;
 //    private Fornecedor fornecedor;
 
     public int getId() {
@@ -69,30 +66,5 @@ public class Estilo {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    public String getTamanhoCamiseta() {
-        return tamanhoCamiseta;
-    }
-
-    public void setTamanhoCamiseta(String tamanhoCamiseta) {
-        this.tamanhoCamiseta = tamanhoCamiseta;
-    }
-
-    public int getTamanhoCalca() {
-        return tamanhoCalca;
-    }
-
-    public void setTamanhoCalca(int tamanhoCalca) {
-        this.tamanhoCalca = tamanhoCalca;
-    }
-
-    public int getTamanhoCalcado() {
-        return tamanhoCalcado;
-    }
-
-    public void setTamanhoCalcado(int tamanhoCalcado) {
-        this.tamanhoCalcado = tamanhoCalcado;
-    }
-    
 
 }

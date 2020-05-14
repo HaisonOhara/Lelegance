@@ -19,11 +19,20 @@
                 </select>
                 <!--atributo alterado para hiden,Usuario nao precisa visualizar id-->
                 <p><input type="hidden" name="id" value="${estilo.id}"</p>
-                
-                <p><input type="text" name="MedidaCamiseta" value="Tamanho Camiseta"</p>
-                <p><input type="text" name="MedidaCalça" value="Tamanho Calça"</p>
-                <p><input type="text" name="MedidaCalçado" value="Tamanho"</p>
-                
+
+                <!--<p><input type="text" name="MedidaCamiseta" value="Tamanho Camiseta"</p>-->
+                <p>
+                    <select type="text" name="MedidaCamiseta">
+                        <option value="P">P</option>
+                        <option value="M">M</option>
+                        <option value="G">G</option>
+                        <option value="GG">GG</option>
+                    </select>
+                </p>
+
+                <p><input type="text" name="MedidaCalca" value="Tamanho Calça"</p>
+                <p><input type="text" name="MedidaCalcado" value="Tamanho"</p>
+
                 <p> <input type="submit" value="comprar"> </p>
             </div>
         </form>
