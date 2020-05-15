@@ -63,7 +63,10 @@
                                     <textarea id="texareaDescricao" rows="4" cols="27" name="descricao" placeholder="Descrição da Box" maxlength="240" required></textarea>
                                 </div>
                                 </br>
-
+                                <div class="form-label-group">
+                                    <textarea id="texareaConteudo" rows="4" cols="27" name="conteudo" placeholder="Conteudo da Box separado por ;(ordem peça de cima,peça de baixo,calçado)" maxlength="240" required></textarea>
+                                </div>
+                                </br>
                                 <div class="form-label-group">
                                     <input type="file" class="filestyle">
                                 </div>

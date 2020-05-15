@@ -13,7 +13,7 @@
 			<div class="espaco"></div>
         <ul class="nav-menu list-unstyled">
           <li><a href="index.jsp" class="smoothScroll">Home</a></li>
-          <li><a href="todosOsEstilos" class="smoothScroll">Estilos</a></li>
+          <li><a href="todosOsEstilos" class="smoothScroll">Boxs</a></li>
           <c:if test="${usuarioAutenticado==null}">
             <li><a href="cadastro.jsp" class="smoothScroll">Cadastre-se</a></li>
             <li><a href="login.jsp" class="smoothScroll">Login</a></li>         

@@ -22,7 +22,7 @@ import static model.PerfilDeAcesso.COMUM;
 import model.Usuario;
 import util.Formatar;
 
-@WebServlet(name = "ControleEstilo", urlPatterns = {"/abrirCadastroEstilo", "/buscaEstilo", "/todosOsEstilos", "/adicionarEstilo", "/carregarEstilos", "/excluirEstiloPorId", "/preAlterarEstilo", "/alterarEstilo"})
+@WebServlet(name = "ControleEstilo", urlPatterns = {"/abrirCadastroEstilo", "/buscaEstilo", "/todosOsEstilos", "/adicionarEstilo", "/carregarEstilos", "/excluirEstiloPorId", "/preAlterarEstilo", "/alterarEstilo","/AtivarBox"})
 public class ControleEstilo extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -58,7 +58,9 @@ public class ControleEstilo extends HttpServlet {
                 todosEstilos(request, response);
             } else if (uri.equals(request.getContextPath() + "/excluirEstiloPorId")) {
                 excluirEstiloPorId(request, response);
-            } else if (uri.equals(request.getContextPath() + "/sairFuncionario")) {
+            }else if(uri.equals(request.getContextPath() + "/AtivarBox")){
+                AtivarBox(request,response);
+            }else if (uri.equals(request.getContextPath() + "/sairFuncionario")) {
                 request.getSession().invalidate();
                 response.sendRedirect("index.jsp");
             } else {
@@ -98,6 +100,7 @@ public class ControleEstilo extends HttpServlet {
 
         Estilo estilo = new Estilo();
         estilo.setDescricao(request.getParameter("descricao"));
+        estilo.setConteudo(request.getParameter("conteudo"));
         estilo.setNome(request.getParameter("nomeEstilo"));
         estilo.setValor(Double.parseDouble(request.getParameter("valor")));
 
@@ -214,6 +217,21 @@ public class ControleEstilo extends HttpServlet {
 
         est_a_excluir.setId(est.getId());
         dao.excluirEstilo(est_a_excluir);
+        response.sendRedirect("/carregarEstilos");
+        /*Resolve o bug da url ficar com excluirEstiloPorId?id 
+        isso impede que o usuario visualize um item ja excluido 
+        caso clique pára voltar no Browser :)*/
+    }
+      public void AtivarBox(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, IOException {
+
+        Estilo est = new Estilo();
+        est.setId(Integer.parseInt(request.getParameter("id")));
+
+        EstiloDAO dao = new EstiloDAO();
+        Estilo est_a_alterar = dao.carregarPorId(est);
+
+        est_a_alterar.setId(est.getId());
+        dao.ativarBox(est_a_alterar);
         response.sendRedirect("/carregarEstilos");
         /*Resolve o bug da url ficar com excluirEstiloPorId?id 
         isso impede que o usuario visualize um item ja excluido 
