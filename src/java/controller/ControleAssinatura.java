@@ -76,6 +76,8 @@ public class ControleAssinatura extends HttpServlet {
         Estilo estiloCarregado = dao.carregarPorId(estilo);
 
         Assinatura a = new Assinatura();
+        
+        //Trocar ASSINATURA PARA CLASSE USUARIO!!!
         a.setTamanhoCamiseta(request.getParameter("MedidaCamiseta"));
         a.setTamanhoCalca(Integer.parseInt(request.getParameter("MedidaCalca")));
         a.setTamanhoCalcado(Integer.parseInt(request.getParameter("MedidaCalcado")));
@@ -130,6 +132,7 @@ public class ControleAssinatura extends HttpServlet {
         Usuario u = (Usuario) session.getAttribute("usuarioAutenticado");
         a.setData_assinatura(new Date());
         a.setUsuario(u);
+        a.setStatus("Ativa");
         AssinaturaDAO dao = new AssinaturaDAO();
         dao.Assinar(a);
 

@@ -21,8 +21,8 @@ import model.EstiloDAO;
  */
 public class AssinaturaDAO {
 
-    private static final String CADASTRAR_ASSINATURA = "INSERT INTO assinatura(numero_meses,total,data_assinatura,estilo,usuario)"
-            + "values(?,?,?,?,?);";
+    private static final String CADASTRAR_ASSINATURA = "INSERT INTO assinatura(numero_meses,total,data_assinatura,estilo,usuario,status)"
+            + "values(?,?,?,?,?,?);";
 
     private static final String CARREGAR_ASSINATURAS_ATIVAS = "SELECT * FROM public.assinatura WHERE status ='Ativa' ";
 
@@ -34,6 +34,7 @@ public class AssinaturaDAO {
         comando.setDate(3, new java.sql.Date(a.getData_assinatura().getTime()));
         comando.setInt(4, a.getEstilo().getId());
         comando.setInt(5, a.getUsuario().getId());
+        comando.setString(6, a.getStatus());
         comando.execute();
 
     }

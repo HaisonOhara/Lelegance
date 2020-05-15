@@ -22,16 +22,47 @@
 
                 <!--<p><input type="text" name="MedidaCamiseta" value="Tamanho Camiseta"</p>-->
                 <p>
-                    <select type="text" name="MedidaCamiseta">
-                        <option value="P">P</option>
-                        <option value="M">M</option>
-                        <option value="G">G</option>
-                        <option value="GG">GG</option>
-                    </select>
+                <h3>Medida Camiseta</h3>
+                <select type="text" name="MedidaCamiseta">
+                    <option value="PP">PP</option>
+                    <option value="P">P</option>
+                    <option value="M">M</option>
+                    <option value="G">G</option>
+                    <option value="GG">GG</option>
+                </select>
                 </p>
-
-                <p><input type="text" name="MedidaCalca" value="Tamanho Calça"</p>
-                <p><input type="text" name="MedidaCalcado" value="Tamanho"</p>
+                <p>
+                <h3>Medida Calça</h3>
+                <select type="number" name="MedidaCalca">
+                    <option value=33>33</option>
+                    <option value=34>34</option>
+                    <option value=35>35</option>
+                    <option value=36>36</option>
+                    <option value=37>37</option>
+                    <option value=38>38</option>
+                    <option value=39>39</option>
+                    <option value=40>40</option>
+                    <option value=41>41</option>
+                    <option value=42>42</option>
+                    <option value=43>43</option>
+                    <option value=44>44</option>
+                    <option value=46>46</option>                                    
+                </select>
+                </p>
+                <p>
+                <h3>Medida Calçado</h3>
+                <select type="number" name="MedidaCalcado">
+                    <option value=34>34</option>
+                    <option value=36>36</option>
+                    <option value=38>38</option>
+                    <option value=40>40</option>
+                    <option value=42>42</option>
+                    <option value=44>44</option>
+                    <option value=46>46</option>
+                    <option value=48>48</option>
+                    <option value=50>50</option>                                     
+                </select>
+                </p>
 
                 <p> <input type="submit" value="comprar"> </p>
             </div>
