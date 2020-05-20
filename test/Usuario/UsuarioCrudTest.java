@@ -41,7 +41,7 @@ public class UsuarioCrudTest {
 
         String CADASTRA_NOVO_USUARIO = "INSERT INTO usuario (email,senha,perfil,pessoa) VALUES (?,?,?,?)";
         conexao = ConectaBanco.getConexao();
-
+        conexao.setAutoCommit(false);
         pstmt = conexao.prepareStatement(CADASTRA_NOVA_PESSOA, Statement.RETURN_GENERATED_KEYS);
 
         pstmt.setString(1, "UsuarioTeste");
