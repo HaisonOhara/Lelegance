@@ -38,7 +38,7 @@ public class JobOrdemCompra implements Job {
 
         try {
             //Ideal seria ter status em assinatura e trazer so as ativas aqui
-            assinaturasMensais = assinaturadao.CarregarAssinaturas();
+            assinaturasMensais = assinaturadao.CarregarAssinaturasAtivas();
             EstiloDAO estilodao = new EstiloDAO();
             Estilo estilo_mensal = estilodao.carregarEstilodoMes();
 
@@ -61,8 +61,8 @@ public class JobOrdemCompra implements Job {
             ordem_compra.setData(data);
 
             OrdemCompraDAO ordem_compra_dao = new OrdemCompraDAO();
-//            System.out.println("id:" + (java.sql.Date) ordem_compra.getData());
-            ordem_compra_dao.cadastraNovoEstilo(ordem_compra);
+            System.out.println("id:" + (java.sql.Date) ordem_compra.getData());
+            ordem_compra_dao.cadastraOrdemCompra(ordem_compra);
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(JobOrdemCompra.class.getName()).log(Level.SEVERE, null, ex);

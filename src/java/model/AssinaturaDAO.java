@@ -21,10 +21,10 @@ import model.EstiloDAO;
  */
 public class AssinaturaDAO {
 
-    private static final String CADASTRAR_ASSINATURA = "INSERT INTO assinatura(numero_meses,total,data_assinatura,estilo,usuario)"
-            + "values(?,?,?,?,?);";
+    private static final String CADASTRAR_ASSINATURA = "INSERT INTO assinatura(numero_meses,total,data_assinatura,estilo,usuario,status)"
+            + "values(?,?,?,?,?,?);";
 
-    private static final String CARREGAR_ASSINATURAS = "SELECT * FROM public.assinatura";
+    private static final String CARREGAR_ASSINATURAS_ATIVAS = "SELECT * FROM public.assinatura WHERE status ='Ativa' ";
 
     public void Assinar(Assinatura a) throws SQLException {
         Connection con = ConectaBanco.getConexao();
@@ -34,13 +34,14 @@ public class AssinaturaDAO {
         comando.setDate(3, new java.sql.Date(a.getData_assinatura().getTime()));
         comando.setInt(4, a.getEstilo().getId());
         comando.setInt(5, a.getUsuario().getId());
+        comando.setString(6, a.getStatus());
         comando.execute();
 
     }
 
-    public List<Assinatura> CarregarAssinaturas() throws ClassNotFoundException, SQLException {
+    public List<Assinatura> CarregarAssinaturasAtivas() throws ClassNotFoundException, SQLException {
         Connection con = ConectaBanco.getConexao();
-        PreparedStatement comando = con.prepareStatement(CARREGAR_ASSINATURAS);
+        PreparedStatement comando = con.prepareStatement(CARREGAR_ASSINATURAS_ATIVAS);
         ResultSet resultado = comando.executeQuery();
 
         List<Assinatura> estilos = new ArrayList();
@@ -62,7 +63,7 @@ public class AssinaturaDAO {
             //-------------------------------------------
             
             Assinatura ast = new Assinatura();
-            ast.setMeses_pagos(resultado.getInt("meses_pagos"));
+            
             ast.setTotal(resultado.getDouble("total"));
             ast.setData_assinatura(resultado.getDate("data_assinatura"));
             ast.setEstilo(estilo);

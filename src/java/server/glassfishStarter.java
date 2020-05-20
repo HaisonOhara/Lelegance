@@ -24,6 +24,7 @@ import server.automations.JobOrdemCompra;
 public class glassfishStarter implements ServletContextListener {
 
     //Funçâo iniciada quando o servidor inicia
+    //Método comentado para evitar execução desnecessaria
     public void contextInitialized(ServletContextEvent e) {
         JobDetail job = JobBuilder.newJob(JobOrdemCompra.class).build();
         Trigger t1 = TriggerBuilder.newTrigger().withIdentity("CronTrigger").withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(05).repeatForever()).build();

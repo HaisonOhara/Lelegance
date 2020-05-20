@@ -6,7 +6,7 @@ public class Assinatura {
 
     private int numeroMeses;
 
-    private int meses_pagos;
+//    private int meses_pagos;
 
     private String descricao;
 
@@ -20,13 +20,19 @@ public class Assinatura {
 
     private String status;
 
-    public int getMeses_pagos() {
-        return meses_pagos;
-    }
+    private String tamanhoCamiseta;
 
-    public void setMeses_pagos(int meses_pagos) {
-        this.meses_pagos = meses_pagos;
-    }
+    private int tamanhoCalca;
+
+    private int tamanhoCalcado;
+
+//    public int getMeses_pagos() {
+//        return meses_pagos;
+//    }
+//
+//    public void setMeses_pagos(int meses_pagos) {
+//        this.meses_pagos = meses_pagos;
+//    }
 
     public String getDescricao() {
         return descricao;
@@ -76,7 +82,7 @@ public class Assinatura {
         this.numeroMeses = numeroMeses;
     }
 
-   //Status pode ser util no futuro
+    //Status pode ser util no futuro
     public String getStatus() {
         return status;
     }
@@ -84,5 +90,30 @@ public class Assinatura {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getTamanhoCamiseta() {
+        return tamanhoCamiseta;
+    }
+
+    public void setTamanhoCamiseta(String tamanhoCamiseta) {
+        this.tamanhoCamiseta = tamanhoCamiseta;
+    }
+
+    public int getTamanhoCalca() {
+        return tamanhoCalca;
+    }
+
+    public void setTamanhoCalca(int tamanhoCalca) {
+        this.tamanhoCalca = tamanhoCalca;
+    }
+
+    public int getTamanhoCalcado() {
+        return tamanhoCalcado;
+    }
+
+    public void setTamanhoCalcado(int tamanhoCalcado) {
+        this.tamanhoCalcado = tamanhoCalcado;
+    }
+    
 
 }
