@@ -6,7 +6,7 @@ public class Assinatura {
 
     private int numeroMeses;
 
-    private int meses_pagos;
+//    private int meses_pagos;
 
     private String descricao;
 
@@ -26,13 +26,13 @@ public class Assinatura {
 
     private int tamanhoCalcado;
 
-    public int getMeses_pagos() {
-        return meses_pagos;
-    }
-
-    public void setMeses_pagos(int meses_pagos) {
-        this.meses_pagos = meses_pagos;
-    }
+//    public int getMeses_pagos() {
+//        return meses_pagos;
+//    }
+//
+//    public void setMeses_pagos(int meses_pagos) {
+//        this.meses_pagos = meses_pagos;
+//    }
 
     public String getDescricao() {
         return descricao;
@@ -114,5 +114,6 @@ public class Assinatura {
     public void setTamanhoCalcado(int tamanhoCalcado) {
         this.tamanhoCalcado = tamanhoCalcado;
     }
+    
 
 }
