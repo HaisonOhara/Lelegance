@@ -15,6 +15,7 @@ public class Estilo {
     private String nome;
     private String imagem;
     private String descricao;
+    private String Conteudo;
     private String status;
     private double valor;
 //    private Fornecedor fornecedor;
@@ -67,4 +68,13 @@ public class Estilo {
         this.status = status;
     }
 
+    public String getConteudo() {
+        return Conteudo;
+    }
+
+    public void setConteudo(String Conteudo) {
+        this.Conteudo = Conteudo;
+    }
+
+    
 }

@@ -52,33 +52,42 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
-                    <cente><a href="abrirCadastroEstilo"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="add" type="submit">Adicionar Estilo</button></a></cente>
+                    <cente><a href="abrirCadastroEstilo"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="add" type="submit">Adicionar Box</button></a></cente>
                     <br>
                     <br>
                     <table id="mytable" class="table table-bordred table-striped">
                         <thead>
 
-                        <th>Estilo</th>
+                        <th>Caixa</th>
                         <th>Valor</th>
                         <th>Descrição</th>
+                         <th>Conteudo</th>
+                        <th>Status</th>
                         <th>Editar</th>
-                        <th>Excluir</th>
+                        <th>Alterar Ativo/Inativo</th>
                         </thead>
                         <tbody>
                             <tr>
                                 <c:forEach var="est" items="${estilos}">
-                                    <c:if test="${est.status== 'Ativo'}">
                                         <td>${est.nome}</td>
                                         <td>${est.valor}</td>
                                         <td>${est.descricao}</td>
+                                        <td>${est.conteudo}</td>
+                                        <td>${est.status}</td>
                                         <td>
-                                <cente><a href="preAlterarEstilo?id=${est.id}"><button class="btn btn-lg btn-primary btn-lista text-uppercase" name="adcionar" type="submit">Editar Estilo</button></a></cente>
+                                <cente><a href="preAlterarEstilo?id=${est.id}"><button class="btn btn-lg btn-primary btn-lista text-uppercase" name="adcionar" type="submit">Editar Box</button></a></cente>
                                 </td>
-                                <td>
-                                <cente><a href="excluirEstiloPorId?id=${est.id}"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="delete" type="submit">Excluir Estilo</button></a></cente>
-                                </td>
+                                <c:if test="${est.status=='Ativo'}">
+                                    <td>
+                                    <cente><a href="excluirEstiloPorId?id=${est.id}"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="delete" type="submit">Desativar</button></a></cente>
+                                    </td>
+                                </c:if>
+                                <c:if test="${est.status=='Inativo'}">
+                                    <td>
+                                    <cente><a href="AtivarBox?id=${est.id}"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="delete" type="submit">Ativar</button></a></cente>
+                                    </td>
+                                </c:if>
                                 </tr>
-                            </c:if>
                         </c:forEach>
                         </tbody>
                     </table>
