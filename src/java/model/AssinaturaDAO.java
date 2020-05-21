@@ -21,8 +21,8 @@ import model.EstiloDAO;
  */
 public class AssinaturaDAO {
 
-    private static final String CADASTRAR_ASSINATURA = "INSERT INTO assinatura(numero_meses,total,data_assinatura,estilo,usuario,status)"
-            + "values(?,?,?,?,?,?);";
+    private static final String CADASTRAR_ASSINATURA = "INSERT INTO assinatura(numero_meses,total,data_assinatura,estilo,usuario,status,valor_frete)"
+            + "values(?,?,?,?,?,?,?);";
 
     private static final String CARREGAR_ASSINATURAS_ATIVAS = "SELECT * FROM public.assinatura WHERE status ='Ativa' ";
 
@@ -35,6 +35,7 @@ public class AssinaturaDAO {
         comando.setInt(4, a.getEstilo().getId());
         comando.setInt(5, a.getUsuario().getId());
         comando.setString(6, a.getStatus());
+        comando.setDouble(7,a.getvalorFrete());
         comando.execute();
 
     }
@@ -69,6 +70,7 @@ public class AssinaturaDAO {
             ast.setEstilo(estilo);
             ast.setUsuario(usuario);
             ast.setNumeroMeses(resultado.getInt("numero_meses"));
+            ast.setvalorFrete(resultado.getDouble("valor_frete"));
             estilos.add(ast);
         }
         con.close();

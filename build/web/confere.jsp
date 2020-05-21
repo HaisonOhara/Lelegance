@@ -27,7 +27,7 @@
          <p>${assi.numeroMeses}</p>
         </div>
         
-        
+        <h3>Frete: ${assi.valorFrete}</h3>
         <h3>TOTAL: ${assi.total}</h3>
         
         <p><a href="assinar">Assinar</a></p>

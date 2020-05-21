@@ -77,13 +77,14 @@ public class ControleAssinatura extends HttpServlet {
 
         Assinatura a = new Assinatura();
         
-        //Trocar ASSINATURA PARA CLASSE USUARIO!!!
+      
         a.setTamanhoCamiseta(request.getParameter("MedidaCamiseta"));
         a.setTamanhoCalca(Integer.parseInt(request.getParameter("MedidaCalca")));
         a.setTamanhoCalcado(Integer.parseInt(request.getParameter("MedidaCalcado")));
         
         a.setEstilo(estiloCarregado);
         a.setNumeroMeses(Integer.parseInt(request.getParameter("plano")));
+        a.setvalorFrete(30.00);//Valor fixo por enquanto--Precisa ser implementado consumo do wevService do correios
 
         HttpSession session = request.getSession();
         session.setAttribute("preAssinatura", a);
@@ -114,7 +115,7 @@ public class ControleAssinatura extends HttpServlet {
 
         es = dao3.carregarPorId(es);
 
-        a.setTotal(a.getNumeroMeses() * es.getValor());
+        a.setTotal(a.getNumeroMeses() * es.getValor()+a.getvalorFrete());
         session.setAttribute("preAssinatura", a);
 
         request.setAttribute("cartao", c);

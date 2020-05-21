@@ -7,12 +7,13 @@ public class Assinatura {
     private int numeroMeses;
 
 //    private int meses_pagos;
-
     private String descricao;
 
     private Estilo estilo;
 
     private double total;
+
+    private double valorFrete;
 
     private Date data_assinatura;
 
@@ -33,7 +34,6 @@ public class Assinatura {
 //    public void setMeses_pagos(int meses_pagos) {
 //        this.meses_pagos = meses_pagos;
 //    }
-
     public String getDescricao() {
         return descricao;
     }
@@ -114,6 +114,13 @@ public class Assinatura {
     public void setTamanhoCalcado(int tamanhoCalcado) {
         this.tamanhoCalcado = tamanhoCalcado;
     }
-    
+
+    public double getvalorFrete() {
+        return valorFrete;
+    }
+
+    public void setvalorFrete(double frete) {
+        this.valorFrete = frete;
+    }
 
 }
