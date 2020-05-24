@@ -54,7 +54,7 @@
             <div class="espaco"></div>
             <div class="espaco"></div>           
         <ul class="nav-menu list-unstyled">      
-          <li><a href="funcionario/funcionario.jsp" class="smoothScroll">Voltar</a></li>   
+          <!--<li><a href="funcionario/funcionario.jsp" class="smoothScroll">Voltar</a></li>-->   
         </ul>
 
       </div>

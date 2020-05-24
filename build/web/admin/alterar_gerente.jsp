@@ -51,8 +51,8 @@
 			<div class="espaco"></div>
         <ul class="nav-menu list-unstyled">
           <li><a href="index.jsp" class="smoothScroll">Home</a></li>
-          <li><a href="#" class="smoothScroll">Estilos</a></li>
-          <li><a href="#" class="smoothScroll">Funcionarios</a></li>
+          <li><a href="carregarEstilos" class="smoothScroll">Estilos</a></li>
+          <li><a href="carregarFuncionarios" class="smoothScroll">Funcionarios</a></li>
           <li><a href="carregarFuncionarios" class="smoothScroll">Voltar</a></li>
           <li><a href="sairFuncionario" class="smoothScroll">Sair</a></li> 
         </ul>

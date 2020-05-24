@@ -22,7 +22,7 @@ import static model.PerfilDeAcesso.COMUM;
 import model.Usuario;
 import util.Formatar;
 
-@WebServlet(name = "ControleEstilo", urlPatterns = {"/abrirCadastroEstilo", "/buscaEstilo", "/todosOsEstilos", "/adicionarEstilo", "/carregarEstilos", "/excluirEstiloPorId", "/preAlterarEstilo", "/alterarEstilo","/AtivarBox"})
+@WebServlet(name = "ControleEstilo", urlPatterns = {"/abrirCadastroEstilo", "/buscaEstilo", "/todosOsEstilos", "/adicionarEstilo", "/carregarEstilos", "/excluirEstiloPorId", "/preAlterarEstilo", "/alterarEstilo", "/AtivarBox"})
 public class ControleEstilo extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -34,6 +34,7 @@ public class ControleEstilo extends HttpServlet {
         try {
             String uri = request.getRequestURI();
             if (uri.equals(request.getContextPath() + "/preAlterarEstilo")) {
+                boolean isComum = (Boolean) request.getSession().getAttribute("isComum");;
 
                 int idEstilo = Integer.parseInt(request.getParameter("id"));
                 Estilo estilo = new Estilo();
@@ -43,6 +44,7 @@ public class ControleEstilo extends HttpServlet {
                 Estilo estiloCarregado = dao.carregarPorId(estilo);
                 request.setAttribute("estilo", estiloCarregado);
                 request.setAttribute("idEstilo", idEstilo);
+                request.setAttribute("isComum", isComum);
                 request.getRequestDispatcher("admin/editar_estilo.jsp").forward(request, response);
 
             } else if (uri.equals(request.getContextPath() + "/preAlterarFuncionarioPorId")) {
@@ -58,9 +60,9 @@ public class ControleEstilo extends HttpServlet {
                 todosEstilos(request, response);
             } else if (uri.equals(request.getContextPath() + "/excluirEstiloPorId")) {
                 excluirEstiloPorId(request, response);
-            }else if(uri.equals(request.getContextPath() + "/AtivarBox")){
-                AtivarBox(request,response);
-            }else if (uri.equals(request.getContextPath() + "/sairFuncionario")) {
+            } else if (uri.equals(request.getContextPath() + "/AtivarBox")) {
+                AtivarBox(request, response);
+            } else if (uri.equals(request.getContextPath() + "/sairFuncionario")) {
                 request.getSession().invalidate();
                 response.sendRedirect("index.jsp");
             } else {
@@ -195,6 +197,7 @@ public class ControleEstilo extends HttpServlet {
     public void CarregarEstilos(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, ServletException, IOException {
         HttpSession session = request.getSession();
 //        Funcionario fun = (Funcionario) session.getAttribute("usuarioAutenticado");
+        boolean isComum = (Boolean) request.getSession().getAttribute("isComum");;
 
         EstiloDAO dao = new EstiloDAO();
 
@@ -202,7 +205,7 @@ public class ControleEstilo extends HttpServlet {
         estilos = (ArrayList<Estilo>) dao.CarregarEstilos();
 
         request.setAttribute("estilos", estilos);
-
+        request.setAttribute("isComum", isComum);
         request.getRequestDispatcher("admin/lista_estilos.jsp").forward(request, response);
 
     }
@@ -222,7 +225,8 @@ public class ControleEstilo extends HttpServlet {
         isso impede que o usuario visualize um item ja excluido 
         caso clique pára voltar no Browser :)*/
     }
-      public void AtivarBox(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, IOException {
+
+    public void AtivarBox(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, IOException {
 
         Estilo est = new Estilo();
         est.setId(Integer.parseInt(request.getParameter("id")));

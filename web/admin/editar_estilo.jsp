@@ -3,42 +3,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <!-- meta -->
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <head>
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>L'elegance Editar Estilo</title>
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+        <title>L'elegance Editar Estilo</title>
+        <meta content="" name="keywords">
+        <meta content="" name="description">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
 
-    <!-- Bootstrap CSS File -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap CSS File -->
+        <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Libraries CSS Files -->
-    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
-    <link href="lib/hover/hover.min.css" rel="stylesheet">
+        <!-- Libraries CSS Files -->
+        <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+        <link href="lib/hover/hover.min.css" rel="stylesheet">
 
-    <!-- Main Stylesheet File -->
-    <link href="css/style.css" rel="stylesheet">
+        <!-- Main Stylesheet File -->
+        <link href="css/style.css" rel="stylesheet">
 
-    <!-- Responsive css -->
-    <link href="css/responsive.css" rel="stylesheet">
+        <!-- Responsive css -->
+        <link href="css/responsive.css" rel="stylesheet">
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="img_projeto/favicon.png">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="img_projeto/favicon.png">
 
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <%@include file="../menu.jsp" %>
+        <%@include file="../menu.jsp" %>
 
 
 
@@ -71,7 +71,9 @@
                                 </br>
                                 <button class="btn btn-lg btn-primary btn-block text-uppercase btn-lista" name="adicionar" type="submit">Editar Estilo</button>
                                 <br>
-                                <button class="btn btn-lg btn-primary btn-block btn-excluirestilo text-uppercase btn-lista" name="excluir" type="submit">Excluir Estilo</button>
+                                <c:if test="${isComum==false}">
+                                    <button class="btn btn-lg btn-primary btn-block btn-excluirestilo text-uppercase btn-lista" name="excluir" type="submit">Excluir Estilo</button>
+                                </c:if>
                                 <hr class="my-4">
                             </form>
                         </div>
@@ -96,6 +98,6 @@
         <!-- Template Main Javascript File -->
         <script src="js/main.js"></script>
 
-</body>
+    </body>
 
 </html>
