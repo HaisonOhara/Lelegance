@@ -17,7 +17,7 @@ import util.ConectaBanco;
  */
 public class OrdemCompraDAO {
 
-    private static final String CADASTRA_ORDEM_COMPRA = "INSERT INTO public.\"ordemCompra\"(\"idForncedor\", \"idBox\", \"qtdVendida\", \"status\", \"data\")VALUES ( ?, ?, ?, ?, ?);";
+    private static final String CADASTRA_ORDEM_COMPRA = "INSERT INTO public.\"ordemCompra\"(\"idfornecedor\", \"idbox\", \"qtdvendida\", \"status\", \"data\")VALUES ( ?, ?, ?, ?, ?);";
 
     public void cadastraOrdemCompra(OrdemCompra ordem_compra) throws ClassNotFoundException, SQLException {
         Connection con = ConectaBanco.getConexao();
