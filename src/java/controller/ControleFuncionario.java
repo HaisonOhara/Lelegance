@@ -30,7 +30,7 @@ import util.Formatar;
  *
  * @author sergi
  */
-@WebServlet(name = "ControleFuncionario", urlPatterns = {"/ControleFuncionario", "/logarFuncionario", "/preAlterarFuncionario", "/alterarFuncionario", "/sairFuncionario", "/preAlterarFuncionarioPorId", "/carregarFuncionarios", "/excluirFuncionarioPorId"})
+@WebServlet(name = "ControleFuncionario", urlPatterns = {"/ControleFuncionario", "/logarFuncionario", "/preAlterarFuncionario", "/alterarFuncionario", "/sairFuncionario", "/preAlterarFuncionarioPorId", "/carregarFuncionarios", "/excluirFuncionarioPorId","/promover"})
 public class ControleFuncionario extends HttpServlet {
 
     /**
@@ -58,6 +58,8 @@ public class ControleFuncionario extends HttpServlet {
                 CarregarFuncionarios(request, response);
             } else if (uri.equals(request.getContextPath() + "/excluirFuncionarioPorId")) {
                 excluirFuncionarioPorId(request, response);
+            } else if (uri.equals(request.getContextPath() + "/promover")) {
+                promover(request, response);
             } else if (uri.equals(request.getContextPath() + "/sairFuncionario")) {
                 request.getSession().invalidate();
                 response.sendRedirect("index.jsp");
@@ -108,7 +110,7 @@ public class ControleFuncionario extends HttpServlet {
                 CarregarFuncionarios(request, response);
 
             } else if (fun.getPerfil().equals(COMUM)) {
-               session.setAttribute("isComum", true);
+                session.setAttribute("isComum", true);
                 CarregarFuncionarioComum(request, response);
             }
         } else {
@@ -211,9 +213,22 @@ public class ControleFuncionario extends HttpServlet {
         Funcionario fun = dao.carregarPorId(f);
         fun.setId(f.getId());
         dao.excluirFuncionario(fun);
+        
+        CarregarFuncionarios(request, response);
 
-        request.getRequestDispatcher("carregarFuncionario").forward(request, response);
+    }
 
+    private void promover(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, IOException {
+        Funcionario f = new Funcionario();
+        f.setId(Integer.parseInt(request.getParameter("id")));
+        
+        FuncionarioDAO dao = new FuncionarioDAO();
+        Funcionario fun = dao.carregarPorId(f);
+        fun.setId(f.getId());
+        dao.Promover(fun);
+        
+        CarregarFuncionarios(request, response);
+        
     }
 
 }

@@ -18,6 +18,7 @@ public class Estilo {
     private String Conteudo;
     private String status;
     private double valor;
+    private Funcionario funcionario;    
 //    private Fornecedor fornecedor;
 
     public int getId() {
@@ -76,5 +77,11 @@ public class Estilo {
         this.Conteudo = Conteudo;
     }
 
-    
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
 }

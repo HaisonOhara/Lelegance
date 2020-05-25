@@ -99,7 +99,7 @@ public class ControleEstilo extends HttpServlet {
     public void adicionarEstilo(HttpServletRequest request, HttpServletResponse response) throws NoSuchAlgorithmException, SQLException, ServletException, IOException, ClassNotFoundException {
         HttpSession session = request.getSession();
         Funcionario funcLogado = (Funcionario) session.getAttribute("usuarioAutenticado");
-
+        
         Estilo estilo = new Estilo();
         estilo.setDescricao(request.getParameter("descricao"));
         estilo.setConteudo(request.getParameter("conteudo"));
@@ -107,10 +107,16 @@ public class ControleEstilo extends HttpServlet {
         estilo.setValor(Double.parseDouble(request.getParameter("valor")));
 
         EstiloDAO dao = new EstiloDAO();
+        
+        //desativa o atual
+        Estilo atual = dao.carregarEstilodoMes();
+        dao.excluirEstilo(atual);
+        
+        
         dao.cadastraNovoEstilo(estilo, funcLogado.getId());
+        
+        
         CarregarEstilos(request, response);
-//        request.getRequestDispatcher("/carregarEstilos").forward(request, response);
-//        request.setAttribute("msg","Funcionario Logado C/ sucesso!!!");
     }
 
     public void preAlterar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, IOException {
@@ -233,9 +239,14 @@ public class ControleEstilo extends HttpServlet {
 
         EstiloDAO dao = new EstiloDAO();
         Estilo est_a_alterar = dao.carregarPorId(est);
-
+        
+        //desativa o atual
+        Estilo atual = dao.carregarEstilodoMes();
+        dao.excluirEstilo(atual);
+        
         est_a_alterar.setId(est.getId());
         dao.ativarBox(est_a_alterar);
+        
         response.sendRedirect("/carregarEstilos");
         /*Resolve o bug da url ficar com excluirEstiloPorId?id 
         isso impede que o usuario visualize um item ja excluido 

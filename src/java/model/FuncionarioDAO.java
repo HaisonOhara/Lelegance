@@ -19,14 +19,14 @@ import util.ConectaBanco;
  */
 public class FuncionarioDAO {
 
-    private static final String UPGRADE_PERFIL = "UPDATE usuario set perfil=? where id=?;";
+    private static final String PROMOVER = "UPDATE funcionario set perfil='ADMINISTRADOR' where id=?;";
     private static final String ALTERAR_FUNCIONARIO = "UPDATE funcionario set email=? where id=? ";
     private static final String ALTERAR_PESSOA = "UPDATE public.pessoa SET  nome=? WHERE id=? ;";
-    private static final String EXCLUIR_FUNCIONARIO = "DELETE FROM funcionario where id=?";
+    private static final String EXCLUIR_FUNCIONARIO = "UPDATE funcionario SET status = 'Inativo' where id=?";
     private static final String EXCLUIR_PESSOA = "DELETE FROM pessoa where id=?";
     private static final String AUTENTICA_FUNCIONARIO = "SELECT * from funcionario where email=? and senha=? ";
     private static final String CARREGAR_POR_ID = "SELECT pessoa.nome,funcionario.email,funcionario.pessoa FROM pessoa,funcionario where funcionario.pessoa=pessoa.id AND funcionario.id=?";
-    private static final String CARREGAR_TODOS = "select pessoa.nome,funcionario.email,funcionario.id from pessoa,funcionario where funcionario.pessoa=pessoa.id and funcionario.id!=?";
+    private static final String CARREGAR_TODOS = "select pessoa.nome,funcionario.email,funcionario.id,funcionario.perfil from pessoa,funcionario where funcionario.pessoa=pessoa.id and funcionario.id!=? and status='Ativo'";
 
     public Funcionario autenticaFuncionario(Funcionario funcionario) throws SQLException {
         Funcionario funcionarioAutenticado = null;
@@ -86,14 +86,21 @@ public class FuncionarioDAO {
         ResultSet resultado = comando.executeQuery();
 
         List<Funcionario> funcionarios = new ArrayList();
-
+        
         while (resultado.next()) {
             Funcionario f = new Funcionario();
             f.setId(resultado.getInt("id"));
             f.setNome(resultado.getString("nome"));
             f.setEmail(resultado.getString("email"));
-            funcionarios.add(f);
-        }
+            
+                  if("COMUM".equalsIgnoreCase(resultado.getString("perfil"))){
+                     f.setPerfil(PerfilDeAcesso.COMUM);
+                }else{
+                      f.setPerfil(PerfilDeAcesso.ADMINISTRADOR);
+                  }
+              funcionarios.add(f);
+            }
+            
         con.close();
         return funcionarios;
     }
@@ -104,12 +111,20 @@ public class FuncionarioDAO {
         PreparedStatement comando = con.prepareStatement(EXCLUIR_FUNCIONARIO);
         comando.setInt(1, funcionario.getId());
         comando.execute();
-
-        comando = con.prepareStatement(EXCLUIR_PESSOA);
-        comando.setInt(1, funcionario.getIdpessoa());
-        comando.execute();
-
+        
         con.close();
 
     }
+    
+     public void Promover(Funcionario funcionario) throws SQLException
+     {
+         Connection con = ConectaBanco.getConexao();
+         
+         PreparedStatement comando = con.prepareStatement(PROMOVER);
+         comando.setInt(1, funcionario.getId());
+         comando.execute();
+         
+         con.close();
+     }
+    
 }

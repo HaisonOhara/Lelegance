@@ -13,6 +13,7 @@ public class Funcionario extends Pessoa{
     private int id;
     private String email;
     private String Senha;
+    private String status;
     private PerfilDeAcesso perfil;
 
     public int getId() {
@@ -39,6 +40,15 @@ public class Funcionario extends Pessoa{
         this.Senha = Senha;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    
     public PerfilDeAcesso getPerfil() {
         return perfil;
     }

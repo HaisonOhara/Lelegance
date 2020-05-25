@@ -24,7 +24,7 @@ public class EstiloDAO {
 
     private static final String CARREGAR_TODOS = "SELECT id, nome, descricao, preco,status,conteudo FROM public.estilo";
     private static final String CARREGAR_POR_ID = "SELECT id, nome, descricao, preco,status,conteudo FROM public.estilo where id=?";
-    private static final String EXCLUIR_ESTILO = "UPDATE public.estilo SET status=\'Inativo\' where id=? AND status=\'Ativo\'";
+    private static final String EXCLUIR_ESTILO = "UPDATE public.estilo SET status=\'Inativo\' where id=?";
     private static final String ATIVAR_ESTILO = "UPDATE public.estilo SET status=\'Ativo\' where id=? AND status=\'Inativo\'";
     private static final String CADASTRA_NOVO_ESTILO = "INSERT INTO public.estilo(nome, descricao, preco, imagem, funcionario, status,conteudo)VALUES ( ?, ?, ?, 'imagemMockada.png', ?, 'Ativo',?);";
     private static final String ALTERAR_NOVO_ESTILO = "UPDATE public.estilo SET nome=?, descricao=?, preco=?, imagem='ImagemMockada.png', funcionario=?,conteudo=? where id=?";

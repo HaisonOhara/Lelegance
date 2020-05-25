@@ -50,7 +50,7 @@
         <ul class="nav-menu list-unstyled">
           <li><a href="index.html" class="smoothScroll">Home</a></li>
           <li><a href="../carregarEstilos" class="smoothScroll">Boxs</a></li>
-          <li><a href="#" class="smoothScroll">Funcionarios</a></li>
+          <li><a href="../carregarFuncionarios" class="smoothScroll">Funcionarios</a></li>
           <li><a href="../preAlterarFuncionario" class="smoothScroll"> Dados Pessoais</a></li> 
           <li><a href="../sairFuncionario" class="smoothScroll"> Sair</a></li> 
         </ul>
@@ -73,15 +73,19 @@
                    
                    <thead>   
                    <th>Nome</th>                    
-                     <th>Email</th>                                                             
-                       <th>Deletar</th>
+                     <th>Email</th>
+                      <th>Deletar</th>
+                      <th>Promover</th>
                    </thead>
     <tbody>
     <c:forEach var="f" items="${funcionarios}">
     <tr>
     <td>${f.nome}</td>    
-    <td>${f.email}</td>   
+    <td>${f.email}</td> 
     <td><a href="excluirFuncionarioPorId?id=${f.id}"><input type="submit" name="delete" value="Deletar"></a></td>
+    <c:if test="${f.perfil=='COMUM'}">
+    <td><a href="promover?id=${f.id}"><input type="submit" name="promover" value="Promover"></a></td>
+    </c:if>
     </tr>
     </c:forEach>    
 </table>

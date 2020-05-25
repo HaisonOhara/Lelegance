@@ -112,7 +112,6 @@
                             <th>Valor</th>
                             <th>Descrição</th>
                             <th>Conteudo</th>
-                            <th>Status</th>
                             <th>Editar</th>
                                 <c:if test="${isComum==false}">
                                 <th>Alterar Ativo/Inativo</th>  
@@ -125,13 +124,12 @@
                                         <td>${est.valor}</td>
                                         <td>${est.descricao}</td>
                                         <td>${est.conteudo}</td>
-                                        <td>${est.status}</td>
                                         <td>
                                 <cente><a href="preAlterarEstilo?id=${est.id}"><button class="btn btn-lg btn-primary btn-lista text-uppercase" name="adcionar" type="submit">Editar Box</button></a></cente>
                                 </td>
                                 <c:if test="${est.status=='Ativo'&&isComum==false}">
                                     <td>
-                                    <cente><a href="excluirEstiloPorId?id=${est.id}"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="delete" type="submit">Desativar</button></a></cente>
+                                    <cente><button class="btn btn-lg btn-success btn-lista text-uppercase"  name="delete" type="submit">Ativo</button></cente>
                                     </td>
                                 </c:if>
                                 <c:if test="${est.status=='Inativo'&&isComum==false}">

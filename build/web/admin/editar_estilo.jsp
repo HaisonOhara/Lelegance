@@ -37,13 +37,53 @@
     </head>
 
     <body>
+        <!-- start section navbar -->
+        <c:if test="${isComum==true}">
+            <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+                <div class="row">
+                    <div class="container">
 
-        <%@include file="../menu.jsp" %>
+                        <div class="logo">
+                            <a href="index.jsp"><img src="img_projeto/logooo.png" alt=""></a>
+                        </div>
 
+                        <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
+                        <div class="espaco"></div>
+                        <ul class="nav-menu list-unstyled">
+                            <li><a href="../preAlterarFuncionario" class="smoothScroll">Dados Pessoais</a></li>
+                            <li><a href="../sairFuncionario" class="smoothScroll">Sair</a></li>
+                        </ul>
 
+                    </div>
+                </div>
+            </nav>
+        </c:if>
 
+        <c:if test="${isComum==false}">
+            <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+                <div class="row">
+                    <div class="container">
 
+                        <div class="logo">
+                            <a href="index.jsp"><img src="img_projeto/logooo.png" alt=""></a>
+                        </div>
 
+                        <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
+                        <div class="espaco"></div>
+                        <ul class="nav-menu list-unstyled">
+                            <li><a href="index.html" class="smoothScroll">Home</a></li>
+                            <li><a href="../carregarEstilos" class="smoothScroll">Boxs</a></li>
+                            <li><a href="../carregarFuncionarios" class="smoothScroll">Funcionarios</a></li>
+                            <li><a href="../preAlterarFuncionario" class="smoothScroll"> Dados Pessoais</a></li> 
+                            <li><a href="../sairFuncionario" class="smoothScroll"> Sair</a></li> 
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+        </c:if>
+
+        <!-- End section navbar -->
         <div class="container">
             <div class="row">
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -71,9 +111,6 @@
                                 </br>
                                 <button class="btn btn-lg btn-primary btn-block text-uppercase btn-lista" name="adicionar" type="submit">Editar Estilo</button>
                                 <br>
-                                <c:if test="${isComum==false}">
-                                    <button class="btn btn-lg btn-primary btn-block btn-excluirestilo text-uppercase btn-lista" name="excluir" type="submit">Excluir Estilo</button>
-                                </c:if>
                                 <hr class="my-4">
                             </form>
                         </div>
