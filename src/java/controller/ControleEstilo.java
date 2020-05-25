@@ -267,7 +267,7 @@ public class ControleEstilo extends HttpServlet {
 
         EstiloDAO dao = new EstiloDAO();
         e = dao.carregarPorId(e);
-        // MY build 
+        
         request.setAttribute("estilo", e);
         request.getRequestDispatcher("box_visao_cliente.jsp").forward(request, response);
 
