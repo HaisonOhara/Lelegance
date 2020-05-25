@@ -23,7 +23,7 @@ public class EstiloDAO {
     private static final String CARREGAR_ESTILO_DO_MES = "SELECT * FROM public.estilo where status=\'Ativo\'";
 
     private static final String CARREGAR_TODOS = "SELECT id, nome, descricao, preco,status,conteudo FROM public.estilo";
-    private static final String CARREGAR_POR_ID = "SELECT id, nome, descricao, preco,status,conteudo FROM public.estilo where id=?";
+    private static final String CARREGAR_POR_ID = "SELECT id, nome, descricao, preco,imagem,status,conteudo,funcionario FROM public.estilo where id=?";
     private static final String EXCLUIR_ESTILO = "UPDATE public.estilo SET status=\'Inativo\' where id=?";
     private static final String ATIVAR_ESTILO = "UPDATE public.estilo SET status=\'Ativo\' where id=? AND status=\'Inativo\'";
     private static final String CADASTRA_NOVO_ESTILO = "INSERT INTO public.estilo(nome, descricao, preco, imagem, funcionario, status,conteudo)VALUES ( ?, ?, ?, 'imagemMockada.png', ?, 'Ativo',?);";
@@ -65,6 +65,7 @@ public class EstiloDAO {
             estiloMensal.setDescricao(resultado.getString("descricao"));
             estiloMensal.setValor(resultado.getDouble("preco"));
             estiloMensal.setStatus(resultado.getString("status"));
+            estiloMensal.setStatus(resultado.getString("conteudo"));
         }
         con.close();
         return estiloMensal;
@@ -81,9 +82,13 @@ public class EstiloDAO {
         while (resultado.next()) {
             est.setId(resultado.getInt("id"));
             est.setNome(resultado.getString("nome"));
+            est.setImagem(resultado.getString("imagem"));
             est.setDescricao(resultado.getString("descricao"));
             est.setValor(resultado.getDouble("preco"));
             est.setStatus(resultado.getString("status"));
+            Funcionario f = new Funcionario();
+            f.setId(resultado.getInt("funcionario"));
+            est.setFuncionario(f);
             est.setConteudo(resultado.getString("conteudo"));
         }
         con.close();

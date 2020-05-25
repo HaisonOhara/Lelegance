@@ -168,6 +168,7 @@ public class ControleEstilo extends HttpServlet {
         estilo.setId(Estiloid);
         estilo.setNome(request.getParameter("nomeEstilo"));
         estilo.setValor(Double.parseDouble(request.getParameter("valor")));
+        estilo.setConteudo(request.getParameter("conteudo"));
 
         EstiloDAO dao = new EstiloDAO();
         dao.AlterarNovoEstilo(estilo, funcLogado.getId());
