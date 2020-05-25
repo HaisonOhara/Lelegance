@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Estilo;
 import model.EstiloDAO;
+import model.PerfilDeAcesso;
 import model.Funcionario;
 import model.FuncionarioDAO;
 import static model.PerfilDeAcesso.ADMINISTRADOR;
@@ -30,7 +31,7 @@ import util.Formatar;
  *
  * @author sergi
  */
-@WebServlet(name = "ControleFuncionario", urlPatterns = {"/ControleFuncionario", "/logarFuncionario", "/preAlterarFuncionario", "/alterarFuncionario", "/sairFuncionario", "/preAlterarFuncionarioPorId", "/carregarFuncionarios", "/excluirFuncionarioPorId","/promover"})
+@WebServlet(name = "ControleFuncionario", urlPatterns = {"/ControleFuncionario", "/logarFuncionario", "/preAlterarFuncionario", "/alterarFuncionario", "/sairFuncionario", "/preAlterarFuncionarioPorId", "/carregarFuncionarios", "/excluirFuncionarioPorId", "/promover", "/solicitarCadastroFuncionario", "/cadastrarFuncionario"})
 public class ControleFuncionario extends HttpServlet {
 
     /**
@@ -58,6 +59,8 @@ public class ControleFuncionario extends HttpServlet {
                 CarregarFuncionarios(request, response);
             } else if (uri.equals(request.getContextPath() + "/excluirFuncionarioPorId")) {
                 excluirFuncionarioPorId(request, response);
+            } else if (uri.equals(request.getContextPath() + "/solicitarCadastroFuncionario")) {
+                response.sendRedirect("cadastroFuncionario.jsp");
             } else if (uri.equals(request.getContextPath() + "/promover")) {
                 promover(request, response);
             } else if (uri.equals(request.getContextPath() + "/sairFuncionario")) {
@@ -82,6 +85,8 @@ public class ControleFuncionario extends HttpServlet {
                 logar(request, response);
             } else if (uri.equals(request.getContextPath() + "/alterarFuncionario")) {
                 alterarFuncionario(request, response);
+            } else if (uri.equals(request.getContextPath() + "/cadastrarFuncionario")) {
+                cadastrarFuncionario(request, response);
             } else {
                 response.sendRedirect("error.jsp");
             }
@@ -106,7 +111,7 @@ public class ControleFuncionario extends HttpServlet {
             if (fun.getPerfil().equals(ADMINISTRADOR)) {
                 //SETANDO ATRIBUTO DE SESSAO PARA DIFERENCIAR O FUNCIONARIO COMUM
                 // DO GERENTE.               
-                session.setAttribute("isComum", false );
+                session.setAttribute("isComum", false);
                 CarregarFuncionarios(request, response);
 
             } else if (fun.getPerfil().equals(COMUM)) {
@@ -213,7 +218,7 @@ public class ControleFuncionario extends HttpServlet {
         Funcionario fun = dao.carregarPorId(f);
         fun.setId(f.getId());
         dao.excluirFuncionario(fun);
-        
+
         CarregarFuncionarios(request, response);
 
     }
@@ -221,14 +226,43 @@ public class ControleFuncionario extends HttpServlet {
     private void promover(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, IOException {
         Funcionario f = new Funcionario();
         f.setId(Integer.parseInt(request.getParameter("id")));
-        
+
         FuncionarioDAO dao = new FuncionarioDAO();
         Funcionario fun = dao.carregarPorId(f);
         fun.setId(f.getId());
         dao.Promover(fun);
-        
+
         CarregarFuncionarios(request, response);
-        
+
+    }
+
+    private void cadastrarFuncionario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NoSuchAlgorithmException, ClassNotFoundException, SQLException {
+
+        Funcionario funcionario = new Funcionario();
+
+        funcionario.setNome(request.getParameter("nome"));
+        funcionario.setEmail(request.getParameter("email"));
+
+        String senha = request.getParameter("senha");
+        String confSenha = request.getParameter("confsenha");
+
+        if (!confSenha.equals(senha)) {
+            RequestDispatcher rd = request.getRequestDispatcher("/cadastroFuncionario.jsp");
+            request.setAttribute("msg", "Senhas não estão identicas");
+            rd.forward(request, response);
+        } else {
+            funcionario.setSenha(Formatar.criptografar(senha));
+
+            funcionario.setPerfil(PerfilDeAcesso.COMUM);
+
+            FuncionarioDAO dao = new FuncionarioDAO();
+            dao.cadastrarFuncionario(funcionario);
+            CarregarFuncionarios(request, response);
+//            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+//            request.setAttribute("msg", "Cadastrado com sucesso");
+//            rd.forward(request, response);
+        }
+
     }
 
 }

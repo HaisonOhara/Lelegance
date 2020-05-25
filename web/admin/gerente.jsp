@@ -89,6 +89,7 @@
     </tr>
     </c:forEach>    
 </table>
+ <td><a href="solicitarCadastroFuncionario"><input type="submit" name="cadastrar" value="Cadastrar Novo Funcionário"></a></td>        
   <!-- end table -->
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>

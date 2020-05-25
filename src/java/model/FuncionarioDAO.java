@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import util.ConectaBanco;
@@ -27,6 +28,8 @@ public class FuncionarioDAO {
     private static final String AUTENTICA_FUNCIONARIO = "SELECT * from funcionario where email=? and senha=? ";
     private static final String CARREGAR_POR_ID = "SELECT pessoa.nome,funcionario.email,funcionario.pessoa FROM pessoa,funcionario where funcionario.pessoa=pessoa.id AND funcionario.id=?";
     private static final String CARREGAR_TODOS = "select pessoa.nome,funcionario.email,funcionario.id,funcionario.perfil from pessoa,funcionario where funcionario.pessoa=pessoa.id and funcionario.id!=? and status='Ativo'";
+    private static final String CADASTRAR_FUNCIONARIO = "INSERT INTO public.funcionario( email, senha, perfil, pessoa, status)VALUES ( ?, ?, ?, ?, ?);";
+    private static final String CADASTRA_NOVA_PESSOA = "INSERT INTO pessoa(nome) VALUES (?);";
 
     public Funcionario autenticaFuncionario(Funcionario funcionario) throws SQLException {
         Funcionario funcionarioAutenticado = null;
@@ -43,6 +46,40 @@ public class FuncionarioDAO {
         }
 
         return funcionarioAutenticado;
+    }
+
+    public void cadastrarFuncionario(Funcionario funcionario) {
+        Connection conexao = null;
+        PreparedStatement pstmt = null;
+        try {
+            conexao = ConectaBanco.getConexao();
+            pstmt = conexao.prepareStatement(CADASTRA_NOVA_PESSOA, Statement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1, funcionario.getNome());
+            pstmt.execute();
+
+            ResultSet key = pstmt.getGeneratedKeys();
+            key.next();
+
+            pstmt = conexao.prepareStatement(CADASTRAR_FUNCIONARIO);
+            pstmt.setString(1, funcionario.getEmail());
+            pstmt.setString(2, funcionario.getSenha());
+            pstmt.setString(3, funcionario.getPerfil().toString());
+            pstmt.setInt(4, key.getInt(1));//Atributo pessoa
+            pstmt.setString(5, "Ativo");
+            pstmt.execute();
+
+        } catch (SQLException sqlErro) {
+            throw new RuntimeException(sqlErro);
+        } finally {
+            if (conexao != null) {
+                try {
+                    conexao.close();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+
+        }
     }
 
     public Funcionario carregarPorId(Funcionario funcionario) throws SQLException, ClassNotFoundException {
@@ -86,21 +123,21 @@ public class FuncionarioDAO {
         ResultSet resultado = comando.executeQuery();
 
         List<Funcionario> funcionarios = new ArrayList();
-        
+
         while (resultado.next()) {
             Funcionario f = new Funcionario();
             f.setId(resultado.getInt("id"));
             f.setNome(resultado.getString("nome"));
             f.setEmail(resultado.getString("email"));
-            
-                  if("COMUM".equalsIgnoreCase(resultado.getString("perfil"))){
-                     f.setPerfil(PerfilDeAcesso.COMUM);
-                }else{
-                      f.setPerfil(PerfilDeAcesso.ADMINISTRADOR);
-                  }
-              funcionarios.add(f);
+
+            if ("COMUM".equalsIgnoreCase(resultado.getString("perfil"))) {
+                f.setPerfil(PerfilDeAcesso.COMUM);
+            } else {
+                f.setPerfil(PerfilDeAcesso.ADMINISTRADOR);
             }
-            
+            funcionarios.add(f);
+        }
+
         con.close();
         return funcionarios;
     }
@@ -111,20 +148,19 @@ public class FuncionarioDAO {
         PreparedStatement comando = con.prepareStatement(EXCLUIR_FUNCIONARIO);
         comando.setInt(1, funcionario.getId());
         comando.execute();
-        
+
         con.close();
 
     }
-    
-     public void Promover(Funcionario funcionario) throws SQLException
-     {
-         Connection con = ConectaBanco.getConexao();
-         
-         PreparedStatement comando = con.prepareStatement(PROMOVER);
-         comando.setInt(1, funcionario.getId());
-         comando.execute();
-         
-         con.close();
-     }
-    
+
+    public void Promover(Funcionario funcionario) throws SQLException {
+        Connection con = ConectaBanco.getConexao();
+
+        PreparedStatement comando = con.prepareStatement(PROMOVER);
+        comando.setInt(1, funcionario.getId());
+        comando.execute();
+
+        con.close();
+    }
+
 }
