@@ -103,12 +103,18 @@
                                 <div class="form-label-group">
                                     <textarea id="texareaDescricao" rows="4" cols="27" name="descricao" placeholder="Descrição da Box" maxlength="240" required>${estilo.descricao}</textarea>
                                 </div>
-                                </br>
-
+                                <br/>
+                                
+                                <div class="form-label-group">
+                                    <textarea id="texareaConteudo" rows="4" cols="27" name="conteudo" placeholder="Conteudo da caixa" maxlength="240" required>${estilo.conteudo}</textarea>
+                                </div>
+                                
+                                <br/>
+                                
                                 <div class="form-label-group">
                                     <input type="file" class="filestyle">
                                 </div>
-                                </br>
+                                <br/>
                                 <button class="btn btn-lg btn-primary btn-block text-uppercase btn-lista" name="adicionar" type="submit">Editar Estilo</button>
                                 <br>
                                 <hr class="my-4">
