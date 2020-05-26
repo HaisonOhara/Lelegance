@@ -29,13 +29,20 @@ h15 {
 }
 
 h11 {
-    color: #000;
+    color: #292929;
     font-size: 24px;
     margin-top: 20px;
 }
 
+h12 {
+    font-size: 70px;
+    font-weight: bold;
+    padding-bottom: 50px;
+    color: #292929;
+}
+
 h5 {
-    color: #000;
+    color: #292929;
     margin-top: 2%;
     font-size: 65px;
 }
@@ -85,7 +92,7 @@ a:hover {
 
 a:hover,
 a:focus {
-    color: #000;
+    color: #292929;
     text-decoration: underline;
 }
 
@@ -112,6 +119,21 @@ p {
     font-size: 15px;
     color: #999999;
     line-height: 28px;
+}
+
+h13 {
+    margin: 25px 0;
+    padding: 0;
+    font-size: 20px;
+    color: #292929;
+    padding-bottom: 18px;
+    font-weight: bold;
+}
+
+h14 {
+    font-size: 20px;
+    color: #292929;
+    font-weight: bold;
 }
 
 ::-moz-selection {
@@ -301,6 +323,18 @@ nav ul li a {
     width: 100%;
 }
 
+#estilo {
+    background: url("../images/estilo.jpg") repeat scroll center center / cover;
+    height: 100vh;
+    width: 100%;
+}
+
+#estilos {
+    background: url("../images/estilos.jpg") repeat scroll center center / cover;
+    height: 100vh;
+    width: 100%;
+}
+
 .btn-get-started {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
@@ -315,6 +349,15 @@ nav ul li a {
 }
 
 #header .header-content {
+    height: 100vh;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#estilo .header-content {
     height: 100vh;
     text-align: left;
     width: 100%;

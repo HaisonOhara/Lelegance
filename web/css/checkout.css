@@ -1,0 +1,1278 @@
+body {
+    background: #eee !important;
+    padding: 0;
+    margin: 0;
+    font-family: arial;
+}
+
+
+/*Classes comuns*/
+
+@media screen and (max-width: 991px) {
+    main {
+        display: table !important;
+    }
+}
+
+.widhtPadrao {
+    width: 1224px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1280px) {
+    .widhtPadrao {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .widhtPadrao {
+        width: 92%;
+    }
+    .p0XS {
+        padding: 0 !important;
+    }
+    .mg0AXS {
+        margin: 0 auto !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .widhtPadrao {
+        width: 90%;
+    }
+}
+
+.fontColor {
+    color: #292929 !important;
+}
+
+.fontColorAtenction {
+    color: #292929 !important;
+}
+
+.txR {
+    text-align: right;
+}
+
+.txL {
+    text-align: left;
+}
+
+.txC {
+    text-align: center;
+}
+
+.p0 {
+    padding: 0 !important;
+}
+
+.p0L {
+    padding-left: 0 !important;
+}
+
+.p0R {
+    padding-right: 0 !important;
+}
+
+.mgT5 {
+    margin-top: 5px !important;
+}
+
+.mgT-5 {
+    margin-top: -5px !important;
+}
+
+.mgT10 {
+    margin-top: 10px !important;
+}
+
+.mgL-5 {
+    margin-left: -5px !important;
+}
+
+.pdB40 {
+    padding-bottom: 40px !important;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.bgZupperAzul {
+    background: #292929 !important;
+}
+
+.bgZupperLaranja {
+    background: #292929 !important;
+}
+
+.italico {
+    font-style: italic;
+    font-size: 13px !important;
+    line-height: 20px;
+}
+
+.justificado {
+    text-align: justify;
+}
+
+
+/*Fim das Classes comuns*/
+
+#headerCheckout {
+    background: #fff;
+    display: table;
+    width: 100%;
+    padding: 8px 0;
+    box-shadow: 0 0 4px #ccc;
+}
+
+.entrarHeader {
+    padding: 12px 0 0 0;
+}
+
+.entrarHeader p {
+    margin-bottom: 0;
+    font-size: 18px;
+    text-align: right;
+}
+
+.entrarHeader i {
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+
+/*Migalha de pao*/
+
+.migalhaDePao {
+    margin-top: 20px;
+    color: #888;
+}
+
+.migalhaDePao i {
+    font-weight: 600;
+    color: #aaa;
+    margin-bottom: 3px;
+    vertical-align: bottom;
+}
+
+
+/*Progress Mobile*/
+
+.ProgressBarMobile {
+    margin: 20px 0 20px 0 !important;
+}
+
+.activeProgress {
+    background: #292929;
+}
+
+.ProgressBarMobile .row {
+    margin: 0 !important;
+}
+
+.ProgressBarMobile .row hr {
+    border-top: 2px solid #bbb;
+}
+
+.circleProgress {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #292929;
+    margin: 0 auto;
+}
+
+.botooesProgress button {
+    width: 150px;
+    background: #292929;
+    color: #fff;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.mgL0 {
+    margin-left: 0 !important;
+}
+
+.fR {
+    float: right;
+}
+
+
+/*titulos do checkout*/
+
+.tituloPagina {
+    margin-top: 10px;
+    font-size: 35px;
+    margin-bottom: 0;
+    font-weight: normal;
+    color: #666;
+}
+
+.subtituloPagina {
+    font-size: 20px;
+    color: #666;
+}
+
+
+/*Aqui começa os blocos do lado direito*/
+
+.blocosCheckout {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 4px #ccc;
+    display: table;
+    margin-bottom: 20px;
+    color: #777;
+    padding: 15px 20px;
+}
+
+.blocosCheckout h2 {
+    font-size: 20px;
+    color: #333;
+    font-weight: normal;
+}
+
+.naoSeiCep {
+    font-size: 12px;
+    color: #292929;
+}
+
+.obrigatorioAzul {
+    font-size: 12px;
+    color: #292929;
+}
+
+.obrigatorio {
+    font-size: 12px;
+    color: #F64F49;
+}
+
+.blocosCheckout ::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+.blocosCheckout :-moz-placeholder {
+    /* Firefox 18- */
+    color: #ccc;
+}
+
+.blocosCheckout ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #ccc;
+}
+
+.blocosCheckout :-ms-input-placeholder {
+    color: #ccc;
+}
+
+
+/*Lado direito*/
+
+.taxas {
+    text-align: center;
+    color: #fff;
+    background: #292929;
+    width: 100%;
+    padding: 5px 0 0 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.taxas header {
+    font-size: 18px;
+}
+
+.clockTimer {
+    font-size: 25px;
+}
+
+.corpoTaxas {
+    background: #fff;
+    margin-top: 10px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 15px 0 0 0 !important;
+    text-align: left;
+    color: #666;
+}
+
+.corpoTaxas h3 {
+    padding-left: 15px;
+    margin-top: 0px;
+    font-size: 22px;
+    color: #666;
+    text-align: left;
+    font-weight: normal;
+}
+
+.precoTarifa {
+    display: table;
+    float: right;
+    /*background: #292929;*/
+    /*padding: 5px 15px 5px 10px;*/
+    padding: 0px 15px 0px 10px;
+    /*color: #fff;*/
+    color: #666;
+    border-radius: 5px 0 0 5px;
+}
+
+.linhaTarifa {
+    font-size: 18px;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-top: 5px !important;
+}
+
+.taxasLinhas {
+    padding: 0 15px;
+    width: 100%;
+}
+
+.linhaTaxas {
+    font-size: 15px;
+    margin: 0 !important;
+    padding: 5px 0 !important;
+    margin-top: 5px !important;
+    border-top: 1px solid #ccc;
+}
+
+.linhaTaxas:first-child {
+    margin-top: 500px !important;
+}
+
+.precoTaxas {
+    text-align: right;
+    padding-right: 15px !important;
+}
+
+.linhaTotal {
+    font-size: 20px;
+    margin: 0 !important;
+    padding: 5px 0 !important;
+    margin-top: 5px !important;
+    background: #292929;
+    color: #fff;
+    text-align: left;
+}
+
+
+/*Informacoes de voo*/
+
+.informacoesVoo header {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.informacoesVoo header i {
+    color: #fff;
+    background: #666;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 15px;
+}
+
+.idaEvoltaBloco h4 {
+    font-weight: normal;
+    color: #292929;
+}
+
+.idaEvoltaBloco h6 {
+    margin-bottom: 0;
+    font-weight: normal;
+    margin-top: -5px;
+}
+
+.idaEvoltaBloco p {
+    margin-bottom: 0;
+}
+
+.idaEvoltaBloco .logos img {
+    margin-top: 10px;
+    height: 15px;
+    vertical-align: inherit;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.boxAside {
+    padding: 10px 0px 20px 0px;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 420px) {
+    .blocoAeroporto h4 {
+        font-size: 18px !important;
+    }
+    .conexao hr {
+        margin-top: 12px;
+    }
+}
+
+
+/*Nova seguimentação*/
+
+.blocoAeroporto header p {
+    color: #999;
+}
+
+.blocoAeroporto {
+    margin-top: 10px;
+}
+
+.blocoAeroporto h3 {
+    font-weight: normal;
+}
+
+.TxtDestino {
+    padding-top: 5px !important;
+    margin-left: -10px !important;
+}
+
+.duracao {
+    font-size: 12px;
+    color: #999;
+    padding: 3px 15px 5px 15px;
+}
+
+.aeroportoSigla h3 {
+    margin-bottom: -5px;
+}
+
+.bolinhaTrecho {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #999;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.barraTrecho {
+    width: 2px;
+    background: #999;
+    height: 60px;
+    margin-top: -22px;
+    margin-left: 4px;
+    margin-bottom: -12px;
+}
+
+@media screen and (max-width: 991px) {
+    .barraTrecho {
+        margin: 0 auto;
+        margin-top: -22px;
+        margin-bottom: -12px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .barraTrecho {
+        margin-left: 4px;
+        margin-top: -22px;
+        margin-bottom: -12px;
+    }
+}
+
+
+/*Fim Nova seguimentação*/
+
+.ida {
+    /*color: #fff !important;	
+	background: #292929 !important;	
+	padding: 2px 15px;
+	border-radius: 5px;*/
+    color: #fff;
+    background: #0079BE;
+    width: 85px;
+    padding: 5px 10px;
+    border-radius: 0 20px 20px 20px;
+    /*margin-top: 30px !important;*/
+    margin-top: 10px !important;
+}
+
+.idaEvoltaBloco .corAzulEscuroInfoVoos {
+    color: #292929;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.dividirIdaEVotla {
+    margin: 40px 0;
+    border-bottom: 2px dotted #ccc;
+}
+
+.volta {
+    /*color: #fff !important;	
+	background: #15B2B2 !important;	
+	padding: 2px 15px;
+	border-radius: 5px;*/
+    /*margin-top: 40px !important;*/
+    color: #fff;
+    background: #292929;
+    width: 100px;
+    padding: 5px 10px;
+    border-radius: 0 20px 20px 20px;
+    margin-top: 0px !important;
+    margin-top: 0px !important;
+}
+
+.blocoVolta .aeroportos h4 {
+    color: #292929 !important;
+}
+
+.volta i {
+    transform: scaleX(-1);
+    font-size: 15px;
+    vertical-align: top;
+    margin-top: 6px;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.ida i {
+    font-size: 15px;
+    vertical-align: top;
+    margin-top: 6px;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.idaEvoltaBloco .indicaIdaVolta {
+    font-size: 20px;
+}
+
+.idaEvoltaBloco .corAzulInfoVoos {
+    color: #0079BE;
+    font-size: 14px;
+}
+
+.idaEvoltaBloco .corAzulInfoVoos span {
+    font-weight: bolder;
+}
+
+.corAzulInfoVoosVolta {
+    color: #292929;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 403px) {
+    .idaEvoltaBloco .corAzulInfoVoos {
+        font-size: 12px;
+    }
+    .corAzulInfoVoosVolta {
+        font-size: 12px;
+    }
+}
+
+.corAzulInfoVoosVolta span {
+    font-weight: bolder;
+}
+
+.blocoAeroporto header {
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.idaEvoltaBloco .aeroportos {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.aeroportos h4 {
+    color: #0079BE;
+}
+
+.conexao {
+    margin-top: 20px;
+    font-size: 12px;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    margin-bottom: 10px !important;
+}
+
+.conexao hr {
+    margin-top: 15px;
+}
+
+.conexaoBloco {
+    padding: 7px 5px;
+    background: #f1f1f1;
+    border-radius: 15px;
+    font-size: 10px;
+}
+
+.bagagem {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+
+/*Lado esquerdo*/
+
+
+/*Viajantes*/
+
+.viajantes p {
+    margin-bottom: 0;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.viajantes label {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.viajantes .row {
+    padding: 0 15px;
+}
+
+.viajantes input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.alertaIdade {
+    color: #ff0000;
+    font-size: 12px !important;
+    margin: 0 !important;
+    margin-top: -5px !important;
+}
+
+
+/*informacoes de pagamento*/
+
+.pagamento .subtitulopagina {
+    margin-top: 30px;
+}
+
+.pagamento {
+    margin-left: 0 !important;
+}
+
+.pagamento label {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.pagamento .row {
+    padding: 0 15px;
+}
+
+.pagamento input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px 10px;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.pagamento select {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px 10px;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 1200px) {
+    #SectionCartao ul {
+        padding: 0 !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .pagamento ul {
+        padding: 0 0 0 15px !important;
+    }
+    .trocarOrderm {
+        flex-direction: column-reverse;
+    }
+    .viajantes {
+        margin-top: 0px;
+    }
+}
+
+.avistaParcela {
+    z-index: 999;
+    position: relative;
+}
+
+.cardPagamentoChecked {
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 991px) {
+    .cardPagamentoChecked .p0R {
+        padding-right: 15px !important;
+    }
+}
+
+
+/*Transferencia*/
+
+.TransferenciaPagamentoChecked {
+    display: none;
+    margin-top: 60px;
+    margin-left: 25px;
+}
+
+.TransferenciaPagamentoChecked p {
+    margin-bottom: 10px;
+}
+
+.TransferenciaPagamentoChecked i {
+    font-size: 15px;
+    color: #292929;
+}
+
+.imgBancosTransferencias img {
+    width: 50px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+
+/*Cartao*/
+
+#cartao {
+    width: 340px;
+    height: 190px;
+    border-radius: 8px;
+    margin-top: 30px;
+    color: #fff;
+    display: table;
+    position: relative;
+    -webkit-perspective: 800px;
+    -ms-perspective: 800px;
+    perspective: 800px;
+}
+
+.cartaoRadio {
+    margin-top: 30px !important;
+}
+
+.bandeiras {
+    margin-left: 12%;
+}
+
+#cartao header {
+    margin-top: 20px;
+}
+
+#cartao header .mascote {
+    width: 80px;
+    margin-left: -20px;
+    animation-duration: 0.6s;
+    animation-delay: 0s;
+    animation-name: fadeInUp;
+}
+
+#cartao header .chip {
+    width: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#cartao header i {
+    font-size: 55px;
+    margin-top: 15px;
+    transform: rotate(90deg);
+    margin-left: 15px;
+}
+
+.corpoCartao {
+    margin-top: 25px;
+}
+
+.corpoCartao h4 {
+    font-size: 18px;
+}
+
+.corpoCartao p {
+    margin-bottom: 0;
+    font-size: 10px;
+}
+
+.numeroCartao {
+    font-size: 20px !important;
+    margin-top: -10px;
+}
+
+@media screen and (max-width: 1200px) {
+    .bandeiras {
+        margin-left: 0 !important;
+    }
+    .corpoCartao h4 {
+        font-size: 13px;
+    }
+    .corpoCartao p {
+        margin-bottom: 0;
+        font-size: 10px;
+    }
+    .numeroCartao {
+        font-size: 15px !important;
+        margin-top: 0px;
+    }
+    #cartao header .mascote {
+        width: 50px;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #cartao {
+        width: 290px !important;
+    }
+    .corpoCartao p {
+        font-size: 8px !important;
+    }
+    .numeroCartao {
+        font-size: 12px !important;
+    }
+    .corpoCartao h4 {
+        font-size: 11px !important;
+    }
+    .corpoCartao {
+        margin-top: 45px !important;
+    }
+    .label--radio {
+        position: relative;
+        margin: 0 7px 0 0 !important;
+        font-family: Arial, sans-serif;
+        line-height: 135%;
+        cursor: pointer;
+    }
+}
+
+
+/*Condicao Amex*/
+
+#cvvAmex {
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+    animation-duration: 0.6s;
+    animation-delay: 0s;
+    animation-name: fadeInUp;
+}
+
+#cvvAmex p {
+    margin-bottom: 0px;
+}
+
+#cvvAmex input {
+    width: 90%;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+}
+
+#cvvAmex input:focus {
+    border-bottom: 2px solid transparent;
+    outline: none;
+}
+
+.bandeiraDoCartao_card {
+    padding-bottom: 5px;
+    margin-top: -15px;
+}
+
+.virarCartao {
+    width: 50px;
+    height: 50px;
+    background: #15B2B2;
+    border-radius: 50%;
+    margin: 0 auto;
+    font-size: 15px !important;
+    float: right;
+    color: #fff;
+    position: absolute;
+    margin-left: 87%;
+    margin-top: -25px;
+    border: 4px solid #fff;
+    z-index: 999 !important;
+    cursor: pointer;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-in;
+    transition-property: all;
+    display: none;
+}
+
+.backCartao {
+    display: none;
+}
+
+.virarCartao:hover {
+    background: #292929;
+}
+
+.virarCartao i {
+    font-size: 20px !important;
+    margin-top: 11px !important;
+    transform: rotate(0deg) !important;
+    margin-left: 10px !important;
+}
+
+.tarjaCartao {
+    width: 100%;
+    height: 40px;
+    background: #292929;
+    margin-top: 20px;
+}
+
+.card .back p {
+    text-align: center;
+    font-size: 19px;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.card .back h5 {
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+}
+
+.card .back input:focus {
+    outline: none;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none !important;
+    border-radius: 8px !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    background: #292929 !important;
+}
+
+.card .front {
+    background: #292929;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-in;
+    transition-property: all;
+}
+
+.card .back {
+    border-radius: 8px;
+    background: #292929;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    transition-duration: 0.6s;
+    transition-timing-function: ease-in;
+    transition-property: all;
+}
+
+.card.flipped {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+
+/*Contatos*/
+
+.contatosCheckout p {
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+.contatosCheckout label {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.contatosCheckout .row {
+    padding: 0 15px;
+}
+
+.contatosCheckout input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px 10px;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.contatosCheckout select {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px 10px;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+
+/*Condicoes Gerais*/
+
+.condicoesGerias h2 {
+    margin-bottom: 30px;
+}
+
+.condicoesGerias a {
+    text-decoration: none;
+    color: #292929;
+}
+
+.condicoesGerias .md-checkbox {
+    margin-left: 15px;
+}
+
+.botaoComprar {
+    display: block;
+    margin: 0 auto;
+    background: #292929;
+    padding: 8px 65px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.footerClean {
+    margin-top: 20px;
+    width: 100%;
+    padding: 8px 0;
+    background: #292929;
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+}
+
+
+/*CheckBox*/
+
+.md-checkbox {
+    position: relative;
+    margin: 1em 0;
+    text-align: left;
+}
+
+.md-checkbox.md-checkbox-inline {
+    display: inline-block;
+}
+
+.md-checkbox label {
+    cursor: pointer;
+    display: inline;
+    line-height: 1.25em;
+    vertical-align: top;
+    clear: both;
+    padding-left: 1px;
+}
+
+.md-checkbox label:not(:empty) {
+    padding-left: 0.75em;
+}
+
+.md-checkbox label:before,
+.md-checkbox label:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.md-checkbox label:before {
+    width: 1.25em;
+    height: 1.25em;
+    background: #fff;
+    border: 2px solid rgba(0, 0, 0, 0.54);
+    border-radius: 0.125em;
+    cursor: pointer;
+    transition: background .3s;
+}
+
+.md-checkbox input[type="checkbox"] {
+    outline: 0;
+    visibility: hidden;
+    width: 1.25em;
+    margin: 0;
+    display: block;
+    float: left;
+    font-size: inherit;
+}
+
+.md-checkbox input[type="checkbox"]:checked+label:before {
+    background: #fff;
+    border-color: #292929;
+}
+
+.md-checkbox input[type="checkbox"]:checked+label:after {
+    transform: translate(0.25em, 0.3365384615em) rotate(-45deg);
+    width: 0.75em;
+    height: 0.375em;
+    border: 0.125em solid #15B2B2;
+    border-top-style: none;
+    border-right-style: none;
+}
+
+.md-checkbox input[type="checkbox"]:disabled+label:before {
+    border-color: rgba(0, 0, 0, 0.26);
+}
+
+.md-checkbox input[type="checkbox"]:disabled:checked+label:before {
+    background: rgba(0, 0, 0, 0.26);
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+/*Radios*/
+
+.list {
+    display: inherit;
+    list-style: none;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.list__item {
+    margin: 0;
+    height: 0px;
+    padding: 0;
+}
+
+.label--radio {
+    position: relative;
+    margin: .5rem;
+    font-family: Arial, sans-serif;
+    line-height: 135%;
+    cursor: pointer;
+}
+
+.radio {
+    position: relative;
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+}
+
+.radio:before {
+    -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+    -moz-transition: -moz-transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+    transition: transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+    -webkit-transform: scale(0, 0);
+    -moz-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
+    -o-transform: scale(0, 0);
+    transform: scale(0, 0);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0.125rem;
+    z-index: 1;
+    width: 0.75rem;
+    height: 0.75rem;
+    background: #292929;
+    border-radius: 50%;
+}
+
+.radio:checked:before {
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+.radio:after {
+    content: "";
+    position: absolute;
+    top: -0.25rem;
+    left: -0.125rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    background: #eee;
+    border: 2px solid #eee;
+    border-radius: 50%;
+}
+
+.sugestao {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    font-size: 10px;
+    border-radius: 50%;
+    background: #292929;
+    color: #fff;
+    float: right;
+    margin-left: 8px;
+    margin-top: 5px;
+}
+
+.textoSugestao {
+    font-size: 0;
+    font-size: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.balaoZupper {
+    background: #999;
+    border-radius: 10px;
+    width: 300px;
+    height: 120px;
+    position: relative;
+    display: table;
+    margin-top: -150px;
+    margin-left: -62px;
+    font-size: 12px;
+    padding: 10px 20px;
+    text-align: left;
+    animation-duration: 0.6s;
+    animation-delay: 0s;
+    animation-name: fadeIn;
+    z-index: 999;
+}
+
+@media screen and (max-width: 768px) {
+    .balaoZupper {
+        width: 70%;
+        position: absolute;
+    }
+}
+
+.balaoZupper:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #999;
+    bottom: -10px;
+    left: 20%;
+}
