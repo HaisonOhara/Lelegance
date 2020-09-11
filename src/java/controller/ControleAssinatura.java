@@ -5,10 +5,13 @@
  */
 package controller;
 
+
 import static com.oracle.wls.shaded.org.apache.xalan.lib.ExsltDatetime.date;
+import util.CorreiosService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.parsers.ParserConfigurationException;
 import model.Assinatura;
 import model.AssinaturaDAO;
 import model.Cartao;
@@ -25,6 +29,7 @@ import model.EnderecoDAO;
 import model.Estilo;
 import model.EstiloDAO;
 import model.Usuario;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -84,7 +89,7 @@ public class ControleAssinatura extends HttpServlet {
         
         a.setEstilo(estiloCarregado);
         a.setNumeroMeses(Integer.parseInt(request.getParameter("plano")));
-        a.setvalorFrete(30.00);//Valor fixo por enquanto--Precisa ser implementado consumo do wevService do correios
+//        a.setvalorFrete(30.00);//Valor fixo por enquanto--Precisa ser implementado consumo do wevService do correios
 
         HttpSession session = request.getSession();
         session.setAttribute("preAssinatura", a);
@@ -92,7 +97,7 @@ public class ControleAssinatura extends HttpServlet {
 
     }
 
-    private void confereTudo(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ClassNotFoundException {
+    private void confereTudo(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ClassNotFoundException, ParseException, SAXException, ParserConfigurationException {
         Cartao c = new Cartao();
         Endereco e = new Endereco();
 
@@ -106,6 +111,8 @@ public class ControleAssinatura extends HttpServlet {
         e.setUsuario(u);
         EnderecoDAO dao2 = new EnderecoDAO();
         e = dao2.BuscarEndereco(e);
+        CorreiosService service= new CorreiosService(e.getCep());
+        double valorFrete= service.getShippingValue();
 
         Assinatura a = (Assinatura) session.getAttribute("preAssinatura");
 
@@ -116,6 +123,7 @@ public class ControleAssinatura extends HttpServlet {
         es = dao3.carregarPorId(es);
 
         a.setTotal(a.getNumeroMeses() * es.getValor()+a.getvalorFrete());
+        a.setvalorFrete(valorFrete);
         session.setAttribute("preAssinatura", a);
 
         request.setAttribute("cartao", c);
