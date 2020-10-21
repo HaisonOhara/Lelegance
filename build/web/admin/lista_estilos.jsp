@@ -166,7 +166,7 @@
                         </div>
                     </div>
                     <div class="modal-footer ">
-                        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -186,8 +186,8 @@
 
                     </div>
                     <div class="modal-footer ">
-                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->

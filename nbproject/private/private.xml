@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Lellegance/Lelegance/web/cadastrarCartao.jsp</file>
-            <file>file:/C:/Lellegance/Lelegance/src/java/util/CorreiosService.java</file>
-            <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleAssinatura.java</file>
-            <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleCartao.java</file>
+            <file>file:/C:/Lellegance/Lelegance/web/admin/lista_fornecedores.jsp</file>
+            <file>file:/C:/Lellegance/Lelegance/web/admin/lista_estilos.jsp</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleEstilo.java</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/model/Fornecedor.java</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleFornecedor.java</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/model/FornecedorDAO.java</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/model/EstiloDAO.java</file>
         </group>
     </open-files>
 </project-private>

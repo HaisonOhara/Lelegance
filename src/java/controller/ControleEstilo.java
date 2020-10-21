@@ -53,7 +53,7 @@ public class ControleEstilo extends HttpServlet {
                 CarregarEstilos(request, response);
             } else if (uri.equals(request.getContextPath() + "/abrirCadastroEstilo")) {
 
-                request.getRequestDispatcher("admin/adicionar_estilo.jsp").forward(request, response);;
+                request.getRequestDispatcher("admin/adicionar_estilo.jsp").forward(request, response);
             } else if (uri.equals(request.getContextPath() + "/buscaEstilo")) {
                 buscaEstilo(request, response);
             } else if (uri.equals(request.getContextPath() + "/todosOsEstilos")) {

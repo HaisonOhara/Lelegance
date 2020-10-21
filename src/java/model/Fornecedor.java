@@ -13,7 +13,17 @@ public class Fornecedor {
 
     private int id;
     private String nome;
-    private String cnpj;
+    private String status;
+    private String email;
+    
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public int getId() {
         return id;
@@ -31,12 +41,12 @@ public class Fornecedor {
         this.nome = nome;
     }
 
-    public String getCnpj() {
-        return cnpj;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setStatus (String status) {
+        this.status = status;
     }
 
 }

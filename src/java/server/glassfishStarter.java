@@ -27,7 +27,7 @@ public class glassfishStarter implements ServletContextListener {
     //Método comentado para evitar execução desnecessaria
     public void contextInitialized(ServletContextEvent e) {
         JobDetail job = JobBuilder.newJob(JobOrdemCompra.class).build();
-        Trigger t1 = TriggerBuilder.newTrigger().withIdentity("CronTrigger").withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(05).repeatForever()).build();
+        Trigger t1 = TriggerBuilder.newTrigger().withIdentity("CronTrigger").withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(5).repeatForever()).build();
 
         Scheduler sc;
         try {

@@ -22,6 +22,7 @@ import model.OrdemCompraDAO;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import util.EmailSender;
 
 /**
  *
@@ -46,8 +47,9 @@ public class JobOrdemCompra implements Job {
             //estar linkado com o estilod o mes
             Fornecedor fornecedor = new Fornecedor();
             fornecedor.setId(1);
-            fornecedor.setCnpj("122312546");
+            fornecedor.setStatus("Ativo");
             fornecedor.setNome("Zara");
+            fornecedor.setEmail("llegance.pfc@gmail.com");
             //-------------------------------------------------- 
 //Conversao de data atual para logs
             long millis = System.currentTimeMillis();
@@ -62,13 +64,15 @@ public class JobOrdemCompra implements Job {
 
             OrdemCompraDAO ordem_compra_dao = new OrdemCompraDAO();
             System.out.println("id:" + (java.sql.Date) ordem_compra.getData());
-            ordem_compra_dao.cadastraOrdemCompra(ordem_compra);
+//            ordem_compra_dao.cadastraOrdemCompra(ordem_compra);
+            EmailSender emailsender = new EmailSender();
+//            Envio de Email comentado para testes
+//            emailsender.EnviarEmailOrdemCompra(fornecedor.getEmail());
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(JobOrdemCompra.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(JobOrdemCompra.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 }

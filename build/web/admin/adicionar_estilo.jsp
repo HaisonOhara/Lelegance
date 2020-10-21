@@ -74,7 +74,8 @@
                             <li><a href="index.html" class="smoothScroll">Home</a></li>
                             <li><a href="../carregarEstilos" class="smoothScroll">Boxs</a></li>
                             <li><a href="../carregarFuncionarios" class="smoothScroll">Funcionarios</a></li>
-                            <li><a href="../preAlterarFuncionario" class="smoothScroll"> Dados Pessoais</a></li> 
+                            <li><a href="../preAlterarFuncionario" class="smoothScroll"> Dados Pessoais</a></li>
+                            <li><a href="../carregarFornecedores" class="smoothScroll"> Fornecedores</a></li> 
                             <li><a href="../sairFuncionario" class="smoothScroll"> Sair</a></li> 
                         </ul>
 

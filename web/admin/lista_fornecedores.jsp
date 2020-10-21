@@ -101,40 +101,35 @@
                 <div class="col-md-12">
                     <div class="table-responsive">
 
-                        <cente><a href="abrirCadastroEstilo"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="add" type="submit">Adicionar Box</button></a></cente>
+                        <cente><a href="abrirCadastroFornecedor"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="add" type="submit">Adicionar Fornecedor</button></a></cente>
 
                         <br>
                         <br>
                         <table id="mytable" class="table table-bordred table-striped">
                             <thead>
-
-                            <th>Caixa</th>
-                            <th>Valor</th>
-                            <th>Descrição</th>
-                            <th>Conteudo</th>
+                            <th>Nome</th>
+                            <th>Email</th>
                             <th>Editar</th>
                                 <c:if test="${isComum==false}">
-                                <th>Alterar Ativo/Inativo</th>  
+                                <th>Alterar</th>  
                                 </c:if>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <c:forEach var="est" items="${estilos}">
-                                        <td>${est.nome}</td>
-                                        <td>${est.valor}</td>
-                                        <td>${est.descricao}</td>
-                                        <td>${est.conteudo}</td>
+                                    <c:forEach var="fornecedor" items="${fornecedores}">
+                                        <td>${fornecedor.nome}</td>
+                                        <td>${fornecedor.email}</td>
                                         <td>
-                                <cente><a href="preAlterarEstilo?id=${est.id}"><button class="btn btn-lg btn-primary btn-lista text-uppercase" name="adcionar" type="submit">Editar Box</button></a></cente>
+                                <cente><a href="preAlterarFornecedor?id=${fornecedor.id}"><button class="btn btn-lg btn-primary btn-lista text-uppercase" name="adcionar" type="submit">Editar Fornecedor</button></a></cente>
                                 </td>
-                                <c:if test="${est.status=='Ativo'&&isComum==false}">
+                                <c:if test="${fornecedor.status=='Ativo'&&isComum==false}">
                                     <td>
                                     <cente><button class="btn btn-lg btn-success btn-lista text-uppercase"  name="delete" type="submit">Ativo</button></cente>
                                     </td>
                                 </c:if>
-                                <c:if test="${est.status=='Inativo'&&isComum==false}">
+                                <c:if test="${fornecedor.status=='Inativo'&&isComum==false}">
                                     <td>
-                                    <cente><a href="AtivarBox?id=${est.id}"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="delete" type="submit">Ativar</button></a></cente>
+                                    <cente><a href="AtivarFornecedor?id=${fornecedor.id}"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="delete" type="submit">Ativar</button></a></cente>
                                     </td>
                                 </c:if>
                                 </tr>
@@ -166,7 +161,7 @@
                         </div>
                     </div>
                     <div class="modal-footer ">
-                        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -186,8 +181,8 @@
 
                     </div>
                     <div class="modal-footer ">
-                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
