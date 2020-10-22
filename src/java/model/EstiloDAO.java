@@ -22,7 +22,7 @@ public class EstiloDAO {
 
     private static final String CARREGAR_ESTILO_DO_MES = "SELECT * FROM public.estilo where status=\'Ativo\'";
 
-    private static final String CARREGAR_TODOS = "SELECT id, nome, descricao, preco,status,conteudo FROM public.estilo";
+    private static final String CARREGAR_TODOS = "SELECT id, nome, descricao, preco,status,conteudo FROM public.estilo ORDER BY id";
     private static final String CARREGAR_POR_ID = "SELECT id, nome, descricao, preco,imagem,status,conteudo,funcionario FROM public.estilo where id=?";
     private static final String EXCLUIR_ESTILO = "UPDATE public.estilo SET status=\'Inativo\' where id=?";
     private static final String ATIVAR_ESTILO = "UPDATE public.estilo SET status=\'Ativo\' where id=? AND status=\'Inativo\'";
@@ -119,7 +119,7 @@ public class EstiloDAO {
 
     public void cadastraNovoEstilo(Estilo estilo, int IdFuncionarioCadastro) throws ClassNotFoundException, SQLException {
         Connection con = ConectaBanco.getConexao();
-//        "INSERT INTO public.estilo(nome, descricao, preco, imagem, funcionario, status)VALUES ( ?, ?, ?, ?, ?, 'Ativo');"
+//        INSERT INTO public.estilo(nome, descricao, preco, imagem, funcionario, status,conteudo)VALUES ( ?, ?, ?, 'imagemMockada.png', ?, 'Ativo',?);
 
         PreparedStatement comando = con.prepareStatement(CADASTRA_NOVO_ESTILO);
         comando.setString(1, estilo.getNome());

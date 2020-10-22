@@ -105,7 +105,7 @@ public class ControleEstilo extends HttpServlet {
         estilo.setConteudo(request.getParameter("conteudo"));
         estilo.setNome(request.getParameter("nomeEstilo"));
         estilo.setValor(Double.parseDouble(request.getParameter("valor")));
-
+        System.out.println("CONTEUDO DO OBJETO:"+estilo.getConteudo()+estilo.getDescricao()+estilo.getNome());
         EstiloDAO dao = new EstiloDAO();
         
         //desativa o atual

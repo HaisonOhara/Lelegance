@@ -11,16 +11,16 @@
 
         <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
 			<div class="espaco"></div>
-        <ul class="nav-menu list-unstyled">
-          <li><a href="index.jsp" class="smoothScroll">Home</a></li>
-          <li><a href="todosOsEstilos" class="smoothScroll">Boxs</a></li>
+        <ul class="nav-menu list-unstyled nav1">
+          <li><a href="index.jsp" class="smoothScroll tey">Home</a></li>
+          <li><a href="todosOsEstilos" class="smoothScroll tey">Boxs</a></li>
           <c:if test="${usuarioAutenticado==null}">
-            <li><a href="cadastro.jsp" class="smoothScroll">Cadastre-se</a></li>
-            <li><a href="login.jsp" class="smoothScroll">Login</a></li>         
+            <li><a href="cadastro.jsp" class="smoothScroll tey">Cadastre-se</a></li>
+            <li><a href="login.jsp" class="smoothScroll tey">Login</a></li>         
           </c:if>
           <c:if test="${usuarioAutenticado!=null}">
-             <li><a href="usuario.jsp" class="smoothScroll">Minha conta</a></li>
-            <li><a href="sairUsuario" class="smoothScroll">Sair</a></li> 
+             <li><a href="usuario.jsp" class="smoothScroll tey">Minha conta</a></li>
+            <li><a href="sairUsuario" class="smoothScroll tey">Sair</a></li> 
           </c:if>  
         </ul>
 
