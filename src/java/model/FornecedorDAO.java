@@ -26,7 +26,7 @@ public class FornecedorDAO {
             + "     nome, email, status)\n"
             + "    VALUES (?, ?, ?);";
 
-    private static final String Ativar_Fornecedor = "UPDATE public.fornecedor\n"
+    private static final String ATIVAR_FORNECEDOR = "UPDATE public.fornecedor\n"
             + " SET status='Ativo'\n"
             + " WHERE id=?;\n"
             + "\n"
@@ -86,7 +86,7 @@ public class FornecedorDAO {
 
     public void AtivarFornecedor(Fornecedor fornecedor) throws ClassNotFoundException, SQLException {
         Connection con = ConectaBanco.getConexao();
-        PreparedStatement comando = con.prepareStatement(Ativar_Fornecedor);
+        PreparedStatement comando = con.prepareStatement(ATIVAR_FORNECEDOR);
         comando.setInt(1, fornecedor.getId());
         comando.setInt(2, fornecedor.getId());
         comando.execute();
