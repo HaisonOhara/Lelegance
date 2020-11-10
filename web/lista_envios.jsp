@@ -106,7 +106,17 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
-                         <cente><a href="enviarEmailParaTodos"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="sendEmailAll" type="submit">Enviar Email Para Todos</button></a></cente>
+                        <cente><a href="enviarEmailParaTodos"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="sendEmailAll" type="submit" onclick="emailSentMessageOnChain()">Enviar Email Para Todos</button></a></cente>
+                        <script ype="text/javascript" >
+                            function emailSentMessageOnChain() {
+                                var msg = "Envio de Emails em cadeia iniciado!";
+                                alert(msg);
+                                 var msg = "Envio de Emails em cadeia Finalizado!"
+                                setTimeout(function () {
+                                    alert(msg);
+                                }, 15200);
+                            }
+                        </script>  
                         <br>
                         <br>
                         <table id="mytable" class="table table-bordred table-striped">
@@ -152,7 +162,7 @@
                             </c:forEach>
                             <c:if test="${alertMessage==true}">
                                 <script type="text/javascript">
-                                    var msg = "Insira um código para o envio de e-mail !";
+                                    var msg = "Insira e salve um código para o envio de e-mail !";
                                     alert(msg);
                                 </script>
                             </c:if>

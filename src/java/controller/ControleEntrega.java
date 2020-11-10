@@ -233,19 +233,11 @@ public class ControleEntrega extends HttpServlet {
     }
 
     private void enviarEmail(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, ServletException, SQLException, IOException {
-//        SETAR NO OBJETO DE EMAIL
-
-        System.out.println("ENVIOU EMAIL");
-        System.out.println("nome: " + request.getParameter("nome"));
-        System.out.println("endereco:" + request.getParameter("endereco"));
-        System.out.println("email:" + request.getParameter("email"));
-        System.out.println("cod:" + request.getParameter("cod"));
-
         if (request.getParameter("cod") == "") {
             alertMessage = true;
         } else {
             EmailSender emailSender = new EmailSender();
-            String destinario = request.getParameter("email");//mockado inicialmente
+            String destinatario = request.getParameter("email");//mockado inicialmente
             String nome = request.getParameter("nome");
             String nome_formatado = nome.substring(0, 1).toUpperCase() + nome.substring(1);
             String mensagem = "Olá," + nome_formatado + "\nPode comemorar! Seu pedido ja foi enviado :) \n\n"
@@ -253,7 +245,7 @@ public class ControleEntrega extends HttpServlet {
                     + "Atenciosamente equipe Lellegance,";
             String assunto = "Envio de Pedido";
 
-            emailSender.EnviarEmail(destinario, mensagem, assunto);
+            emailSender.EnviarEmail(destinatario, mensagem, assunto);
             System.out.println("EMAIL DE PEDIDO ENVIADO !");
             alertMessage = false;
         }
@@ -264,7 +256,7 @@ public class ControleEntrega extends HttpServlet {
 
 //    VALIDAR NECESSIDADE COM O GRUPO!
     private void enviarEmailParaTodos(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, IOException {
-        boolean isComum = (Boolean) request.getSession().getAttribute("isComum");
+        boolean blockChainEmail = false;
         AssinaturaDAO ass_dao = new AssinaturaDAO();
         List<Integer> IdsUsuariosAtivos = ass_dao.CarregarUsuariosAtivos();
 
@@ -303,10 +295,37 @@ public class ControleEntrega extends HttpServlet {
             usuarios.add(usuario);
         }
         for (Usuario usuario : usuarios) {
-            if(usuario.getEntrega()!= null)
-            System.out.print("CODIGO"+usuario.getEntrega().getCodigoRastreio());
+            if (usuario.getEntrega() == null) {
+                blockChainEmail = true;
+                alertMessage = true;
+            }
         }
+        System.out.println("VALOR DO ALERT" + alertMessage);
+        System.out.println("VALOR DO BLOCK" + blockChainEmail);
 
+        if (blockChainEmail == false) {
+            for (Usuario usuario : usuarios) {
+                if (usuario.getEntrega() != null) {
+                    System.out.print("CODIGO" + usuario.getEntrega().getCodigoRastreio());
+                    System.out.print("nome" + usuario.getEmail());
+                    System.out.print("EMAIL" + usuario.getNome());
+
+                    EmailSender emailSender = new EmailSender();
+                    String destinatario = usuario.getEmail();
+                    String nome = usuario.getNome();
+                    String nome_formatado = nome.substring(0, 1).toUpperCase() + nome.substring(1);
+                    String mensagem = "Olá," + nome_formatado + "\nPode comemorar! Seu pedido ja foi enviado :) \n\n"
+                            + "Código Correios:" + request.getParameter("cod") + "\n\n\n\n"
+                            + "Atenciosamente equipe Lellegance,";
+                    String assunto = "Envio de Pedido";
+
+                    emailSender.EnviarEmail(destinatario, mensagem, assunto);
+                    System.out.println("EMAIL DE PEDIDO ENVIADO ! A PARTIR DA CADEIDA DE EMAILS");
+                    alertMessage = false;
+
+                }
+            }
+        }
         response.sendRedirect("/carregarEnvios");
     }
 }
