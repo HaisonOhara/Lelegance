@@ -66,9 +66,12 @@ public class JobOrdemCompra implements Job {
             System.out.println("id:" + (java.sql.Date) ordem_compra.getData());
 //            ordem_compra_dao.cadastraOrdemCompra(ordem_compra);
             EmailSender emailsender = new EmailSender();
-//            Envio de Email comentado para testes
-//            emailsender.EnviarEmailOrdemCompra(fornecedor.getEmail());
-
+            
+//           ======== Envio de Email comentado para testes================================
+//            String assunto= "Relatorio de Ordem de Compra";
+//            String mensagem = "Olá , segue anexo relatório com ordem de Compra \n\n Att, \n\nEquipe Lelegance ";
+//            emailsender.EnviarEmail(fornecedor.getEmail(),mensagem,assunto);
+//===========================================================================================
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(JobOrdemCompra.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

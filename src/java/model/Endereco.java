@@ -83,5 +83,8 @@ public class Endereco {
         this.estado = estado;
     }
     
+    public String toString(){
+    return this.getEndereco()+","+this.getNumero()+","+this.getCidade()+","+this.getCep();
+    }
     
 }

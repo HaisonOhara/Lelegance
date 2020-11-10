@@ -25,6 +25,8 @@ public class AssinaturaDAO {
             + "values(?,?,?,?,?,?,?);";
 
     private static final String CARREGAR_ASSINATURAS_ATIVAS = "SELECT * FROM public.assinatura WHERE status ='Ativa' ";
+    
+     private static final String CARREGAR_USUARIOS_ATIVOS = "SELECT DISTINCT  usuario FROM public.assinatura where status ='Ativa' ";
 
     public void Assinar(Assinatura a) throws SQLException {
         Connection con = ConectaBanco.getConexao();
@@ -75,6 +77,21 @@ public class AssinaturaDAO {
         }
         con.close();
         return estilos;
+    }
+    
+        public List<Integer> CarregarUsuariosAtivos() throws ClassNotFoundException, SQLException {
+        Connection con = ConectaBanco.getConexao();
+        PreparedStatement comando = con.prepareStatement(CARREGAR_USUARIOS_ATIVOS);
+        ResultSet resultado = comando.executeQuery();
+
+        List<Integer> ids = new ArrayList();
+
+        while (resultado.next()) {
+            //Recuperando objeto do Estilo Especifico
+            ids.add(resultado.getInt("usuario"));
+        }
+        con.close();
+        return ids;
     }
 
 }

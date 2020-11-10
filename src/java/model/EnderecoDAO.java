@@ -29,6 +29,7 @@ public class EnderecoDAO {
     
     private static final String CARREGAR_TODOS = "SELECT * FROM endereco WHERE usuario = ?;";
     private static final String BUSCAR_ENDERECOPORID = "SELECT * from endereco where id = ?";
+    private static final String BUSCAR_ENDERECOPORID_USUARIO = "SELECT * from endereco where usuario = ?";
     private static final String BUSCAR_ENDERECO = "SELECT * from endereco where usuario = ? order by id desc limit 1";
     
    public void Cadastrar(Endereco endereco) throws SQLException
@@ -61,6 +62,26 @@ public class EnderecoDAO {
            endereco.setCidade(resultado.getString("cidade"));
            endereco.setEstado(resultado.getString("estado"));
            endereco.setEndereco(resultado.getString("endereco"));
+           endereco.setNumero(resultado.getInt("numero"));
+           endereco.setComplemento(resultado.getString("complemento"));
+       }
+     return endereco;
+   }
+   
+      public Endereco BuscarEnderecoPorIdUsuario(Usuario u) throws SQLException
+   {
+       Connection con = ConectaBanco.getConexao();
+       PreparedStatement comando = con.prepareStatement(BUSCAR_ENDERECOPORID_USUARIO);
+       comando.setInt(1,u.getId());
+       ResultSet resultado = comando.executeQuery();
+       Endereco endereco = new Endereco();
+       while(resultado.next())
+       {
+           endereco.setId(resultado.getInt("id"));
+           endereco.setCep(resultado.getString("cep"));
+           endereco.setCidade(resultado.getString("cidade"));
+           endereco.setEstado(resultado.getString("estado"));
+           endereco.setEndereco(resultado.getString("logradouro"));
            endereco.setNumero(resultado.getInt("numero"));
            endereco.setComplemento(resultado.getString("complemento"));
        }

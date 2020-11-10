@@ -3,13 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Lellegance/Lelegance/web/admin/lista_fornecedores.jsp</file>
+            <file>file:/C:/Lellegance/Lelegance/web/cadastroCliente.jsp</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/server/automations/JobOrdemCompra.java</file>
             <file>file:/C:/Lellegance/Lelegance/web/admin/lista_estilos.jsp</file>
+            <file>file:/C:/Lellegance/Lelegance/web/lista_envios.jsp</file>
+            <file>file:/C:/Lellegance/Lelegance/web/login.jsp</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleEntrega.java</file>
             <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleEstilo.java</file>
-            <file>file:/C:/Lellegance/Lelegance/src/java/model/Fornecedor.java</file>
-            <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleFornecedor.java</file>
-            <file>file:/C:/Lellegance/Lelegance/src/java/model/FornecedorDAO.java</file>
-            <file>file:/C:/Lellegance/Lelegance/src/java/model/EstiloDAO.java</file>
+            <file>file:/C:/Lellegance/Lelegance/web/admin/adicionar_estilo.jsp</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/util/EmailSender.java</file>
         </group>
     </open-files>
 </project-private>

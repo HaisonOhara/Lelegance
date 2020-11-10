@@ -6,8 +6,8 @@ import org.apache.commons.mail.MultiPartEmail;
 
 public class EmailSender {
 
-    
-    public void EnviarEmailOrdemCompra(String destinario) {
+    public void EnviarEmail(String destinario, String mensagem, String assunto) {
+//        Se deixar de funcionar, troque o email ou configure as autorizacoes no cadastrado para envio :)
         String meuEmail = "llegance.pfc@gmail.com";
         String minhaSenha = "senhaPFC159$";
 
@@ -16,28 +16,30 @@ public class EmailSender {
         email.setSmtpPort(465);
         email.setAuthenticator(new DefaultAuthenticator(meuEmail, minhaSenha));
         email.setSSLOnConnect(true);
+//        ==============
 
         try {
             email.setFrom(meuEmail);
-            email.setSubject("Relatorio de Ordem de Compra");
-            email.setMsg("Olá , segue anexo relatório com ordem de Compra \n\n Att, \n\nEquipe Lelegance ");
+            email.setSubject(assunto);
+            email.setMsg(mensagem);
             email.addTo(destinario);
 
-            EmailAttachment[] anexos = new EmailAttachment[2];
-            anexos[0] = new EmailAttachment();
-            anexos[0].setPath("C:\\Users\\Usuario\\Downloads\\dotiros-2.jpg");
-            anexos[0].setName("Dois_Delicia.jpg");
-            email.attach(anexos[0]);
-
-            anexos[1] = new EmailAttachment();
-            anexos[1].setPath("C:\\Users\\Usuario\\Downloads\\Aula05-RNA_1.pdf");
-            anexos[1].setName("AulaRNA.pdf");
-            email.attach(anexos[1]);
+//            EmailAttachment[] anexos = new EmailAttachment[2];
+//            anexos[0] = new EmailAttachment();
+//            anexos[0].setPath("C:\\Users\\Usuario\\Downloads\\dotiros-2.jpg");
+//            anexos[0].setName("Dois_Delicia.jpg");
+//            email.attach(anexos[0]);
+//
+//            anexos[1] = new EmailAttachment();
+//            anexos[1].setPath("C:\\Users\\Usuario\\Downloads\\Aula05-RNA_1.pdf");
+//            anexos[1].setName("AulaRNA.pdf");
+//            email.attach(anexos[1]);
 
             email.send();
 
             System.out.println("EMAIL ENVIADO :)");
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.print(e.getMessage().toString());
         }
 

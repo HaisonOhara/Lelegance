@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import util.ConectaBanco;
 import model.Usuario;
 import model.PerfilDeAcesso;
@@ -27,6 +29,8 @@ public class UsuarioDAO {
     private static final String EXCLUIR_PESSOA = "delete from pessoa where id=?";
     
     private static final String CARREGAR_POR_ID = "SELECT pessoa.nome,usuario.email,usuario.pessoa FROM pessoa,usuario where usuario.pessoa=pessoa.id AND usuario.id=?";
+    
+     private static final String CARREGAR_TODOS = "SELECT * FROM usuario";
     
     private static final String ALTERAR_USUARIO = "UPDATE usuario set email=? where id=?";
     
@@ -155,7 +159,28 @@ public class UsuarioDAO {
          
     }
     
-    
+         public List<Usuario> carregartodos() throws SQLException, ClassNotFoundException
+    {
+        Connection con = ConectaBanco.getConexao();
+        PreparedStatement comando = con.prepareStatement(CARREGAR_TODOS);
+        ResultSet resultado = comando.executeQuery();
+
+        List<Usuario> usuarios = new ArrayList();
+
+        while (resultado.next()) {
+            Usuario usuario = new Usuario();
+            usuario.setId(resultado.getInt("id"));
+            usuario.setEmail(resultado.getString("email"));
+            if(resultado.getString("perfil")=="CLIENTE"){
+            usuario.setPerfil(PerfilDeAcesso.CLIENTE);
+            }else{
+            usuario.setPerfil(PerfilDeAcesso.ADMINISTRADOR);
+            }
+            usuarios.add(usuario);
+        }
+        con.close();
+        return usuarios;      
+    }
     
     
 }

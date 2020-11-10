@@ -16,7 +16,26 @@ public class Usuario extends Pessoa {
     private String senha;
     private String email;
     private PerfilDeAcesso perfil;
+    private Endereco endereco;
+    private Entrega entrega;
 
+    public Entrega getEntrega() {
+        return entrega;
+    }
+
+    public void setEntrega(Entrega entrega) {
+        this.entrega = entrega;
+    }
+    
+    
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
     public int getId() {
         return id;
     }

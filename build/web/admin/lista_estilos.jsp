@@ -55,8 +55,13 @@
                         <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
                         <div class="espaco"></div>
                         <ul class="nav-menu list-unstyled">
-                            <li><a href="../preAlterarFuncionario" class="smoothScroll">Dados Pessoais</a></li>
-                            <li><a href="../sairFuncionario" class="smoothScroll">Sair</a></li>
+                            <li><a ></a></li>
+                            <li><a ></a></li>
+                            <li><a ></a></li>
+                            <li><a href="index.html" class="smoothScroll">Home</a></li>
+                            <li><a href="../preAlterarFuncionario" class="smoothScroll"> Dados Pessoais</a></li>
+                            <li><a href="../carregarEnvios" class="smoothScroll"> Análise de Envio</a></li> 
+                            <li><a href="../sairFuncionario" class="smoothScroll"> Sair</a></li> 
                         </ul>
 
                     </div>

@@ -100,51 +100,62 @@
         <br>
         <br>
         <br>
-          <br>
+        <br>
         <!-- table -->
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
-
-                        <cente><a href="abrirCadastroEstilo"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="add" type="submit">Adicionar Box</button></a></cente>
-
+                         <cente><a href="enviarEmailParaTodos"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="sendEmailAll" type="submit">Enviar Email Para Todos</button></a></cente>
                         <br>
                         <br>
                         <table id="mytable" class="table table-bordred table-striped">
                             <thead>
 
-                            <th>Caixa</th>
-                            <th>Valor</th>
-                            <th>Descrição</th>
-                            <th>Conteudo</th>
-                            <th>Editar</th>
-                                <c:if test="${isComum==false}">
-                                <th>Alterar Ativo/Inativo</th>  
-                                </c:if>
+                            <th>Cliente</th>
+                            <th>Endereco</th>
+                            <th>Email</th>
+                            <th>Código Correios</th>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <c:forEach var="est" items="${estilos}">
-                                        <td>${est.nome}</td>
-                                        <td>${est.valor}</td>
-                                        <td>${est.descricao}</td>
-                                        <td>${est.conteudo}</td>
-                                        <td>
-                                <cente><a href="preAlterarEstilo?id=${est.id}"><button class="btn btn-lg btn-primary btn-lista text-uppercase" name="adcionar" type="submit">Editar Box</button></a></cente>
+                                    <c:forEach var="usuario" items="${usuarios}">
+                                <form class="form-signin" method="get" action="../cadastrarCodigo">
+                                    <input type="hidden" id="idUsuario" name="idUsuario" value=${usuario.id}>
+                                    <td>${usuario.nome}</td>
+                                    <td>${usuario.endereco}</td>
+                                    <td>${usuario.email}</td>
+                                    <c:choose>
+                                        <c:when test="${usuario.entrega.id >0}">
+                                            <td><input type="text" id="inputCodCorreio" name="CodCorreio" class="form-control"  placeholder="Cod.Rastreamento" required autofocus value="${usuario.entrega.codigoRastreio}"></td>
+                                            </c:when>
+                                            <c:otherwise>   
+                                            <td><input type="text" id="inputCodCorreio" name="CodCorreio" class="form-control"  placeholder="Cod.Rastreamento" required autofocus></td>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    <td>
+                                    <cente><a><button class="btn btn-lg btn-primary btn-lista text-uppercase" name="cadastrar"  type="submit">Salvar Cod.</button></a></cente>
+                                    <br><br>
+                                </form>
+                                <cente><a href="enviarEmail?nome=${usuario.nome}&endereco=${usuario.endereco}&email=${usuario.email}&cod=${usuario.entrega.codigoRastreio}"><button class="btn btn-lg btn-primary btn-lista text-uppercase" name="adcionar" type="submit" onclick="emailSentMessage()"  >Enviar Email</button></a></cente>
+                                <script ype="text/javascript" >
+                                    function emailSentMessage() {
+                                        var msg = "Email Enviado Com Sucesso !";
+                                        setTimeout(function () {
+                                            alert(msg);
+                                        }, 5200);
+
+                                    }
+                                </script>    
                                 </td>
-                                <c:if test="${est.status=='Ativo'&&isComum==false}">
-                                    <td>
-                                    <cente><button class="btn btn-lg btn-success btn-lista text-uppercase"  name="delete" type="submit">Ativo</button></cente>
-                                    </td>
-                                </c:if>
-                                <c:if test="${est.status=='Inativo'&&isComum==false}">
-                                    <td>
-                                    <cente><a href="AtivarBox?id=${est.id}"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="delete" type="submit">Ativar</button></a></cente>
-                                    </td>
-                                </c:if>
                                 </tr>
                             </c:forEach>
+                            <c:if test="${alertMessage==true}">
+                                <script type="text/javascript">
+                                    var msg = "Insira um código para o envio de e-mail !";
+                                    alert(msg);
+                                </script>
+                            </c:if>
                             </tbody>
                         </table>
                     </div>
