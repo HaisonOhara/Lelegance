@@ -242,7 +242,7 @@ public class ControleEntrega extends HttpServlet {
             String nome_formatado = nome.substring(0, 1).toUpperCase() + nome.substring(1);
             String mensagem = "Olá," + nome_formatado + "\nPode comemorar! Seu pedido ja foi enviado :) \n\n"
                     + "Código Correios:" + request.getParameter("cod") + "\n\n\n\n"
-                    + "Atenciosamente equipe Lellegance,";
+                    + "Atenciosamente,\n\n\n\n Equipe Lellegance.";
             String assunto = "Envio de Pedido";
 
             emailSender.EnviarEmail(destinatario, mensagem, assunto);
@@ -315,8 +315,8 @@ public class ControleEntrega extends HttpServlet {
                     String nome = usuario.getNome();
                     String nome_formatado = nome.substring(0, 1).toUpperCase() + nome.substring(1);
                     String mensagem = "Olá," + nome_formatado + "\nPode comemorar! Seu pedido ja foi enviado :) \n\n"
-                            + "Código Correios:" + request.getParameter("cod") + "\n\n\n\n"
-                            + "Atenciosamente equipe Lellegance,";
+                            + "Código Correios:" + usuario.getEntrega().getCodigoRastreio() + "\n\n\n\n"
+                            + "Atenciosamente,\n\n\n\n Equipe Lellegance.";
                     String assunto = "Envio de Pedido";
 
                     emailSender.EnviarEmail(destinatario, mensagem, assunto);
