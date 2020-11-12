@@ -65,7 +65,7 @@ public class EstiloDAO {
             estiloMensal.setDescricao(resultado.getString("descricao"));
             estiloMensal.setValor(resultado.getDouble("preco"));
             estiloMensal.setStatus(resultado.getString("status"));
-            estiloMensal.setStatus(resultado.getString("conteudo"));
+            estiloMensal.setConteudo(resultado.getString("conteudo"));
         }
         con.close();
         return estiloMensal;

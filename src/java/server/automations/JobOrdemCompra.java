@@ -17,6 +17,7 @@ import model.AssinaturaDAO;
 import model.Estilo;
 import model.EstiloDAO;
 import model.Fornecedor;
+import model.FornecedorDAO;
 import model.OrdemCompra;
 import model.OrdemCompraDAO;
 import org.quartz.Job;
@@ -24,10 +25,6 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import util.EmailSender;
 
-/**
- *
- * @author Usuario
- */
 public class JobOrdemCompra implements Job {
 
     @Override
@@ -38,19 +35,22 @@ public class JobOrdemCompra implements Job {
         List<Assinatura> assinaturasMensais = new ArrayList();
 
         try {
-            //Ideal seria ter status em assinatura e trazer so as ativas aqui
             assinaturasMensais = assinaturadao.CarregarAssinaturasAtivas();
             EstiloDAO estilodao = new EstiloDAO();
             Estilo estilo_mensal = estilodao.carregarEstilodoMes();
+            
+            System.out.print("ESTILO: "+estilo_mensal.getId());
 
-            //Mockando Fornecedor para testes!,pois o mesmo devera 
-            //estar linkado com o estilod o mes
-            Fornecedor fornecedor = new Fornecedor();
-            fornecedor.setId(1);
-            fornecedor.setStatus("Ativo");
-            fornecedor.setNome("Zara");
-            fornecedor.setEmail("llegance.pfc@gmail.com");
-            //-------------------------------------------------- 
+//          Recuperando fornecedor Ativo
+            FornecedorDAO forn_dao = new FornecedorDAO();
+            Fornecedor fornecedor = forn_dao.carregarFornecedorAtivo();
+//            System.out.print("FORNECEDOR");
+//            System.out.print("EMAIL: "+fornecedor.getEmail());
+//            System.out.print("NOME: "+fornecedor.getNome());
+//            System.out.print("STATUS: "+fornecedor.getStatus());
+
+
+
 //Conversao de data atual para logs
             long millis = System.currentTimeMillis();
             java.sql.Date data = new java.sql.Date(millis);
@@ -64,13 +64,17 @@ public class JobOrdemCompra implements Job {
 
             OrdemCompraDAO ordem_compra_dao = new OrdemCompraDAO();
             System.out.println("id:" + (java.sql.Date) ordem_compra.getData());
-//            ordem_compra_dao.cadastraOrdemCompra(ordem_compra);
+            ordem_compra_dao.cadastraOrdemCompra(ordem_compra);
             EmailSender emailsender = new EmailSender();
-            
+
 //           ======== Envio de Email comentado para testes================================
-//            String assunto= "Relatorio de Ordem de Compra";
-//            String mensagem = "Olá , segue anexo relatório com ordem de Compra \n\n Att, \n\nEquipe Lelegance ";
-//            emailsender.EnviarEmail(fornecedor.getEmail(),mensagem,assunto);
+        String assunto= "Relatorio de Ordem de Compra";
+         String mensagem = "Olá "+fornecedor.getNome()+ ", segue definição do relatório de compras:  \n\n"
+                 + "Numéro de Caixas: "+ordem_compra.getQuantidade_vendida()+"\n"
+                 + "Itens de Cada caixa:"+ordem_compra.getEstilo().getConteudo()+"\n"
+                 + "Data do Pedido: "+ordem_compra.getData()+"\n"
+                 + " \n\n Att, \n\nEquipe Lelegance. ";
+           emailsender.EnviarEmail(fornecedor.getEmail(),mensagem,assunto);
 //===========================================================================================
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(JobOrdemCompra.class.getName()).log(Level.SEVERE, null, ex);

@@ -21,6 +21,8 @@ public class FornecedorDAO {
 
     private static final String CARREGAR_FORNECEDORES = "SELECT * FROM public.fornecedor ORDER BY nome";
     private static final String CARREGAR_FORNECEDOR = "SELECT * FROM public.fornecedor WHERE id=?;";
+    private static final String CARREGAR_FORNECEDOR_ATIVO = "SELECT id, nome, email, status\n"
+            + "  FROM public.fornecedor WHERE status = 'Ativo';";
     private static final String ALTERAR_FORNECEDOR = "UPDATE public.fornecedor SET nome=?, email=? where id=?";
     private static final String CADASTRAR_FORNECEDOR = "INSERT INTO public.fornecedor(\n"
             + "     nome, email, status)\n"
@@ -68,6 +70,23 @@ public class FornecedorDAO {
             forn.setId(resultado.getInt("id"));
             forn.setNome(resultado.getString("nome"));
             forn.setEmail(resultado.getString("email"));
+        }
+        con.close();
+        return forn;
+    }
+
+    public Fornecedor carregarFornecedorAtivo() throws SQLException, ClassNotFoundException {
+        Connection con = ConectaBanco.getConexao();
+        PreparedStatement comando = con.prepareStatement(CARREGAR_FORNECEDOR_ATIVO);
+        ResultSet resultado = comando.executeQuery();
+
+        Fornecedor forn = new Fornecedor();
+
+        while (resultado.next()) {
+            forn.setId(resultado.getInt("id"));
+            forn.setNome(resultado.getString("nome"));
+            forn.setEmail(resultado.getString("email"));
+            forn.setStatus(resultado.getString("status"));
         }
         con.close();
         return forn;
