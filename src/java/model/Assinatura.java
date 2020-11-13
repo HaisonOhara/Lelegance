@@ -3,6 +3,7 @@ package model;
 import java.util.Date;
 
 public class Assinatura {
+    private int id;
 
     private int numeroMeses;
 
@@ -34,6 +35,24 @@ public class Assinatura {
 //    public void setMeses_pagos(int meses_pagos) {
 //        this.meses_pagos = meses_pagos;
 //    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getValorFrete() {
+        return valorFrete;
+    }
+
+    public void setValorFrete(double valorFrete) {
+        this.valorFrete = valorFrete;
+    }
+    
+    
     public String getDescricao() {
         return descricao;
     }

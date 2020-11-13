@@ -74,7 +74,7 @@ public class JobOrdemCompra implements Job {
                  + "Itens de Cada caixa:"+ordem_compra.getEstilo().getConteudo()+"\n"
                  + "Data do Pedido: "+ordem_compra.getData()+"\n"
                  + " \n\n Att, \n\nEquipe Lelegance. ";
-           emailsender.EnviarEmail(fornecedor.getEmail(),mensagem,assunto);
+//           emailsender.EnviarEmail(fornecedor.getEmail(),mensagem,assunto);
 //===========================================================================================
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(JobOrdemCompra.class.getName()).log(Level.SEVERE, null, ex);

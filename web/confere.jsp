@@ -1,29 +1,29 @@
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#009cac">
-    <title>L'elegance Revisao</title>
-    <meta name="robots" content="index,follow">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#009cac">
+        <title>L'elegance Revisao</title>
+        <meta name="robots" content="index,follow">
 
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="css/checkout.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/theme-animate.css">
-    <script src="js/jquery3.3.1.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/checkout.js"></script>
-    <script src="js/plugins_framework_efeitos.js"></script>
-    <link rel="shortcut icon" href="img_projeto/favicon.png">
+        <link rel="stylesheet" href="css/checkout.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/theme-animate.css">
+        <script src="js/jquery3.3.1.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/checkout.js"></script>
+        <script src="js/plugins_framework_efeitos.js"></script>
+        <link rel="shortcut icon" href="img_projeto/favicon.png">
 
-</head>
+    </head>
 
-<body>
+    <body>
         <main>
 
             <section class="widhtPadrao txC">
@@ -93,7 +93,13 @@
                                         <input type="text" name="uf" placeholder="Total" value="${assi.total}" readonly=true>
                                     </div>
                                 </div>
-                                <a href="assinar"><button class="botaoComprar center-block">Assinar</button></a>
+                                <a href="assinar"><button class="botaoComprar center-block" onclick="emailSentMessage()">Assinar</button></a>
+                                <script ype="text/javascript" >
+                                    function emailSentMessage() {
+                                        var msg = "Obrigado pela Assinatura :)"
+                                        alert(msg);
+                                    }
+                                </script> 
                             </section>
                         </section>
                     </section>

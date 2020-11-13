@@ -25,8 +25,12 @@ public class AssinaturaDAO {
             + "values(?,?,?,?,?,?,?);";
 
     private static final String CARREGAR_ASSINATURAS_ATIVAS = "SELECT * FROM public.assinatura WHERE status ='Ativa' ";
-    
-     private static final String CARREGAR_USUARIOS_ATIVOS = "SELECT DISTINCT  usuario FROM public.assinatura where status ='Ativa' ";
+
+    private static final String CARREGAR_USUARIOS_ATIVOS = "SELECT DISTINCT  usuario FROM public.assinatura where status ='Ativa' ";
+
+    private static final String DESATIVAR_ASSINATURA = "UPDATE public.assinatura\n"
+            + "   SET  status='Inativa'\n"
+            + " WHERE usuario=?;";
 
     public void Assinar(Assinatura a) throws SQLException {
         Connection con = ConectaBanco.getConexao();
@@ -37,9 +41,16 @@ public class AssinaturaDAO {
         comando.setInt(4, a.getEstilo().getId());
         comando.setInt(5, a.getUsuario().getId());
         comando.setString(6, a.getStatus());
-        comando.setDouble(7,a.getvalorFrete());
+        comando.setDouble(7, a.getvalorFrete());
         comando.execute();
 
+    }
+    
+        public void desativarAssinaturaPorUsuario(Usuario usuario) throws SQLException {
+        Connection con = ConectaBanco.getConexao();
+        PreparedStatement comando = con.prepareStatement(DESATIVAR_ASSINATURA);
+        comando.setInt(1, usuario.getId());
+        comando.execute();
     }
 
     public List<Assinatura> CarregarAssinaturasAtivas() throws ClassNotFoundException, SQLException {
@@ -63,10 +74,11 @@ public class AssinaturaDAO {
             Usuario usuario = new Usuario();
             usuario.setId(IdUsuario);
             usuario = usuariodao.carregarPorId(usuario);
+            usuario.setId(IdUsuario);
             //-------------------------------------------
-            
+
             Assinatura ast = new Assinatura();
-            
+
             ast.setTotal(resultado.getDouble("total"));
             ast.setData_assinatura(resultado.getDate("data_assinatura"));
             ast.setEstilo(estilo);
@@ -78,8 +90,8 @@ public class AssinaturaDAO {
         con.close();
         return estilos;
     }
-    
-        public List<Integer> CarregarUsuariosAtivos() throws ClassNotFoundException, SQLException {
+
+    public List<Integer> CarregarUsuariosAtivos() throws ClassNotFoundException, SQLException {
         Connection con = ConectaBanco.getConexao();
         PreparedStatement comando = con.prepareStatement(CARREGAR_USUARIOS_ATIVOS);
         ResultSet resultado = comando.executeQuery();
