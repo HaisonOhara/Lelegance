@@ -29,7 +29,7 @@ public class AssinaturaDAO {
     private static final String CARREGAR_USUARIOS_ATIVOS = "SELECT DISTINCT  usuario FROM public.assinatura where status ='Ativa' ";
 
     private static final String DESATIVAR_ASSINATURA = "UPDATE public.assinatura\n"
-            + "   SET  status='Inativa'\n"
+            + "   SET  status='Inativa', data_cancelamento=?\n"
             + " WHERE usuario=?;";
 
     public void Assinar(Assinatura a) throws SQLException {
@@ -45,11 +45,15 @@ public class AssinaturaDAO {
         comando.execute();
 
     }
-    
-        public void desativarAssinaturaPorUsuario(Usuario usuario) throws SQLException {
+
+    public void desativarAssinaturaPorUsuario(Usuario usuario) throws SQLException {
         Connection con = ConectaBanco.getConexao();
         PreparedStatement comando = con.prepareStatement(DESATIVAR_ASSINATURA);
-        comando.setInt(1, usuario.getId());
+        long millis = System.currentTimeMillis();
+        java.sql.Date dataCancelamento = new java.sql.Date(millis);
+        
+        comando.setDate(1, dataCancelamento);
+        comando.setInt(2, usuario.getId());
         comando.execute();
     }
 

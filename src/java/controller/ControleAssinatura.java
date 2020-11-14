@@ -171,17 +171,6 @@ public class ControleAssinatura extends HttpServlet {
         session.setAttribute("usuarioAutenticado", u);
         RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");
         rd.forward(request, response);
-
-//        HttpSession session = request.getSession();
-//        Assinatura a = (Assinatura) session.getAttribute("preAssinatura");
-//        Usuario u = (Usuario) session.getAttribute("usuarioAutenticado");
-//        a.setData_assinatura(new Date());
-//        a.setUsuario(u);
-//        a.setStatus("Ativa");
-//        AssinaturaDAO dao = new AssinaturaDAO();
-//        dao.Assinar(a);
-//
-//        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
 }
