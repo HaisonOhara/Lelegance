@@ -70,6 +70,7 @@ public class FornecedorDAO {
             forn.setId(resultado.getInt("id"));
             forn.setNome(resultado.getString("nome"));
             forn.setEmail(resultado.getString("email"));
+            forn.setStatus(resultado.getString("status"));
         }
         con.close();
         return forn;

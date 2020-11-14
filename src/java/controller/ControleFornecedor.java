@@ -21,12 +21,14 @@ import model.EstiloDAO;
 import model.Fornecedor;
 import model.FornecedorDAO;
 import model.Funcionario;
+import model.OrdemCompra;
+import model.OrdemCompraDAO;
 
 /**
  *
  * @author Haison Ohara
  */
-@WebServlet(name = "ControleFornecedor", urlPatterns = {"/carregarFornecedores", "/AtivarFornecedor", "/abrirCadastroFornecedor", "/adicionarFornecedor", "/preAlterarFornecedor", "/alterarFornecedor"})
+@WebServlet(name = "ControleFornecedor", urlPatterns = {"/carregarFornecedores", "/AtivarFornecedor", "/abrirCadastroFornecedor", "/adicionarFornecedor", "/preAlterarFornecedor", "/alterarFornecedor", "/alterarStatusOrdemCompra"})
 public class ControleFornecedor extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -44,19 +46,37 @@ public class ControleFornecedor extends HttpServlet {
                 AtivarFornecedor(request, response);
             } else if (uri.equals(request.getContextPath() + "/abrirCadastroFornecedor")) {
                 request.getRequestDispatcher("admin/adicionar_fornecedor.jsp").forward(request, response);
+
+            } else if (uri.equals(request.getContextPath() + "/alterarStatusOrdemCompra")) {
+                alterarStatusOrdemCompra(request, response);
+
             } else if (uri.equals(request.getContextPath() + "/preAlterarFornecedor")) {
                 boolean isComum = (Boolean) request.getSession().getAttribute("isComum");;
-
+                boolean possuiOrdemCompraVinculada = false;
                 int idFornecedor = Integer.parseInt(request.getParameter("id"));
                 Fornecedor fornecedor = new Fornecedor();
                 fornecedor.setId(idFornecedor);
                 FornecedorDAO dao = new FornecedorDAO();
-
                 Fornecedor fornecedorCarregado = dao.carregarFornecedor(fornecedor);
+
+                OrdemCompraDAO ordem_dao = new OrdemCompraDAO();
+                OrdemCompra ordem_compra = ordem_dao.carregarOrdemCompradoMes();
+
+//                != -1 para saber se carregarOrdemCompradoMes 
+//                retornou dados do banco ou nao
+                if (ordem_compra.getId() != -1
+                        && ordem_compra.getFornecedor().getId() == fornecedorCarregado.getId()
+                        && fornecedorCarregado.getStatus().equals("Ativo")) {
+                    possuiOrdemCompraVinculada = true;
+                }
+
                 request.setAttribute("fornecedor", fornecedorCarregado);
+                request.setAttribute("possuiOrdemCompra", possuiOrdemCompraVinculada);
+                request.setAttribute("ordem_compra", ordem_compra);
                 request.setAttribute("idFornecedor", idFornecedor);
                 request.setAttribute("isComum", isComum);
                 request.getRequestDispatcher("admin/editar_fornecedor.jsp").forward(request, response);
+
             } else {
                 response.sendRedirect("error.jsp");
             }
@@ -136,9 +156,18 @@ public class ControleFornecedor extends HttpServlet {
         fornecedor.setId(Fornecedorid);
         fornecedor.setNome(request.getParameter("nomeFornecedor"));
         fornecedor.setEmail(request.getParameter("emailFornecedor"));
-        System.out.println("OBJETO"+fornecedor.getEmail()+fornecedor.getNome()+fornecedor.getId());
+        System.out.println("OBJETO" + fornecedor.getEmail() + fornecedor.getNome() + fornecedor.getId());
         FornecedorDAO dao = new FornecedorDAO();
         dao.AlterarFornecedor(fornecedor);
+        response.sendRedirect("/carregarFornecedores");
+    }
+
+    private void alterarStatusOrdemCompra(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException, ClassNotFoundException {
+        String status = request.getParameter("status");
+//        COMO JA HOUVE VERIFICACAO ANTERIORMENTE , A VALIDACAO NAO SE FAZ NECESSARIA AQUI
+        OrdemCompraDAO ordem_dao = new OrdemCompraDAO();
+        OrdemCompra ordem_compra = ordem_dao.carregarOrdemCompradoMes();
+        ordem_dao.alterarOrdemCompraStatus(ordem_compra, status);
         response.sendRedirect("/carregarFornecedores");
     }
 

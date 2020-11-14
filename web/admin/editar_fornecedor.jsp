@@ -106,6 +106,16 @@
                                 <br>
                                 <hr class="my-4">
                             </form>
+                            <c:if test="${possuiOrdemCompra == true}">
+                                <h4 class="card-title text-center">Status da Ordem de Compra: <i><b>${ordem_compra.status}</b></i></h4>
+                                <a href="alterarStatusOrdemCompra?status=Confirmada"><button class="btn btn-lg btn-primary btn-block text-uppercase btn-lista" name="statusConfirmar" type="submit">Mudar para Confirmada</button></a>
+                                <br>
+                                <a href="alterarStatusOrdemCompra?status=Finalizada"><button class="btn btn-lg btn-primary btn-block text-uppercase btn-lista" name="statusFinalizar" type="submit">Mudar para Finalizada</button></a>
+                                <br>
+                                <a href="alterarStatusOrdemCompra?status=Cancelada"><button class="btn btn-lg btn-primary btn-block text-uppercase btn-lista" name="statusCancelar" type="submit">Mudar para Cancelada</button></a>
+                            </c:if>
+
+
                         </div>
                     </div>
                 </div>

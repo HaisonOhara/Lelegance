@@ -14,18 +14,27 @@ import java.sql.Date;
  * @author Usuario
  */
 public class OrdemCompra {
-
+    
     private Fornecedor fornecedor;
+    private int id;
     private Estilo estilo;
     private int quantidade_vendida;
     private String status;
     private Date data;
 
-    public Fornecedor getForncedor() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Fornecedor getFornecedor() {
         return fornecedor;
     }
 
-    public void setForncedor(Fornecedor forncedor) {
+    public void setFornecedor(Fornecedor forncedor) {
         this.fornecedor = forncedor;
     }
 

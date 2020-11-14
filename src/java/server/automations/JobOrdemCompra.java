@@ -57,14 +57,15 @@ public class JobOrdemCompra implements Job {
 //--------------------------------------------------------------
             OrdemCompra ordem_compra = new OrdemCompra();
             ordem_compra.setEstilo(estilo_mensal);
-            ordem_compra.setForncedor(fornecedor);
+            ordem_compra.setFornecedor(fornecedor);
             ordem_compra.setQuantidade_vendida(assinaturasMensais.size());
             ordem_compra.setStatus("Aguardando Confirmação do Fornecedor");
             ordem_compra.setData(data);
 
             OrdemCompraDAO ordem_compra_dao = new OrdemCompraDAO();
             System.out.println("id:" + (java.sql.Date) ordem_compra.getData());
-            ordem_compra_dao.cadastraOrdemCompra(ordem_compra);
+//Descomentar para habilitar ordemm de compra
+//            ordem_compra_dao.cadastraOrdemCompra(ordem_compra);
             EmailSender emailsender = new EmailSender();
 
 //           ======== Envio de Email comentado para testes================================
