@@ -5,6 +5,7 @@
         <data xmlns="http://www.netbeans.org/ns/web-project/3">
             <name>lelegance</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
+            <explicit-platform explicit-source-supported="true"/>
             <web-module-libraries>
                 <library dirs="200">
                     <file>${file.reference.c3p0-0.9.5.2.jar}</file>
@@ -35,9 +36,6 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD}</file>
-                </library>
-                <library dirs="200">
                     <file>${file.reference.commons-beanutils-1.8.0.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
@@ -50,15 +48,7 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.commons-email-1.5.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
                     <file>${file.reference.commons-logging-1.1.1.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.grizzly-npn-bootstrap-1.9.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
@@ -78,11 +68,19 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.mail-1.4.7.jar-1}</file>
+                    <file>${file.reference.postgresql-9.4.1209.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.postgresql-9.4.1209.jar}</file>
+                    <file>${file.reference.commons-email-1.5.jar-2}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.grizzly-npn-bootstrap-1.9.jar-2}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.mail-1.4.7.jar-2}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

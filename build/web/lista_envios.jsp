@@ -107,7 +107,7 @@
                 <div class="col-md-12">
                     <div class="table-responsive">
                         <cente><a href="enviarEmailParaTodos"><button class="btn btn-lg btn-primary btn-lista btn-excluirestilo text-uppercase"  name="sendEmailAll" type="submit" onclick="emailSentMessageOnChain()">Enviar Email Para Todos</button></a></cente>
-                        <script ype="text/javascript" >
+                        <script type="text/javascript" >
                             function emailSentMessageOnChain() {
                                 var msg = "Envio de Emails em cadeia iniciado!";
                                 alert(msg);
@@ -148,13 +148,12 @@
                                     <br><br>
                                 </form>
                                 <cente><a href="enviarEmail?nome=${usuario.nome}&endereco=${usuario.endereco}&email=${usuario.email}&cod=${usuario.entrega.codigoRastreio}"><button class="btn btn-lg btn-primary btn-lista text-uppercase" name="adcionar" type="submit" onclick="emailSentMessage()"  >Enviar Email</button></a></cente>
-                                <script ype="text/javascript" >
+                                <script type="text/javascript" >
                                     function emailSentMessage() {
                                         var msg = "Email Enviado Com Sucesso !";
                                         setTimeout(function () {
                                             alert(msg);
-                                        }, 5200);
-
+                                        }, 3200);
                                     }
                                 </script>    
                                 </td>

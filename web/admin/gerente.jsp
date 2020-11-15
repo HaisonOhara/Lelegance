@@ -2,6 +2,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <!-- meta -->
         <meta charset="utf-8">
@@ -43,7 +44,7 @@
                         <a href="index.jsp"><img src="img_projeto/logooo.png" alt=""></a>
                     </div>
                     <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
-                    <ul class="nav-menu list-unstyled">
+                    <ul class="nav-menu list-unstyled ">
                         <li><a href="index.html" class="smoothScroll">Home</a></li>
                         <li><a href="../carregarEstilos" class="smoothScroll">Boxs</a></li>
                         <li><a href="../carregarFuncionarios" class="smoothScroll active">Funcionarios</a></li>
@@ -53,7 +54,7 @@
                                 <a class="dropdown-item" href="../gerarRelatorio" target="_blank">Situação Fornecedor</a>
                             </div>
                         </li>
-                        <li><a href="../carregarFornecedores" class="smoothScroll"> Fornecedores</a></li> 
+                        <li><a href="../carregarFornecedores" class="smoothScroll"> Fornecedores</a></li>
                         <li><a href="../preAlterarFuncionario" class="smoothScroll"> Dados Pessoais</a></li> 
                         <li><a href="../sairFuncionario" class="smoothScroll"> Sair</a></li> 
                     </ul>
@@ -148,4 +149,3 @@
                         </body>
 
                         </html>
-

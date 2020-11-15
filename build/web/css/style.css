@@ -29,20 +29,13 @@ h15 {
 }
 
 h11 {
-    color: #292929;
+    color: #000;
     font-size: 24px;
     margin-top: 20px;
 }
 
-h12 {
-    font-size: 70px;
-    font-weight: bold;
-    padding-bottom: 50px;
-    color: #292929;
-}
-
 h5 {
-    color: #292929;
+    color: #000;
     margin-top: 2%;
     font-size: 65px;
 }
@@ -92,7 +85,7 @@ a:hover {
 
 a:hover,
 a:focus {
-    color: #292929;
+    color: #000;
     text-decoration: underline;
 }
 
@@ -119,21 +112,6 @@ p {
     font-size: 15px;
     color: #999999;
     line-height: 28px;
-}
-
-h13 {
-    margin: 25px 0;
-    padding: 0;
-    font-size: 20px;
-    color: #292929;
-    padding-bottom: 18px;
-    font-weight: bold;
-}
-
-h14 {
-    font-size: 20px;
-    color: #292929;
-    font-weight: bold;
 }
 
 ::-moz-selection {
@@ -205,7 +183,7 @@ h14 {
     padding-left: 10px;
     margin: 0 0 25px 0;
     line-height: 14px;
-    /*text-transform: uppercase;*/
+    text-transform: uppercase;
 }
 
 .form-control:focus {
@@ -264,14 +242,6 @@ nav {
 
 nav ul li {
     float: left;
-    margin-right: 1px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    margin-left: 40px;
-}
-
-nav1 ul li {
-    float: left;
     margin-right: 15px;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
@@ -279,21 +249,6 @@ nav1 ul li {
 }
 
 nav ul li a {
-    margin-top: -40px;
-    position: relative;
-    display: block;
-    font-size: 17px;
-    color: #999999;
-    font-family: 'Poppins', helvetica;
-    font-weight: 500;
-    line-height: 40px;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    text-transform: capitalize;
-    margin-left: 50px;
-}
-
-.tey {
     margin-top: -10px;
     position: relative;
     display: block;
@@ -353,18 +308,6 @@ nav ul li a {
     width: 100%;
 }
 
-#estilo {
-    background: url("../images/estilo.jpg") repeat scroll center center / cover;
-    height: 100vh;
-    width: 100%;
-}
-
-#estilos {
-    background: url("../images/estilos.jpg") repeat scroll center center / cover;
-    height: 100vh;
-    width: 100%;
-}
-
 .btn-get-started {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
@@ -379,15 +322,6 @@ nav ul li a {
 }
 
 #header .header-content {
-    height: 100vh;
-    text-align: left;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-#estilo .header-content {
     height: 100vh;
     text-align: left;
     width: 100%;
