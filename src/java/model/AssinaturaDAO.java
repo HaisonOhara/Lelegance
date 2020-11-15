@@ -76,5 +76,53 @@ public class AssinaturaDAO {
         con.close();
         return estilos;
     }
+    
+    public String RelatorioGraficoPosivito() throws SQLException{
+        String positivo = "[";
+        Connection con = ConectaBanco.getConexao();
+        PreparedStatement comando = con.prepareStatement(
+                "select  mes,count(ass.*) as qtd \n" +
+                "from  generate_series(1,12) as mes  left join assinatura as ass \n" +
+                "on  mes = extract('month' from ass.data_assinatura) and extract('year' from ass.data_assinatura) = extract('year' from now())\n" +
+                "group by mes,data_assinatura\n" +
+                "order by 1"
+        );
+        ResultSet resultado = comando.executeQuery();
+        
+        while(resultado.next()){
+            if(resultado.isLast()){
+                positivo = positivo + resultado.getString("qtd")+"]";
+            }
+            else{
+                    positivo = positivo + resultado.getString("qtd")+",";
+            }
+        }
+        con.close();
+        return positivo; 
+    }
+    
+    public String RelatorioGraficoNegativo() throws SQLException{
+        String negativo ="[";
+        Connection con = ConectaBanco.getConexao();
+        PreparedStatement comando = con.prepareStatement(
+                "select  mes,count(ass.*) as qtd \n" +
+                "from  generate_series(1,12) as mes  left join assinatura as ass \n" +
+                "on  mes = extract('month' from ass.data_cancelamento) and extract('year' from ass.data_cancelamento) = extract('year' from now())\n" +
+                "group by mes,data_assinatura\n" +
+                "order by 1"
+        );
+       ResultSet resultado = comando.executeQuery();
+        
+        while(resultado.next()){
+            if(resultado.isLast()){
+                negativo = negativo + resultado.getString("qtd")+"]";
+            }
+            else{
+                 negativo = negativo + resultado.getString("qtd")+",";
+            }
+        }
+        con.close();
+        return negativo;
+    }
 
 }

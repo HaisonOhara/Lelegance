@@ -30,7 +30,7 @@ import util.Formatar;
  *
  * @author sergi
  */
-@WebServlet(name = "ControleFuncionario", urlPatterns = {"/ControleFuncionario", "/logarFuncionario", "/preAlterarFuncionario", "/alterarFuncionario", "/sairFuncionario", "/preAlterarFuncionarioPorId", "/carregarFuncionarios", "/excluirFuncionarioPorId","/promover"})
+@WebServlet(name = "ControleFuncionario", urlPatterns = {"/ControleFuncionario", "/logarFuncionario", "/preAlterarFuncionario", "/alterarFuncionario", "/sairFuncionario", "/preAlterarFuncionarioPorId", "/carregarFuncionarios", "/excluirFuncionarioPorId","/promover","/relatorioFornecedor"})
 public class ControleFuncionario extends HttpServlet {
 
     /**
@@ -60,7 +60,7 @@ public class ControleFuncionario extends HttpServlet {
                 excluirFuncionarioPorId(request, response);
             } else if (uri.equals(request.getContextPath() + "/promover")) {
                 promover(request, response);
-            } else if (uri.equals(request.getContextPath() + "/sairFuncionario")) {
+            }else if (uri.equals(request.getContextPath() + "/sairFuncionario")) {
                 request.getSession().invalidate();
                 response.sendRedirect("index.jsp");
             } else {
@@ -230,5 +230,4 @@ public class ControleFuncionario extends HttpServlet {
         CarregarFuncionarios(request, response);
         
     }
-
 }

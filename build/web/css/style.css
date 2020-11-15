@@ -167,7 +167,10 @@ p {
 .form-control:hover {
     border-color: #000;
 }
-
+.chart-size{
+    height: 250px;
+    width: 700px;
+}
 .form-control {
     background-color: transparent;
     border: 1px solid #999;
@@ -249,17 +252,21 @@ nav ul li a {
     margin-top: -10px;
     position: relative;
     display: block;
-    font-size: 21px;
+    font-size: 20px;
     color: #999999;
     font-family: 'Poppins', helvetica;
     font-weight: 500;
     line-height: 40px;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     text-transform: capitalize;
-    margin-left: 50px;
 }
-
+.dropdown-item{
+    font-size: 17px;
+}
+.dropdown-toggle{
+    cursor: pointer;
+}
 .espaco {
     float: left;
     margin-right: 450px;
