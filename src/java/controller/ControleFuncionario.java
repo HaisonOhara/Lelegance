@@ -63,7 +63,7 @@ public class ControleFuncionario extends HttpServlet {
                 response.sendRedirect("cadastroFuncionario.jsp");
             } else if (uri.equals(request.getContextPath() + "/promover")) {
                 promover(request, response);
-            } else if (uri.equals(request.getContextPath() + "/sairFuncionario")) {
+            }else if (uri.equals(request.getContextPath() + "/sairFuncionario")) {
                 request.getSession().invalidate();
                 response.sendRedirect("index.jsp");
             } else {
@@ -264,5 +264,4 @@ public class ControleFuncionario extends HttpServlet {
         }
 
     }
-
 }

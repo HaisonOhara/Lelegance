@@ -5,6 +5,7 @@
  */
 package controller;
 
+
 //import static com.oracle.wls.shaded.org.apache.xalan.lib.ExsltDatetime.date;
 import util.CorreiosService;
 import java.io.IOException;
@@ -37,7 +38,8 @@ import org.xml.sax.SAXException;
  *
  * @author joaov
  */
-@WebServlet(name = "ControleAssinatura", urlPatterns = {"/ControleAssinatura", "/preAssinar", "/confereTudo", "/assinar", "/inativarAssinatura"})
+@WebServlet(name = "ControleAssinatura", urlPatterns = {"/ControleAssinatura", "/preAssinar", "/confereTudo", "/assinar", "/inativarAssinatura","/graficoGerar"})
+
 public class ControleAssinatura extends HttpServlet {
 
     @Override
@@ -49,8 +51,12 @@ public class ControleAssinatura extends HttpServlet {
                 preAssinar(request, response);
             } else if (uri.equals(request.getContextPath() + "/assinar")) {
                 Assinar(request, response);
+
             } else if (uri.equals(request.getContextPath() + "/inativarAssinatura")) {
                 inativarAssinatura(request, response);
+
+            } else if(uri.equals(request.getContextPath() + "/graficoGerar")){
+                Grafico(request,response);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -172,5 +178,26 @@ public class ControleAssinatura extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");
         rd.forward(request, response);
     }
+    
+        private void Grafico(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
+        String data = "";
+        
+        AssinaturaDAO dao = new AssinaturaDAO();
+        
+        String positivo = dao.RelatorioGraficoPosivito();
+        
+        String negativo = dao.RelatorioGraficoNegativo();
+        
+        data = "{ \"positivo\": "+positivo+",\"negativo\":"+negativo+"}";
+       
+       response.setContentType("application/json");
+
+       PrintWriter out = response.getWriter();
+
+       out.print(data);
+       out.flush();
+    }
 
 }
+
+
