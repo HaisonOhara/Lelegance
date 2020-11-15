@@ -30,7 +30,7 @@ import util.Formatar;
  *
  * @author sergi
  */
-@WebServlet(name = "ControleFuncionario", urlPatterns = {"/ControleFuncionario", "/logarFuncionario", "/preAlterarFuncionario", "/alterarFuncionario", "/sairFuncionario", "/preAlterarFuncionarioPorId", "/carregarFuncionarios", "/excluirFuncionarioPorId","/promover","/relatorioFornecedor"})
+@WebServlet(name = "ControleFuncionario", urlPatterns = {"/ControleFuncionario", "/logarFuncionario", "/preAlterarFuncionario", "/alterarFuncionario", "/sairFuncionario", "/preAlterarFuncionarioPorId", "/carregarFuncionarios", "/excluirFuncionarioPorId","/promover"})
 public class ControleFuncionario extends HttpServlet {
 
     /**
