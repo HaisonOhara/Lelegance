@@ -18,9 +18,9 @@ import util.ConectaBanco;
  */
 public class OrdemCompraDAO {
 
-    private static final String CADASTRA_ORDEM_COMPRA = "INSERT INTO public.\"ordemCompra\"(\"idfornecedor\", \"idbox\", \"qtdvendida\", \"status\", \"data\")VALUES ( ?, ?, ?, ?, ?);";
-    private static final String CARREGAR_ORDEM_COMPRA_MENSAL = "select * from public.\"ordemCompra\" where  EXTRACT(MONTH FROM data) =EXTRACT(MONTH FROM CURRENT_DATE)";
-    private static final String ALTERAR_ORDEM_COMPRA_STATUS = "UPDATE public.\"ordemCompra\"\n"
+    private static final String CADASTRA_ORDEM_COMPRA = "INSERT INTO public.\"ordemcompra\"(\"idfornecedor\", \"idbox\", \"qtdvendida\", \"status\", \"data\")VALUES ( ?, ?, ?, ?, ?);";
+    private static final String CARREGAR_ORDEM_COMPRA_MENSAL = "select * from public.\"ordemcompra\" where  EXTRACT(MONTH FROM data) =EXTRACT(MONTH FROM CURRENT_DATE)";
+    private static final String ALTERAR_ORDEM_COMPRA_STATUS = "UPDATE public.\"ordemcompra\"\n"
             + "   SET status=?\n"
             + " WHERE id=?";
 
