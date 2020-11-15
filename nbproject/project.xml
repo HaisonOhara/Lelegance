@@ -5,7 +5,6 @@
         <data xmlns="http://www.netbeans.org/ns/web-project/3">
             <name>lelegance</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
-            <explicit-platform explicit-source-supported="true"/>
             <web-module-libraries>
                 <library dirs="200">
                     <file>${file.reference.c3p0-0.9.5.2.jar}</file>
@@ -36,71 +35,54 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-<<<<<<< HEAD
-                    <file>${file.reference.c3p0-0.9.5.2.jar-1}</file>
+                    <file>${&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.commons-beanutils-1.8.0.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.log4j-1.2.16.jar-1}</file>
+                    <file>${file.reference.commons-collections4-4.1.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.quartz-2.3.0-SNAPSHOT.jar-1}</file>
+                    <file>${file.reference.commons-digester-2.1.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.quartz-jobs-2.3.0-SNAPSHOT.jar-1}</file>
+                    <file>${file.reference.commons-email-1.5.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.slf4j-api-1.7.7.jar-1}</file>
+                    <file>${file.reference.commons-logging-1.1.1.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.slf4j-log4j12-1.7.7.jar-1}</file>
+                    <file>${file.reference.grizzly-npn-bootstrap-1.9.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.commons-email-1.5.jar}</file>
+                    <file>${file.reference.groovy-all-2.0.1.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.mail-1.4.7.jar}</file>
+                    <file>${file.reference.iText-2.1.7.js2.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.grizzly-npn-bootstrap-1.9.jar}</file>
-=======
-                    <file>${file.reference.commons-beanutils-1.8.0.jar}</file>
+                    <file>${file.reference.jasperreports-6.15.0.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.commons-digester-2.1.jar}</file>
+                    <file>${file.reference.jasperreports-fonts-6.15.0.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.commons-logging-1.1.1.jar}</file>
+                    <file>${file.reference.mail-1.4.7.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.groovy-all-2.0.1.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.iText-2.1.7.js2.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.jasperreports-6.15.0.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.jasperreports-fonts-6.15.0.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.commons-collections4-4.1.jar}</file>
->>>>>>> psycho_dev_bkp
+                    <file>${file.reference.postgresql-9.4.1209.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

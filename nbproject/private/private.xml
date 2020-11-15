@@ -3,27 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Lellegance/Lelegance/src/java/server/automations/JobOrdemCompra.java</file>
+            <file>file:/C:/Lellegance/Lelegance/web/confere.jsp</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleFuncionario.java</file>
             <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleAssinatura.java</file>
-            <file>file:/C:/Lellegance/Lelegance/src/java/model/AssinaturaDAO.java</file>
-            <file>file:/C:/Lellegance/Lelegance/web/admin/editar_estilo.jsp</file>
-=======
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/src/java/controller/ControleFuncionario.java</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/src/java/server/automations/JobOrdemCompra.java</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/src/java/controller/ControleAssinatura.java</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/src/java/util/Formatar.java</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/web/css/style.css</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/src/java/controller/ControleUsuario.java</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/src/java/controller/ControleRelatorios.java</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/src/java/AutorizacaoDeAcesso/AcessoComum.java</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/web/funcionario/funcionario.jsp</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/src/java/util/ConectaBanco.java</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/src/java/AutorizacaoDeAcesso/AcessoAdministrativo.java</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/web/admin/gerente.jsp</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/src/java/model/AssinaturaDAO.java</file>
-            <file>file:/C:/Users/joaov/Desktop/lelegance/Lelegance/web/menu.jsp</file>
->>>>>>> psycho_dev_bkp
+            <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleEstilo.java</file>
+            <file>file:/C:/Lellegance/Lelegance/web/admin/gerente.jsp</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleUsuario.java</file>
+            <file>file:/C:/Lellegance/Lelegance/web/alterar.jsp</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/util/EmailSender.java</file>
         </group>
     </open-files>
 </project-private>
