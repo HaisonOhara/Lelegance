@@ -37,10 +37,9 @@
 <body>
 
   <!-- start section navbar -->
-  <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-sm">
-    <div class="row">
-      <div class="container">
-
+  <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="row">
         <div class="logo">
           <a href="index.jsp"><img src="img_projeto/logooo.png" alt=""></a>
         </div>
@@ -55,6 +54,7 @@
                   <a class="dropdown-item" href="../gerarRelatorio" target="_blank">Situação Fornecedor</a>
               </div>
           </li>
+          <li><a href="#" class="smoothScroll"> Teste </a></li>
           <li><a href="../preAlterarFuncionario" class="smoothScroll"> Dados Pessoais</a></li> 
           <li><a href="../sairFuncionario" class="smoothScroll"> Sair</a></li> 
         </ul>
