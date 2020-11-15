@@ -100,7 +100,7 @@
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="lib/magnific-popup/magnific-popup.min.js"></script>
   <script src="lib/isotope/isotope.pkgd.min.js"></script>
-  <script src="lib/Chart.js-2.9.4/dist/Chart.min.js"></script>
+  <script src="lib/Chart.js-2.9.4/Chart.min.js"></script>
 
   <!-- Contact Form JavaScript File -->
   <script src="contactform/contactform.js"></script>
