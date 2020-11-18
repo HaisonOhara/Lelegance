@@ -83,7 +83,7 @@ public class ControleEstilo extends HttpServlet {
             if (uri.equals(request.getContextPath() + "/adicionarEstilo")) {
                 adicionarEstilo(request, response);
             }
-            if (uri.equals(request.getContextPath() + "/alterarEstilo")) {
+            else if (uri.equals(request.getContextPath() + "/alterarEstilo")) {
                 AlterarEstilo(request, response);
             } else {
                 response.sendRedirect("error.jsp");
