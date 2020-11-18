@@ -116,7 +116,7 @@
                                 var chartGraph = new Chart(ctx, {
                                     type: 'line',
                                     data: {
-                                        labels: ["jan", "fev", "mar", "abril", "mai", "jun", "jul", "ago", "set", "nov", "dez"],
+                                        labels: ["jan", "fev", "mar", "abril", "mai", "jun", "jul", "ago", "set","out","nov", "dez"],
                                         datasets: [{
                                                 label: "Novos assinantes",
                                                 data: data.positivo,
