@@ -50,8 +50,14 @@
                         <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
                         <div class="espaco"></div>
                         <ul class="nav-menu list-unstyled">
-                            <li><a href="../preAlterarFuncionario" class="smoothScroll">Dados Pessoais</a></li>
-                            <li><a href="../sairFuncionario" class="smoothScroll">Sair</a></li>
+                            <li><a ></a></li>
+                            <li><a ></a></li>
+                            <li><a ></a></li>
+                            <li><a href="index.html" class="smoothScroll">Home</a></li>
+                            <li><a href="../carregarEstilos" class="smoothScroll">Boxes</a></li>
+                            <li><a href="../preAlterarFuncionario" class="smoothScroll"> Dados Pessoais</a></li>
+                            <li><a href="../carregarEnvios" class="smoothScroll"> Análise de Envio</a></li> 
+                            <li><a href="../sairFuncionario" class="smoothScroll"> Sair</a></li> 
                         </ul>
 
                     </div>
@@ -72,10 +78,11 @@
                         <div class="espaco"></div>
                         <ul class="nav-menu list-unstyled">
                             <li><a href="index.html" class="smoothScroll">Home</a></li>
-                            <li><a href="../carregarEstilos" class="smoothScroll">Boxs</a></li>
+                            <li><a href="../carregarEstilos" class="smoothScroll">Boxes</a></li>
                             <li><a href="../carregarFuncionarios" class="smoothScroll">Funcionarios</a></li>
-                            <li><a href="../preAlterarFuncionario" class="smoothScroll"> Dados Pessoais</a></li> 
-                            <li><a href="../sairFuncionario" class="smoothScroll"> Sair</a></li> 
+                            <li><a href="../preAlterarFuncionario" class="smoothScroll"> Dados Pessoais</a></li>
+                            <li><a href="../carregarFornecedores" class="smoothScroll"> Fornecedores</a></li> 
+                            <li><a href="../sairFuncionario" class="smoothScroll"> Sair</a></li>
                         </ul>
 
                     </div>
@@ -93,7 +100,7 @@
                             <form class="form-signin" method="post" action="../alterarEstilo?idEstilo=${idEstilo}">
                                 <input type="hidden" id="inputId" name="id">
                                 <div class="form-label-group">
-                                    <input type="text" id="inputEstilo" name="nomeEstilo" class="form-control"  value="${estilo.nome}" placeholder="Nome do Estilo" required autofocus></input>
+                                    <input type="text" id="inputEstilo" name="nomeEstilo" class="form-control" value="${estilo.nome}" placeholder="Nome do Estilo" required autofocus></input>
                                 </div>
 
                                 <div class="form-label-group">
@@ -101,16 +108,16 @@
                                 </div>
 
                                 <div class="form-label-group">
-                                    <textarea id="texareaDescricao" rows="4" cols="27" name="descricao" placeholder="Descrição da Box" maxlength="240" required>${estilo.descricao}</textarea>
+                                    <textarea id="texareaDescricao" rows="4" cols="27" name="descricao" placeholder="Descriï¿½ï¿½o da Box" maxlength="240" required>${estilo.descricao}</textarea>
                                 </div>
                                 <br/>
-                                
+
                                 <div class="form-label-group">
                                     <textarea id="texareaConteudo" rows="4" cols="27" name="conteudo" placeholder="Conteudo da caixa" maxlength="240" required>${estilo.conteudo}</textarea>
                                 </div>
-                                
+
                                 <br/>
-                                
+
                                 <div class="form-label-group">
                                     <input type="file" class="filestyle">
                                 </div>

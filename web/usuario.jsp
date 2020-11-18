@@ -49,7 +49,7 @@
 			<div class="espaco"></div>
         <ul class="nav-menu list-unstyled">
           <li><a href="index.jsp" class="smoothScroll">Home</a></li>
-          <li><a href="estilos.jsp" class="smoothScroll">Estilos</a></li>
+          <li><a href="todosOsEstilos" class="smoothScroll">Boxes</a></li>
           <li><a href="preAlterar" class="smoothScroll">Dados pessoais</a></li>
           <li><a href="sairUsuario" class="smoothScroll">Sair</a></li>         
         </ul>

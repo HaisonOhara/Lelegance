@@ -59,6 +59,7 @@
                             <li><a ></a></li>
                             <li><a ></a></li>
                             <li><a href="index.html" class="smoothScroll">Home</a></li>
+                            <li><a href="../carregarEstilos" class="smoothScroll">Boxes</a></li>
                             <li><a href="../preAlterarFuncionario" class="smoothScroll"> Dados Pessoais</a></li>
                             <li><a href="../carregarEnvios" class="smoothScroll"> Análise de Envio</a></li> 
                             <li><a href="../sairFuncionario" class="smoothScroll"> Sair</a></li> 
@@ -82,7 +83,7 @@
                         <div class="espaco"></div>
                         <ul class="nav-menu list-unstyled">
                             <li><a href="index.html" class="smoothScroll">Home</a></li>
-                            <li><a href="../carregarEstilos" class="smoothScroll">Boxs</a></li>
+                            <li><a href="../carregarEstilos" class="smoothScroll">Boxes</a></li>
                             <li><a href="../carregarFuncionarios" class="smoothScroll">Funcionarios</a></li>
                             <li><a href="../preAlterarFuncionario" class="smoothScroll"> Dados Pessoais</a></li>
                             <li><a href="../carregarFornecedores" class="smoothScroll"> Fornecedores</a></li> 
@@ -111,7 +112,7 @@
                             function emailSentMessageOnChain() {
                                 var msg = "Envio de Emails em cadeia iniciado!";
                                 alert(msg);
-                                 var msg = "Envio de Emails em cadeia Finalizado!"
+                                var msg = "Envio de Emails em cadeia Finalizado!"
                                 setTimeout(function () {
                                     alert(msg);
                                 }, 15200);
