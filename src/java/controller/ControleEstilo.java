@@ -99,23 +99,21 @@ public class ControleEstilo extends HttpServlet {
     public void adicionarEstilo(HttpServletRequest request, HttpServletResponse response) throws NoSuchAlgorithmException, SQLException, ServletException, IOException, ClassNotFoundException {
         HttpSession session = request.getSession();
         Funcionario funcLogado = (Funcionario) session.getAttribute("usuarioAutenticado");
-        
+
         Estilo estilo = new Estilo();
         estilo.setDescricao(request.getParameter("descricao"));
         estilo.setConteudo(request.getParameter("conteudo"));
         estilo.setNome(request.getParameter("nomeEstilo"));
         estilo.setValor(Double.parseDouble(request.getParameter("valor")));
-        System.out.println("CONTEUDO DO OBJETO:"+estilo.getConteudo()+estilo.getDescricao()+estilo.getNome());
+        System.out.println("CONTEUDO DO OBJETO:" + estilo.getConteudo() + estilo.getDescricao() + estilo.getNome());
         EstiloDAO dao = new EstiloDAO();
-        
+
         //desativa o atual
         Estilo atual = dao.carregarEstilodoMes();
         dao.excluirEstilo(atual);
-        
-        
+
         dao.cadastraNovoEstilo(estilo, funcLogado.getId());
-        
-        
+
         CarregarEstilos(request, response);
     }
 
@@ -240,14 +238,14 @@ public class ControleEstilo extends HttpServlet {
 
         EstiloDAO dao = new EstiloDAO();
         Estilo est_a_alterar = dao.carregarPorId(est);
-        
+
         //desativa o atual
         Estilo atual = dao.carregarEstilodoMes();
         dao.excluirEstilo(atual);
-        
+
         est_a_alterar.setId(est.getId());
         dao.ativarBox(est_a_alterar);
-        
+
         response.sendRedirect("/carregarEstilos");
         /*Resolve o bug da url ficar com excluirEstiloPorId?id 
         isso impede que o usuario visualize um item ja excluido 
@@ -263,13 +261,17 @@ public class ControleEstilo extends HttpServlet {
     }
 
     public void buscaEstilo(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ClassNotFoundException {
+        HttpSession session = request.getSession();
+        Usuario u = (Usuario) session.getAttribute("usuarioAutenticado");
+        System.out.print("Usuario"+u);
         Estilo e = new Estilo();
         e.setId(Integer.parseInt(request.getParameter("id")));
 
         EstiloDAO dao = new EstiloDAO();
         e = dao.carregarPorId(e);
-        
+
         request.setAttribute("estilo", e);
+        request.setAttribute("usuario", u);
         request.getRequestDispatcher("box_visao_cliente.jsp").forward(request, response);
 
     }
