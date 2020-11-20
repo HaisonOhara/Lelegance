@@ -22,11 +22,11 @@ public class EstiloDAO {
 
     private static final String CARREGAR_ESTILO_DO_MES = "SELECT * FROM public.estilo where status=\'Ativo\'";
 
-    private static final String CARREGAR_TODOS = "SELECT id, nome, descricao, preco,status,conteudo FROM public.estilo ORDER BY id";
+    private static final String CARREGAR_TODOS = "SELECT * FROM public.estilo ORDER BY id";
     private static final String CARREGAR_POR_ID = "SELECT id, nome, descricao, preco,imagem,status,conteudo,funcionario FROM public.estilo where id=?";
     private static final String EXCLUIR_ESTILO = "UPDATE public.estilo SET status=\'Inativo\' where id=?";
     private static final String ATIVAR_ESTILO = "UPDATE public.estilo SET status=\'Ativo\' where id=? AND status=\'Inativo\'";
-    private static final String CADASTRA_NOVO_ESTILO = "INSERT INTO public.estilo(nome, descricao, preco, imagem, funcionario, status,conteudo)VALUES ( ?, ?, ?, 'imagemMockada.png', ?, 'Ativo',?);";
+    private static final String CADASTRA_NOVO_ESTILO = "INSERT INTO public.estilo(nome, descricao, preco, imagem, funcionario, status,conteudo)VALUES ( ?, ?, ?, ?, ?, 'Ativo',?);";
     private static final String ALTERAR_NOVO_ESTILO = "UPDATE public.estilo SET nome=?, descricao=?, preco=?, imagem='ImagemMockada.png', funcionario=?,conteudo=? where id=?";
 
     public List<Estilo> CarregarEstilos() throws ClassNotFoundException, SQLException {
@@ -43,6 +43,7 @@ public class EstiloDAO {
             est.setDescricao(resultado.getString("descricao"));
             est.setValor(resultado.getDouble("preco"));
             est.setStatus(resultado.getString("status"));
+            est.setImagem(resultado.getString("imagem"));
             est.setConteudo(resultado.getString("conteudo"));
             estilos.add(est);
         }
@@ -125,9 +126,9 @@ public class EstiloDAO {
         comando.setString(1, estilo.getNome());
         comando.setString(2, estilo.getDescricao());
         comando.setDouble(3, estilo.getValor());
-//      comando.setString(4,estilo.getImagem()); Ignorado Inicialmente/16/04/2020
-        comando.setInt(4, IdFuncionarioCadastro);
-        comando.setString(5, estilo.getConteudo());
+        comando.setString(4,estilo.getImagem()); 
+        comando.setInt(5, IdFuncionarioCadastro);
+        comando.setString(6, estilo.getConteudo());
         comando.execute();
         con.close();
 

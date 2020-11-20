@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Lellegance/Lelegance/web/confere.jsp</file>
-            <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleFuncionario.java</file>
-            <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleAssinatura.java</file>
             <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleEstilo.java</file>
-            <file>file:/C:/Lellegance/Lelegance/web/admin/gerente.jsp</file>
-            <file>file:/C:/Lellegance/Lelegance/src/java/controller/ControleUsuario.java</file>
-            <file>file:/C:/Lellegance/Lelegance/web/alterar.jsp</file>
-            <file>file:/C:/Lellegance/Lelegance/src/java/util/EmailSender.java</file>
+            <file>file:/C:/Lellegance/Lelegance/web/admin/adicionar_estilo.jsp</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/model/EstiloDAO.java</file>
+            <file>file:/C:/Lellegance/Lelegance/src/java/model/Estilo.java</file>
+            <file>file:/C:/Lellegance/Lelegance/web/boxes_visao_cliente.jsp</file>
         </group>
     </open-files>
 </project-private>

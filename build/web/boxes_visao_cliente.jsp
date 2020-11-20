@@ -66,7 +66,7 @@
                         <div class="about-col">
                             <c:if test="${e.status== 'Ativo'}">
                                 <div class="img">
-                                    <img src="img_projeto/casual_estilos.png" alt="" class="img-fluid">
+                                    <img src="${e.imagem}" alt="" class="img-fluid">
                                 </div>
                                 <br>
                                 <h2 class="title"><a href="#">${e.nome}</a></h2>
