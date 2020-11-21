@@ -74,9 +74,8 @@
         <div class="col-lg-7">
           <div class="about-descr">
 
-            <p class="p-heading">im a ux /ui designer austin based who loves clean, simple & unique design. i also enjoy crafting brand identities, icons, & ilustration work. </p>
-            <p class="separator">To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is. The European languages are members of the same family.English person.</p>
-
+            <p class="p-heading">O que é ser homem:</p>
+            <p class="separator">Ser homem consiste não em blefe, bravata ou solidão. Consiste em se atrever a fazer a coisa certa e enfrentar as consequências quer se trate de um assunto social, político o outro. Consiste em atos não em palavras(Gandhi, Mahatma)</p>
           </div>
 
         </div>

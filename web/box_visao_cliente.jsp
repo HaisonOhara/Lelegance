@@ -66,12 +66,11 @@
                     <div class="col-md-4 wow fadeInUp">
                         <div class="about-col">
                             <div class="img">
-                                <img src="img_projeto/camiseta.png" alt="" class="img-fluid">
+                                <img src="img_projeto/cachecol.png" alt="" class="img-fluid">
                             </div>
                             <br>
-                            <h2 class="title"><a href="#">Camiseta</a></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            <h2 class="title"><a href="#">Cachecol</a></h2>
+                            <p>A temperatura baixou e você não quer passar perrengue? Aposte em um cachecol ou lenço, que além de ser elegante, oferece um estilo a mais para você. A dica é optar por cores mais sóbrias e neutras (como marrom, preto, cinza e azul marinho).</p>
                             <div class="form-label-group">
                                 <select id="inputTroupa" class="form-control" name="MedidaCamiseta">
                                     <option>Tamanho da Roupa</option>
@@ -89,12 +88,11 @@
                     <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="about-col">
                             <div class="img">
-                                <img src="img_projeto/bermudaa.jpg" alt="" class="img-fluid" />
+                                <img src="img_projeto/pulseira.png" alt="" class="img-fluid" />
                             </div>
                             <br>
-                            <h2 class="title"><a href="#">Bermuda</a></h2>
-                            <p>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                            <h2 class="title"><a href="#">Pulseira</a></h2>
+                            <p>Antes, restrita apenas para as mulheres, ou surfistas e hippies, as pulseiras masculinas estão se tornando cada vez mais tendência entre os homens que querem se vestir bem. E para usar uma pulseira, não precisa chamar muita atenção.</p>
                             <div class="form-label-group">
                                 <select id="inputTroupa" class="form-control" name="MedidaCalca">
                                     <option>Tamanho da Bermuda</option>
@@ -120,13 +118,12 @@
                     <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="about-col">
                             <div class="img">
-                                <img src="img_projeto/sapateniss.jpg" alt="" class="img-fluid">
+                                <img src="img_projeto/brinco.png" alt="" class="img-fluid">
                             </div>
                             <br>
-                            <h2 class="title"><a href="#">Sapatenis</a></h2>
-                            <p>
-                                Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
-                            <div class="form-label-group">
+                            <h2 class="title"><a href="#">Brinco</a></h2>
+                            <p>Os brincos masculinos não são uma moda que chegou agora ou jovem. Desde as antigas civilizações, homens usavam o acessório para impor respeito, dar status e ainda incrementar no visual.</p>
+                             <div class="form-label-group">
                                 <select id="inputTroupa" class="form-control" name="MedidaCalcado">
                                     <option>Tamanho do Calçado</option>
                                     <option value=34>34</option>
