@@ -60,9 +60,7 @@
               <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Lembrar senha</label>
-              </div>
-			  <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Entre com o Facebook</button>
-            
+              </div>         
               <button class="btn btn-lg btn-primary btn-block text-uppercase" name="logar" type="submit">Logar</button>
               <hr class="my-4">             
             </form>

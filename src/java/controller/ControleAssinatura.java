@@ -92,10 +92,6 @@ public class ControleAssinatura extends HttpServlet {
 
         Assinatura a = new Assinatura();
 
-        a.setTamanhoCamiseta(request.getParameter("MedidaCamiseta"));
-        a.setTamanhoCalca(Integer.parseInt(request.getParameter("MedidaCalca")));
-        a.setTamanhoCalcado(Integer.parseInt(request.getParameter("MedidaCalcado")));
-
         a.setEstilo(estiloCarregado);
         a.setNumeroMeses(Integer.parseInt(request.getParameter("plano")));
 //        a.setvalorFrete(30.00);//Valor fixo por enquanto--Precisa ser implementado consumo do wevService do correios
