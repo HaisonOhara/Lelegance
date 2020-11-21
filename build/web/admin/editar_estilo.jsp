@@ -97,7 +97,7 @@
                     <div class="card card-signin my-5">
                         <div class="card-body">
                             <h5 class="card-title text-center">Editar Estilo</h5>
-                            <form class="form-signin" method="post" action="../alterarEstilo?idEstilo=${idEstilo}">
+                            <form class="form-signin" method="post" action="../alterarEstilo?idEstilo=${idEstilo}" enctype="multipart/form-data">
                                 <input type="hidden" id="inputId" name="id">
                                 <div class="form-label-group">
                                     <input type="text" id="inputEstilo" name="nomeEstilo" class="form-control" value="${estilo.nome}" placeholder="Nome do Estilo" required autofocus></input>
@@ -119,7 +119,7 @@
                                 <br/>
 
                                 <div class="form-label-group">
-                                    <input type="file" class="filestyle">
+                                     <input type="file" name="file" class="filestyle">
                                 </div>
                                 <br/>
                                 <button class="btn btn-lg btn-primary btn-block text-uppercase btn-lista" name="adicionar" type="submit">Editar Estilo</button>

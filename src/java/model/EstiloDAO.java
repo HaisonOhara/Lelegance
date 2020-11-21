@@ -27,7 +27,7 @@ public class EstiloDAO {
     private static final String EXCLUIR_ESTILO = "UPDATE public.estilo SET status=\'Inativo\' where id=?";
     private static final String ATIVAR_ESTILO = "UPDATE public.estilo SET status=\'Ativo\' where id=? AND status=\'Inativo\'";
     private static final String CADASTRA_NOVO_ESTILO = "INSERT INTO public.estilo(nome, descricao, preco, imagem, funcionario, status,conteudo)VALUES ( ?, ?, ?, ?, ?, 'Ativo',?);";
-    private static final String ALTERAR_NOVO_ESTILO = "UPDATE public.estilo SET nome=?, descricao=?, preco=?, imagem='ImagemMockada.png', funcionario=?,conteudo=? where id=?";
+    private static final String ALTERAR_NOVO_ESTILO = "UPDATE public.estilo SET nome=?, descricao=?, preco=?, imagem=?, funcionario=?,conteudo=? where id=?";
 
     public List<Estilo> CarregarEstilos() throws ClassNotFoundException, SQLException {
         Connection con = ConectaBanco.getConexao();
@@ -140,10 +140,10 @@ public class EstiloDAO {
         comando.setString(1, estilo.getNome());
         comando.setString(2, estilo.getDescricao());
         comando.setDouble(3, estilo.getValor());
-////      comando.setString(4,estilo.getImagem()); Ignorado Inicialmente/16/04/2020
-        comando.setInt(4, IdFuncionarioCadastro);
-        comando.setString(5, estilo.getConteudo());
-        comando.setInt(6, estilo.getId());
+        comando.setString(4,estilo.getImagem()); 
+        comando.setInt(5, IdFuncionarioCadastro);
+        comando.setString(6, estilo.getConteudo());
+        comando.setInt(7, estilo.getId());
         comando.execute();
         con.close();
 

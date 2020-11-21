@@ -115,26 +115,7 @@ public class ControleEstilo extends HttpServlet {
 //        final PrintWriter writer = response.getWriter();
         final String path = "C:\\Lellegance\\Lelegance\\web\\imagens_estilos\\masculino";
 
-
-            OutputStream out = null;
-            InputStream filecontent = null;
-            out = new FileOutputStream(new File(path + File.separator
-                    + fileName));
-            filecontent = filePart.getInputStream();
-
-            int read = 0;
-            final byte[] bytes = new byte[1024];
-
-            while ((read = filecontent.read(bytes)) != -1) {
-                out.write(bytes, 0, read);
-            }
-            out.close();
-            filecontent.close();
-
-
-//        writer.println("New file " + fileName + " created at " + path);;
-//        LOGGER.log(Level.INFO, "File{0} being uploaded to {1}",
-//                new Object[]{fileName, path});
+        saveImage(filePart, fileName, path);
 
         System.out.println("file Path: " + path + "\\" + fileName);
         Estilo estilo = new Estilo();
@@ -157,85 +138,39 @@ public class ControleEstilo extends HttpServlet {
 
     public void preAlterar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, IOException {
     }
-//       HttpSession session = request.getSession();
-//       Funcionario f = (Funcionario) session.getAttribute("usuarioAutenticado");
-//       FuncionarioDAO dao = new FuncionarioDAO();
-//       Funcionario funcionario = dao.carregarPorId(f);
-//       
-//       f.setIdpessoa(funcionario.getIdpessoa());
-//       session.setAttribute("usuarioAutenticado",f);
-//       RequestDispatcher rd=null;
-//       
-//       if(f.getPerfil().equals(COMUM))
-//       {
-//         rd = request.getRequestDispatcher("funcionario/alterar_func.jsp");
-//       }else if(f.getPerfil().equals(ADMINISTRADOR)){
-//           rd = request.getRequestDispatcher("admin/alterar_gerente.jsp");
-//       }
-//       request.setAttribute("fun",funcionario);
-//       rd.forward(request, response);
-//   }
 
     public void preAlterarPorId(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, IOException {
     }
 
     ;
-//       Funcionario f = new Funcionario();
-//       f.setId(Integer.parseInt(request.getParameter("id")));
-//       FuncionarioDAO dao = new FuncionarioDAO();
-//       Funcionario funcionario = dao.carregarPorId(f);
-//       
-//       f.setIdpessoa(funcionario.getIdpessoa());
-//       RequestDispatcher rd=request.getRequestDispatcher("funcionario/alterar_func.jsp");
-//       
-//       request.setAttribute("fun",funcionario);
-//       rd.forward(request, response);
-//   }
-//    
-//    
+  
    public void AlterarEstilo(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, ServletException, IOException {
         HttpSession session = request.getSession();
         Funcionario funcLogado = (Funcionario) session.getAttribute("usuarioAutenticado");
 
+        Part filePart = request.getPart("file"); // Retrieves <input type="file" name="file">
+        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+
+        final String path = "C:\\Lellegance\\Lelegance\\web\\imagens_estilos\\masculino";
+
+        saveImage(filePart, fileName, path);
+        
         int Estiloid = Integer.parseInt(request.getParameter("idEstilo"));
 
         Estilo estilo = new Estilo();
         estilo.setDescricao(request.getParameter("descricao"));
         estilo.setId(Estiloid);
         estilo.setNome(request.getParameter("nomeEstilo"));
+        estilo.setImagem("imagens_estilos\\masculino\\" + fileName);
         estilo.setValor(Double.parseDouble(request.getParameter("valor")));
         estilo.setConteudo(request.getParameter("conteudo"));
 
         EstiloDAO dao = new EstiloDAO();
         dao.AlterarNovoEstilo(estilo, funcLogado.getId());
-        CarregarEstilos(request, response);
+        response.sendRedirect("/carregarEstilos");
 //        System.out.println("LOGOU NO ALTERAR !!!!!!!!!+ID:"+id);
 
     }
-//   {
-//       Funcionario f = new Funcionario();
-//       f.setNome(request.getParameter("nome"));
-//       f.setEmail(request.getParameter("email"));
-//       
-//        HttpSession session = request.getSession();
-//        Funcionario fun = (Funcionario) session.getAttribute("usuarioAutenticado");
-//        
-//        f.setId(fun.getId());
-//        f.setIdpessoa(fun.getIdpessoa());
-//        
-//         
-//        FuncionarioDAO dao = new FuncionarioDAO();
-//        dao.alterarFuncionario(f);
-//        
-//         if(fun.getPerfil().equals(ADMINISTRADOR))
-//          {
-//              response.sendRedirect("admin/gerente.jsp");
-//          }else if(fun.getPerfil().equals(COMUM))
-//           {   
-//              response.sendRedirect("funcionario/funcionario.jsp");
-//           }
-//       
-//   };
 
     public void CarregarEstilos(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, ServletException, IOException {
         HttpSession session = request.getSession();
@@ -312,6 +247,24 @@ public class ControleEstilo extends HttpServlet {
         request.setAttribute("usuario", u);
         request.getRequestDispatcher("box_visao_cliente.jsp").forward(request, response);
 
+    }
+
+    public void saveImage(Part filePart, String fileName, String path) throws IOException {
+
+        OutputStream out = null;
+        InputStream filecontent = null;
+        out = new FileOutputStream(new File(path + File.separator
+                + fileName));
+        filecontent = filePart.getInputStream();
+
+        int read = 0;
+        final byte[] bytes = new byte[1024];
+
+        while ((read = filecontent.read(bytes)) != -1) {
+            out.write(bytes, 0, read);
+        }
+        out.close();
+        filecontent.close();
     }
 
 }
