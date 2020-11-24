@@ -42,9 +42,6 @@
             <div id="estilo" class="home">
                 <div class="container">
                     <div class="header-content">
-                        <h12>${estilo.nome}</h12>
-                        <h13>Um estilo para voce usar no dia a dia sem deixar de ser elegante.</h13>
-                        <h14><a>Assine este estilo</a></h14>
                     </div>
                 </div>
             </div>
@@ -57,8 +54,8 @@
                     <h1>
                         <center>Box</center>
                     </h1>
-                    <p>${estilo.descricao}.</p>
-                    <p>R$ ${estilo.valor}</p>
+                    <p style="font-size:27px">${estilo.descricao}.</p>
+                    <p style="font-size:24px">R$ ${estilo.valor}</p>
                 </header>
 
                 <div class="row about-cols">

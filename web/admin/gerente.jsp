@@ -48,6 +48,7 @@
                         <li><a href="index.html" class="smoothScroll">Home</a></li>
                         <li><a href="../carregarEstilos" class="smoothScroll">Boxes</a></li>
                         <li><a href="../carregarFuncionarios" class="smoothScroll active">Funcionarios</a></li>
+                        
                         <li class="smoothScroll dropdown">
                             <a class="smoothScroll dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Relatorios</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -69,8 +70,11 @@
                 <div class="chart-size mb-5" ><canvas class="line-chart"></canvas></div>
                 <!--end canvas -->
                 <div class="col-md-12 mt-5">
+                    <br/>
                     <h3>Lista de Funcionarios</h3>
                     <div class="table-responsive">
+                         <cente><a href="../solicitarCadastroFuncionario"><input type="submit" name="adicionarFuncionario" value="Adicionar "></a></cente>
+
                         <table id="mytable" class="table table-bordred table-striped">
 
                             <thead>   

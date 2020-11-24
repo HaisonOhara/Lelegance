@@ -126,8 +126,8 @@ public class ControleAssinatura extends HttpServlet {
         EstiloDAO dao3 = new EstiloDAO();
 
         es = dao3.carregarPorId(es);
-
-        a.setTotal(a.getNumeroMeses() * es.getValor() + a.getvalorFrete());
+        System.out.print("VALOR DO FRETE: "+a.getvalorFrete());
+        a.setTotal(a.getNumeroMeses() * (es.getValor() + a.getvalorFrete()));
         a.setvalorFrete(valorFrete);
         session.setAttribute("preAssinatura", a);
 

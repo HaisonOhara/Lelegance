@@ -42,9 +42,6 @@
             <div id="estilo" class="home">
                 <div class="container">
                     <div class="header-content">
-                        <h12>${estilo.nome}</h12>
-                        <h13>Um estilo para voce usar no dia a dia sem deixar de ser elegante.</h13>
-                        <h14><a>Assine este estilo</a></h14>
                     </div>
                 </div>
             </div>
@@ -57,8 +54,8 @@
                     <h1>
                         <center>Box</center>
                     </h1>
-                    <p>${estilo.descricao}.</p>
-                    <p>R$ ${estilo.valor}</p>
+                    <p style="font-size:27px">${estilo.descricao}.</p>
+                    <p style="font-size:24px">R$ ${estilo.valor}</p>
                 </header>
 
                 <div class="row about-cols">
@@ -66,81 +63,33 @@
                     <div class="col-md-4 wow fadeInUp">
                         <div class="about-col">
                             <div class="img">
-                                <img src="img_projeto/camiseta.png" alt="" class="img-fluid">
+                                <img src="img_projeto/cachecol.png" alt="" class="img-fluid">
                             </div>
                             <br>
-                            <h2 class="title"><a href="#">Camiseta</a></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            <div class="form-label-group">
-                                <select id="inputTroupa" class="form-control" name="MedidaCamiseta">
-                                    <option>Tamanho da Roupa</option>
-                                    <option value="PP">PP</option>
-                                    <option value="P">P</option>
-                                    <option value="M">M</option>
-                                    <option value="G">G</option>
-                                    <option value="GG">GG</option>
-                                </select>
-                            </div>
-                            </p>
+                            <h2 class="title"><a href="#">Cachecol</a></h2>
+                            <p>A temperatura baixou e você não quer passar perrengue? Aposte em um cachecol ou lenço, que além de ser elegante, oferece um estilo a mais para você. A dica é optar por cores mais sóbrias e neutras (como marrom, preto, cinza e azul marinho).</p>
                         </div>
                     </div>
 
                     <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="about-col">
                             <div class="img">
-                                <img src="img_projeto/bermudaa.jpg" alt="" class="img-fluid" />
+                                <img src="img_projeto/pulseira.png" alt="" class="img-fluid" />
                             </div>
                             <br>
-                            <h2 class="title"><a href="#">Bermuda</a></h2>
-                            <p>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                            <div class="form-label-group">
-                                <select id="inputTroupa" class="form-control" name="MedidaCalca">
-                                    <option>Tamanho da Bermuda</option>
-                                    <option value=33>33</option>
-                                    <option value=34>34</option>
-                                    <option value=35>35</option>
-                                    <option value=36>36</option>
-                                    <option value=37>37</option>
-                                    <option value=38>38</option>
-                                    <option value=39>39</option>
-                                    <option value=40>40</option>
-                                    <option value=41>41</option>
-                                    <option value=42>42</option>
-                                    <option value=43>43</option>
-                                    <option value=44>44</option>
-                                    <option value=46>46</option>                        
-                                </select>
-                            </div>
-                            </p>
+                            <h2 class="title"><a href="#">Pulseira</a></h2>
+                            <p>Antes, restrita apenas para as mulheres, ou surfistas e hippies, as pulseiras masculinas estão se tornando cada vez mais tendência entre os homens que querem se vestir bem. E para usar uma pulseira, não precisa chamar muita atenção.</p>
                         </div>
                     </div>
 
                     <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="about-col">
                             <div class="img">
-                                <img src="img_projeto/sapateniss.jpg" alt="" class="img-fluid">
+                                <img src="img_projeto/brinco.png" alt="" class="img-fluid">
                             </div>
                             <br>
-                            <h2 class="title"><a href="#">Sapatenis</a></h2>
-                            <p>
-                                Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
-                            <div class="form-label-group">
-                                <select id="inputTroupa" class="form-control" name="MedidaCalcado">
-                                    <option>Tamanho do Calçado</option>
-                                    <option value=34>34</option>
-                                    <option value=36>36</option>
-                                    <option value=38>38</option>
-                                    <option value=40>40</option>
-                                    <option value=42>42</option>
-                                    <option value=44>44</option>
-                                    <option value=46>46</option>
-                                    <option value=48>48</option>
-                                    <option value=50>50</option>
-                                </select>
-                            </div>
-                            </p>
+                            <h2 class="title"><a href="#">Brinco</a></h2>
+                            <p>Os brincos masculinos não são uma moda que chegou agora ou jovem. Desde as antigas civilizações, homens usavam o acessório para impor respeito, dar status e ainda incrementar no visual.</p>
                         </div>
                     </div>
                     <c:if test="${usuario!=null}">

@@ -65,7 +65,7 @@ public class JobOrdemCompra implements Job {
             OrdemCompraDAO ordem_compra_dao = new OrdemCompraDAO();
             System.out.println("id:" + (java.sql.Date) ordem_compra.getData());
 //Descomentar para habilitar ordemm de compra
-//            ordem_compra_dao.cadastraOrdemCompra(ordem_compra);
+//           ordem_compra_dao.cadastraOrdemCompra(ordem_compra);
             EmailSender emailsender = new EmailSender();
 
 //           ======== Envio de Email comentado para testes================================
@@ -75,7 +75,8 @@ public class JobOrdemCompra implements Job {
                  + "Itens de Cada caixa:"+ordem_compra.getEstilo().getConteudo()+"\n"
                  + "Data do Pedido: "+ordem_compra.getData()+"\n"
                  + " \n\n Att, \n\nEquipe Lelegance. ";
-//           emailsender.EnviarEmail(fornecedor.getEmail(),mensagem,assunto);
+         
+//          emailsender.EnviarEmail(fornecedor.getEmail(),mensagem,assunto);
 //===========================================================================================
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(JobOrdemCompra.class.getName()).log(Level.SEVERE, null, ex);

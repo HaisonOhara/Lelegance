@@ -58,7 +58,7 @@
 
         <header class="section-header">
           <h1><center>Sobre nós</center></h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>O Lélégance é uma plataforma que visa entregar estilo da maneira mais simples e cômoda possível, com uma box de acessórios da ultima moda chegando em você no conforto de sua casa, sem qualquer tipo de estresse, depois de assinar, é só desfrutar dos acessórios que chegaram mensamente.</p>
         </header>
 
         <div class="row about-cols">
@@ -66,12 +66,12 @@
           <div class="col-md-4 wow fadeInUp">
             <div class="about-col">
               <div class="img">
-              <img src="img_projeto/homem-fato.png" alt="" class="img-fluid">                               
+              <img src="img_projeto/gravata.png" alt="" class="img-fluid">                               
               </div>
               <br>
               <h2 class="title"><a href="#">Missão</a></h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Proporcionar que todos os homens possam andar na moda sem perder tempo indo a lojas físicas, mas sim, recebendo os itens de maneira simples em suas casas.
               </p>
             </div>
           </div>
@@ -79,12 +79,12 @@
           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
             <div class="about-col">
               <div class="img">
-                <img src="img_projeto/almofada-para-relogio-profissional-varias-cores-almofadinha-para-joia.png"alt="" class="img-fluid"/>                        
+                <img src="img_projeto/relogio.png"alt="" class="img-fluid"/>                        
               </div>
               <br>
               <h2 class="title"><a href="#">Planos</a></h2>
               <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                 Vamos começar atendendo toda a região metropolitana do estado de São Paulo, em seguida, vamos ampliar para outras grandes metrópoles e áreas mais afastadas.
               </p>
             </div>
           </div>
@@ -92,12 +92,12 @@
           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
             <div class="about-col">
               <div class="img">
-                <img src="img_projeto/oculos-de-sol-masculino-polarizado-veithdia-original-uv400-D_NQ_NP_840780-MLB26945409053_032018-F.png"alt="" class="img-fluid">                         
+                <img src="img_projeto/oculos.png"alt="" class="img-fluid">                         
               </div>
               <br>
               <h2 class="title"><a href="#">Visão</a></h2>
               <p>
-                Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+                  Garantir que todos os homens possam ter acesso ao estilo que há dentro de si, podendo mesclar roupas e acessórios da última moda para expressar o verdadeiro homem que temos dentro de nós.
               </p>
             </div>
           </div>
