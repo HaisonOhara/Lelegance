@@ -8,8 +8,8 @@ public class EmailSender {
 
     public void EnviarEmail(String destinario, String mensagem, String assunto) {
 //        Se deixar de funcionar, troque o email ou configure as autorizacoes no cadastrado para envio :)
-        String meuEmail = "haison.ohara@gmail.com";
-        String minhaSenha = "haison159";
+        String meuEmail = "llegance.pfc@gmail.com";
+        String minhaSenha = "senhaPFC159$";
 
         MultiPartEmail email = new MultiPartEmail();
         email.setHostName("smtp.gmail.com");
